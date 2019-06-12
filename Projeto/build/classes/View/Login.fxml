@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginController">
+   <children>
+      <ImageView fx:id="imgLogin" fitHeight="467.0" fitWidth="736.0" layoutX="-6.0" layoutY="-25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/Teladelogin.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="17.0" fitWidth="17.0" layoutX="367.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/name_user_3716.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="17.0" fitWidth="17.0" layoutX="367.0" layoutY="210.0" opacity="0.77" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/locked-black-padlock-security-interface-symbol_icon-icons.com_54500.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="LoginTextField" layoutX="392.0" layoutY="164.0" prefHeight="25.0" prefWidth="243.0" promptText="Login" />
+      <PasswordField fx:id="SenhaPassawordField" layoutX="392.0" layoutY="206.0" prefHeight="25.0" prefWidth="243.0" promptText="Senha" />
+      <Button fx:id="Button" defaultButton="true" layoutX="465.0" layoutY="257.0" mnemonicParsing="false" onAction="#buttonAction" prefHeight="25.0" prefWidth="98.0" style="-fx-background-color: #850243;" text="Acessar" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <Blend />
+         </effect>
+      </Button>
+      <Label fx:id="IncorretoLabel" layoutX="392.0" layoutY="185.0" textFill="RED" AnchorPane.bottomAnchor="242.0">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Button fx:id="ButtonNovoUser" layoutX="542.0" layoutY="230.0" mnemonicParsing="false" onAction="#ButtonNovoUserAction" style="-fx-background-color: #0000;" text="Cadastrar Usuario">
+         <font>
+            <Font size="10.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="ButtonEsqueci" layoutX="388.0" layoutY="230.0" mnemonicParsing="false" onAction="#ButtonEsqueciAction" style="-fx-background-color: #0000;" text="Esqueci a senha">
+         <font>
+            <Font size="10.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AdicionarProdutoController">
+   <children>
+      <Button fx:id="enfButton" layoutY="25.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="704.0" style="-fx-background-color: #850243;" />
+      <Button fx:id="voltarButton" layoutX="565.0" layoutY="31.0" mnemonicParsing="false" onAction="#voltarButtonAction" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: #ffff;" text="Voltar" textFill="#b5178e">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="sairButton" layoutX="637.0" layoutY="31.0" mnemonicParsing="false" onAction="#sairButtonAction" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: #ffff;" text="Sair" textFill="#b5178e">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Text fill="WHITE" layoutX="65.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gerenciamento de produtos">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Button fx:id="inicioButton" layoutX="8.0" layoutY="31.0" mnemonicParsing="false" onAction="#inicioButtonAction" prefHeight="25.0" prefWidth="41.0" style="-fx-background-color: #850243;" textFill="#b5178e">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fx:id="inicioImg" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <image>
+                  <Image url="@../icons/home_icon-icons.com_73532.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ImageView fitHeight="115.0" fitWidth="221.0" layoutX="242.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/Anamary%20logo.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="nomeProdutoTextField" layoutX="191.0" layoutY="235.0" prefHeight="25.0" prefWidth="323.0" promptText="Nome do produto" />
+      <TextField fx:id="referenciaTextField" layoutX="191.0" layoutY="201.0" prefHeight="25.0" prefWidth="91.0" promptText="Referência" />
+      <TextField fx:id="pCustoTextField" layoutX="292.0" layoutY="201.0" prefHeight="25.0" prefWidth="106.0" promptText="Preço de Custo" />
+      <TextField fx:id="pVendaTextField" layoutX="406.0" layoutY="200.0" prefHeight="25.0" prefWidth="106.0" promptText="Preço de venda" />
+      <TextField fx:id="quantTextField" layoutX="191.0" layoutY="271.0" prefHeight="25.0" prefWidth="323.0" promptText="Quantidade" />
+      <Button fx:id="inserirEstoqueButton" layoutX="265.0" layoutY="348.0" mnemonicParsing="false" prefHeight="13.0" prefWidth="175.0" style="-fx-background-color: #850243;" text="Inserir no estoque" textFill="WHITE" />
+      <TextArea fx:id="obsProdutoTextField" layoutX="192.0" layoutY="301.0" prefHeight="36.0" prefWidth="323.0" promptText="Oberservação" />
+   </children>
+</AnchorPane>

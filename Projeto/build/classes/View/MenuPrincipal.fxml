@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MenuPrincipalController">
+   <children>
+      <Button fx:id="enfButton" layoutY="20.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="700.0" style="-fx-background-color: #850243;" />
+      <Button fx:id="sairButton" layoutX="627.0" layoutY="26.0" mnemonicParsing="false" onAction="#sairButtonAction" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: #ffff;" text="Sair" textFill="#b5178e">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <ImageView fitHeight="165.0" fitWidth="255.0" layoutX="223.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/Anamary%20logo.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="gClientesButton" layoutX="37.0" layoutY="246.0" mnemonicParsing="false" onAction="#gClientesButtonAction" prefHeight="85.0" prefWidth="121.0" style="-fx-background-color: #850243;" textFill="WHITE" textOverrun="CLIP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fitHeight="66.0" fitWidth="77.0" opacity="0.35" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/client-company.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="gProdutosButton" layoutX="171.0" layoutY="244.0" mnemonicParsing="false" onAction="#gProdutosButtonAction" prefHeight="85.0" prefWidth="113.0" style="-fx-background-color: #850243;" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="66.0" fitWidth="77.0" opacity="0.35" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/130298.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="gVendasButton" layoutX="298.0" layoutY="244.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="113.0" style="-fx-background-color: #850243;" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="66.0" fitWidth="77.0" opacity="0.35" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/sales-performance.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="financasButton" layoutX="426.0" layoutY="244.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="113.0" style="-fx-background-color: #850243;" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="66.0" fitWidth="77.0" opacity="0.35" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/dollar116.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="aClientesButton" layoutX="559.0" layoutY="244.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="113.0" style="-fx-background-color: #850243;" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="66.0" fitWidth="77.0" opacity="0.35" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/client-company.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Text fill="WHITE" layoutX="55.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gerenciamento de clientes" textAlignment="CENTER" wrappingWidth="91.13671875">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Text>
+      <Text fill="WHITE" layoutX="182.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gerenciamento de produtos" textAlignment="CENTER" wrappingWidth="91.13671875">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Text>
+      <Text fill="WHITE" layoutX="305.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gerenciamento de vendas" textAlignment="CENTER" wrappingWidth="99.13671875">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Text>
+      <Text fill="WHITE" layoutX="441.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Finanças" textAlignment="CENTER" wrappingWidth="82.13671875">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Text>
+      <Text fill="WHITE" layoutX="562.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Acompanhamento de clientes" textAlignment="CENTER" wrappingWidth="106.13671875">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Text>
+      <Button fx:id="contaButton" layoutX="519.0" layoutY="26.0" mnemonicParsing="false" onAction="#contaButtonAction" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: #ffff;" text="Conta" textFill="#b5178e">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+   </children>
+</AnchorPane>

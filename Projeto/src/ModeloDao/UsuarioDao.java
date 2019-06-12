@@ -1,0 +1,119 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ModeloDao;
+
+import java.sql.Connection;
+import ModeloConection.ConnectionFactory;
+import Modelo.ModeloUsuario;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+/**
+ *
+ * @author Romulo Sobreira
+ */
+public class UsuarioDao {
+    private Connection con;
+    
+    public UsuarioDao(){
+        this.con = new ConnectionFactory().getConnection();
+    }
+    
+    public boolean add(ModeloUsuario u){
+        try {
+            String sql = "INSERT INTO clientes(nome, telefon, cpf, email, cidade, bairro, complemento,endereco, n) VALUES(?, ?, ?, ?, ?, ? ,?, ?, ?);";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, u.getNome());
+            stmt.setString(2, u.getTelefone());
+            stmt.setString(3, u.getCpf());
+            stmt.setString(4, u.getEmail());
+            stmt.setString(5, u.getCidade());
+            stmt.setString(6, u.getBairro());
+            stmt.setString(7, u.getComplemento());
+            stmt.setString(8, u.getEndereco());
+            stmt.setString(9, u.getN());
+            stmt.execute();
+            JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar cliente!\n"+ex.getMessage()); 
+            return false;
+        }
+    }
+    public boolean update(ModeloUsuario u){
+        try {
+            String sql = "UPDATE clientes SET nome = ?, telefon = ?, cpf = ?, email = ?, cidade = ?, bairro = ?, complemento = ?, endereco = ?, n = ? WHRE id = ?;";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, u.getNome());
+            stmt.setString(2, u.getTelefone());
+            stmt.setString(3, u.getCpf());
+            stmt.setString(4, u.getEmail());
+            stmt.setString(5, u.getCidade());
+            stmt.setString(6, u.getBairro());
+            stmt.setString(7, u.getComplemento());
+            stmt.setString(8, u.getEndereco());
+            stmt.setString(9, u.getN());
+            stmt.setLong(9, u.getCod());
+            stmt.execute();
+            JOptionPane.showMessageDialog(null, "Cliente atualizado com sucesso!");
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar cliente!\n"+ex.getMessage()); 
+            return false;
+        }
+    }
+     
+    public boolean delete(ModeloUsuario u){
+        try {
+            String sql = "DELETE FROM clientes WHRE id = ?;";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setLong(1, u.getCod());
+            stmt.execute();
+            JOptionPane.showMessageDialog(null, "Cliente excluido com sucesso!");
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao excluir cliente!\n"+ex.getMessage()); 
+            return false;
+        }
+    }
+    
+    public List<ModeloUsuario> getList(){
+        List<ModeloUsuario> usuarios = new ArrayList<>();
+        String sql = "SELECT * FROM clientes";
+        try {
+            PreparedStatement stmt = con.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            while(rs.next()){
+                ModeloUsuario u  = new ModeloUsuario();
+                u.setCod(rs.getInt("id"));//Essa string é de acordo com o nome da coluna no BD
+                u.setNome(rs.getString("nome"));
+                u.setTelefone(rs.getString("telefon"));
+                u.setCpf(rs.getString("cpf"));
+                u.setEmail(rs.getString("email"));
+                u.setCidade(rs.getString("cidade"));
+                u.setBairro(rs.getString("bairro"));
+                u.setComplemento(rs.getString("complemento"));
+                u.setEndereco(rs.getString("endereco"));
+                u.setN(rs.getString("n"));
+                usuarios.add(u);
+            }
+            stmt.close();
+            rs.close();
+            con.close();
+            JOptionPane.showMessageDialog(null, "Cliente excluido com sucesso!");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Erro ao pesquisar cliente!\n"+ex.getMessage()); 
+            return null;
+        }
+        return usuarios;
+    }
+}
