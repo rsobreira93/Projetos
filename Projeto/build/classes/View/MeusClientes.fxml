@@ -41,7 +41,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <ListView fx:id="meusClientesList" layoutX="52.0" layoutY="166.0" prefHeight="169.0" prefWidth="600.0" />
       <Text fill="#831868" layoutX="296.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Meus clientes">
          <font>
             <Font name="System Bold" size="20.0" />
@@ -57,5 +56,16 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
+      <TableView fx:id="meusClientestableView" layoutX="65.0" layoutY="179.0" prefHeight="167.0" prefWidth="601.0">
+         <columns>
+            <TableColumn fx:id="codClientestableView" prefWidth="34.0" text="ID" />
+            <TableColumn fx:id="nomeClientestableView" prefWidth="116.0" text="Nome" />
+            <TableColumn fx:id="cpfClientestableView" prefWidth="75.0" text="CPF" />
+            <TableColumn fx:id="emailClientestableView" prefWidth="75.0" text="E-mail" />
+            <TableColumn fx:id="tefefoneClientestableView" prefWidth="75.0" text="Tefefone" />
+            <TableColumn fx:id="enderecoClientestableView" prefWidth="75.0" text="Endereço" />
+            <TableColumn fx:id="obsClientestableView" prefWidth="150.0" text="Observação" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>
