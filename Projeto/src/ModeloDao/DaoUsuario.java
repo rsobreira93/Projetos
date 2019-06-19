@@ -50,7 +50,7 @@ public class DaoUsuario {
 
         try {
             while(conex.rs.next()){
-                user.setCod(conex.rs.getInt("id"));
+                user.setCod(conex.rs.getLong("id"));
                 user.setNome(conex.rs.getString("nome"));
                 user.setTelefone(conex.rs.getString("telefon"));
                 user.setCpf(conex.rs.getString("cpf"));
@@ -69,23 +69,23 @@ public class DaoUsuario {
     }
     public List<ModeloUsuario> getList(){
         List<ModeloUsuario> clientes = new ArrayList<>();
-        String sql = "Select * FROM clientes";
+        String sql = "SELECT * FROM clientes;";
             try {
                 PreparedStatement stmt = conex.con.prepareStatement(sql);
                 ResultSet rs = stmt.executeQuery();
                 while(rs.next()){
                     ModeloUsuario usuario = new ModeloUsuario();
-                    usuario.setCod(rs.getInt("cod"));
+                    usuario.setCod(rs.getLong("id"));
                     usuario.setNome(rs.getString("nome"));
                     usuario.setCpf(rs.getString("cpf"));
-                    usuario.setTelefone(rs.getString("telefone"));
+                    usuario.setTelefone(rs.getString("telefon"));
                     usuario.setEmail(rs.getString("email"));
                     usuario.setEndereco(rs.getString("endereco"));
                     clientes.add(usuario);
                 }
                 stmt.close();
-                conex.con.close();
-                
+                rs.close();
+                conex.con.close();  
             } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(null, "Erro na busca do cliente!\n"+ex.getMessage());
             }

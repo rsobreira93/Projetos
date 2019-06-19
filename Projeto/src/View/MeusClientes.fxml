@@ -56,16 +56,16 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <TableView fx:id="meusClientestableView" layoutX="65.0" layoutY="179.0" prefHeight="167.0" prefWidth="601.0">
-         <columns>
-            <TableColumn fx:id="codClientestableView" prefWidth="34.0" text="ID" />
-            <TableColumn fx:id="nomeClientestableView" prefWidth="116.0" text="Nome" />
-            <TableColumn fx:id="cpfClientestableView" prefWidth="75.0" text="CPF" />
-            <TableColumn fx:id="emailClientestableView" prefWidth="75.0" text="E-mail" />
-            <TableColumn fx:id="tefefoneClientestableView" prefWidth="75.0" text="Tefefone" />
-            <TableColumn fx:id="enderecoClientestableView" prefWidth="75.0" text="Endereço" />
-            <TableColumn fx:id="obsClientestableView" prefWidth="150.0" text="Observação" />
-         </columns>
+      <TableView layoutX="55.0" layoutY="167.0" prefHeight="171.0" prefWidth="598.0">
+        <columns>
+          <TableColumn fx:id="codClientestableView" prefWidth="39.0" text="ID" />
+          <TableColumn fx:id="nomeClientestableView" prefWidth="127.0" text="Nome" />
+            <TableColumn fx:id="tefefoneClientestableView" prefWidth="84.0" text="Telefone" />
+            <TableColumn fx:id="emailClientestableView" prefWidth="73.0" text="E-mail" />
+            <TableColumn fx:id="cpfClientestableView" prefWidth="82.0" text="CPF" />
+            <TableColumn fx:id="enderecoClientestableViews" prefWidth="82.0" text="Enderço" />
+            <TableColumn fx:id="obsClientestableView" prefWidth="109.0" text="Observação" />
+        </columns>
       </TableView>
    </children>
 </AnchorPane>

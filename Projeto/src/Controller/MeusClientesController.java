@@ -3,7 +3,6 @@ package Controller;
 import Main.Main;
 import Modelo.ModeloUsuario;
 import ModeloConection.ConnectionFactory;
-import ModeloDao.DaoUsuario;
 import ModeloDao.UsuarioDao;
 import java.io.IOException;
 import java.net.URL;
@@ -23,12 +22,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 
-public class MeusClientesController1{
+public class MeusClientesController{
     ModeloUsuario mod = new ModeloUsuario();
     UsuarioDao control = new UsuarioDao();
     ConnectionFactory conex = new ConnectionFactory();
     
-    @FXML
     private Parent nova;
     @FXML
     private TextField buscarTextField;
@@ -39,13 +37,13 @@ public class MeusClientesController1{
     @FXML
     private Button inicioButton;
     @FXML    private TableView<ModeloUsuario> meusClientestableView;
-    @FXML    private TableColumn<ModeloUsuario, Integer> codClientestableView;
-    @FXML    private TableColumn<ModeloUsuario,String> emailClientestableView;
+    @FXML    private TableColumn<ModeloUsuario, Long> codClientestableView;
+    @FXML    private TableColumn<ModeloUsuario, String> nomeClientestableView;
     @FXML    private TableColumn<ModeloUsuario, String> tefefoneClientestableView;
+    @FXML    private TableColumn<ModeloUsuario, String> emailClientestableView;
+    @FXML    private TableColumn<ModeloUsuario, String> cpfClientestableView;
     @FXML    private TableColumn<ModeloUsuario, String> enderecoClientestableView;
     @FXML    private TableColumn<ModeloUsuario, String> obsClientestableView;
-    @FXML    private TableColumn<ModeloUsuario, String> nomeClientestableView;
-    @FXML    private TableColumn<ModeloUsuario, String> cpfClientestableView;
     
     @FXML
     private Button atualizarButton;
@@ -61,7 +59,7 @@ public class MeusClientesController1{
     @FXML
     private Button buscarButton;
           
-   
+   @FXML
    public void initialize(URL url, ResourceBundle rb){
         initable();
    }
@@ -71,7 +69,7 @@ public class MeusClientesController1{
                  nova= FXMLLoader.load(getClass().getResource("/View/MenuPrincipal.fxml"));
             Main.trocarTela(nova);
             } catch (IOException ex) {
-                Logger.getLogger(MeusClientesController1.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MeusClientesController.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
     @FXML
@@ -80,7 +78,7 @@ public class MeusClientesController1{
                  nova= FXMLLoader.load(getClass().getResource("/View/GerenciamentoCliente.fxml"));
             Main.trocarTela(nova);
             } catch (IOException ex) {
-                Logger.getLogger(MeusClientesController1.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MeusClientesController.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
     @FXML
@@ -89,7 +87,7 @@ public class MeusClientesController1{
                  nova= FXMLLoader.load(getClass().getResource("/Viw/Login.fxml"));
             Main.trocarTela(nova);
             } catch (IOException ex) {
-                Logger.getLogger(MeusClientesController1.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MeusClientesController.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
     @FXML
@@ -113,14 +111,15 @@ public class MeusClientesController1{
     public void initable(){
         codClientestableView.setCellValueFactory(new PropertyValueFactory("id"));
         nomeClientestableView.setCellValueFactory(new PropertyValueFactory("nome"));
-        tefefoneClientestableView.setCellValueFactory(new PropertyValueFactory("telefone"));
+        tefefoneClientestableView.setCellValueFactory(new PropertyValueFactory("telefon"));
         cpfClientestableView.setCellValueFactory(new PropertyValueFactory("cpf"));
         emailClientestableView.setCellValueFactory(new PropertyValueFactory("email"));  
         enderecoClientestableView.setCellValueFactory(new PropertyValueFactory("endereco"));
+        obsClientestableView.setCellFactory(new PropertyValueFactory("observa"));
         meusClientestableView.setItems(atualizaTabela());
     }
     public ObservableList<ModeloUsuario> atualizaTabela(){
-       DaoUsuario dao = new DaoUsuario();
+       UsuarioDao dao = new UsuarioDao();
        return FXCollections.observableArrayList(dao.getList());
     }
 }

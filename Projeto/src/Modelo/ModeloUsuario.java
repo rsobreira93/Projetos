@@ -6,7 +6,7 @@ package Modelo;
  */
 public class ModeloUsuario {
 
-  private int cod;
+  private long cod;
   private String nome;
   private String cpf;
   private String telefone;
@@ -21,14 +21,14 @@ public class ModeloUsuario {
     /**
      * @return the cod
      */
-    public int getCod() {
+    public long getCod() {
         return cod;
     }
 
     /**
      * @param cod the cod to set
      */
-    public void setCod(int cod) {
+    public void setCod(long cod) {
         this.cod = cod;
     }
 
@@ -170,5 +170,5 @@ public class ModeloUsuario {
      */
     public void setEmail(String email) {
         this.email = email;
-    }  
+    }   
 }

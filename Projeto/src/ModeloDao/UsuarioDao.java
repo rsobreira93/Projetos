@@ -13,8 +13,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 /**
  *
@@ -87,13 +85,13 @@ public class UsuarioDao {
     
     public List<ModeloUsuario> getList(){
         List<ModeloUsuario> usuarios = new ArrayList<>();
-        String sql = "SELECT * FROM clientes";
+        String sql = "SELECT * FROM clientes;";
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             while(rs.next()){
                 ModeloUsuario u  = new ModeloUsuario();
-                u.setCod(rs.getInt("id"));//Essa string é de acordo com o nome da coluna no BD
+                u.setCod(rs.getLong("id"));//Essa string é de acordo com o nome da coluna no BD
                 u.setNome(rs.getString("nome"));
                 u.setTelefone(rs.getString("telefon"));
                 u.setCpf(rs.getString("cpf"));
@@ -108,10 +106,8 @@ public class UsuarioDao {
             stmt.close();
             rs.close();
             con.close();
-            JOptionPane.showMessageDialog(null, "Cliente excluido com sucesso!");
         } catch (SQLException ex) {
             ex.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Erro ao pesquisar cliente!\n"+ex.getMessage()); 
             return null;
         }
         return usuarios;
