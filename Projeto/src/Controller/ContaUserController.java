@@ -13,19 +13,18 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
 public class ContaUserController{
     private Parent nova;
     @FXML
-    private PasswordField novaSenhaPassawordField;
-    @FXML
     private TextField buscarTextField;
     @FXML
     private Button excluirButton;
     @FXML
-    private MenuItem loginMenuItem;
+    private PasswordField novaSenhaPasswordField;
     @FXML
     private Button atualizarButton;
     @FXML
@@ -33,11 +32,9 @@ public class ContaUserController{
     @FXML
     private Button voltarButton;
     @FXML
-    private MenuButton atualizarDadosMenunButton;
-    @FXML
     private ImageView inicioImg;
     @FXML
-    private MenuItem senhaMenuItem;
+    private TableColumn<?, ?> emailTableColumn;
     @FXML
     private Button inicioButton;
     @FXML
@@ -45,9 +42,9 @@ public class ContaUserController{
     @FXML
     private Button sairButton;
     @FXML
-    private ListView<?> UserList;
-    @FXML
     private Button buscarButton;
+    @FXML
+    private TableColumn<?, ?> loginTableColumn;
     @FXML
     void sairButtonAction(ActionEvent event){
        try {
@@ -74,5 +71,17 @@ public class ContaUserController{
             } catch (IOException ex) {
                 Logger.getLogger(ContaUserController.class.getName()).log(Level.SEVERE, null, ex);
             }
+    }
+    @FXML
+    void excluirButtonAction(ActionEvent event){
+        // é aqui romulo
+    }
+    @FXML
+    void atualizarButtonAction(ActionEvent event){
+        // é aqui romulo
+    }
+    @FXML
+    void buscarButtonAction(ActionEvent event){
+        // é aqui romulo
     }
 }
