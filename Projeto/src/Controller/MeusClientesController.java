@@ -6,6 +6,7 @@ import ModeloConection.ConnectionFactory;
 import ModeloDao.UsuarioDao;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -103,15 +104,16 @@ public class MeusClientesController{
        mod.setComplemento(model.getComplemento());
        mod.setEndereco(model.getEndereco());
        mod.setN(model.getN());*/
+       listaUsuario();
     }
     @FXML
     void excluirButtonAction(ActionEvent event){
        //é aqui romulo
     }
     public void initable(){
-        codClientestableView.setCellValueFactory(new PropertyValueFactory("id"));
+        codClientestableView.setCellValueFactory(new PropertyValueFactory("cod"));
         nomeClientestableView.setCellValueFactory(new PropertyValueFactory("nome"));
-        tefefoneClientestableView.setCellValueFactory(new PropertyValueFactory("telefon"));
+        tefefoneClientestableView.setCellValueFactory(new PropertyValueFactory("telefone"));
         cpfClientestableView.setCellValueFactory(new PropertyValueFactory("cpf"));
         emailClientestableView.setCellValueFactory(new PropertyValueFactory("email"));  
         enderecoClientestableView.setCellValueFactory(new PropertyValueFactory("endereco"));
@@ -121,5 +123,13 @@ public class MeusClientesController{
     public ObservableList<ModeloUsuario> atualizaTabela(){
        UsuarioDao dao = new UsuarioDao();
        return FXCollections.observableArrayList(dao.getList());
+    }
+    public void listaUsuario(){
+        System.out.println("Listando Clientes");
+        List<ModeloUsuario> clientes =  new UsuarioDao().getList();
+        for(int x = 0; x < clientes.size(); x++){
+            clientes.get(x).mostraUsuario();
+        }
+        
     }
 }

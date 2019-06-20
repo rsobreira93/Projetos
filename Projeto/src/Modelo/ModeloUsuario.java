@@ -171,4 +171,12 @@ public class ModeloUsuario {
     public void setEmail(String email) {
         this.email = email;
     }   
+    public void mostraUsuario(){
+        System.out.println("---------------------");
+        System.out.println("Id "+getCod());
+        System.out.println("Nome "+getNome());
+        System.out.println("CPF "+getCpf());
+        System.out.println("E-mail "+getEmail());
+        System.out.println("Telefone "+getTelefone());
+    }
 }
