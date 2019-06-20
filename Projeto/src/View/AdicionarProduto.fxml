@@ -52,7 +52,10 @@
       <TextField fx:id="pCustoTextField" layoutX="292.0" layoutY="201.0" prefHeight="25.0" prefWidth="106.0" promptText="Preço de Custo" />
       <TextField fx:id="pVendaTextField" layoutX="406.0" layoutY="200.0" prefHeight="25.0" prefWidth="106.0" promptText="Preço de venda" />
       <TextField fx:id="quantTextField" layoutX="191.0" layoutY="271.0" prefHeight="25.0" prefWidth="323.0" promptText="Quantidade" />
-      <Button fx:id="inserirEstoqueButton" layoutX="265.0" layoutY="348.0" mnemonicParsing="false" prefHeight="13.0" prefWidth="175.0" style="-fx-background-color: #850243;" text="Inserir no estoque" textFill="WHITE" />
+      <Button fx:id="inserirEstoqueButton" layoutX="265.0" layoutY="348.0" mnemonicParsing="false" onAction="#inserirEstoqueButtonAction" prefHeight="13.0" prefWidth="175.0" style="-fx-background-color: #850243;" text="Inserir no estoque" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <TextArea fx:id="obsProdutoTextField" layoutX="192.0" layoutY="301.0" prefHeight="36.0" prefWidth="323.0" promptText="Oberservação" />
    </children>
 </AnchorPane>

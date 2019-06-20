@@ -46,7 +46,10 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <Button fx:id="atualizarButton" layoutX="439.0" layoutY="344.0" mnemonicParsing="false" prefHeight="2.0" prefWidth="103.0" style="-fx-background-color: #850243;" text="Atualizar" textFill="WHITE" />
+      <Button fx:id="atualizarButton" layoutX="439.0" layoutY="344.0" mnemonicParsing="false" onAction="#atualizarButtonAction" prefHeight="2.0" prefWidth="103.0" style="-fx-background-color: #850243;" text="Atualizar" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <Button fx:id="excluirButton" layoutX="549.0" layoutY="344.0" mnemonicParsing="false" onAction="#excluirButtonAction" prefHeight="2.0" prefWidth="103.0" style="-fx-background-color: #850243;" text="Excluir" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />

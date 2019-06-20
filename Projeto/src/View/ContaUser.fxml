@@ -8,8 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #ffff;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Controller.ContaUserController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ContaUserController">
    <children>
       <Separator layoutX="350.0" layoutY="65.0" orientation="VERTICAL" prefHeight="332.0" prefWidth="3.0" />
       <Button fx:id="enfButton" layoutY="29.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="704.0" style="-fx-background-color: #850243;" />
@@ -43,10 +42,15 @@
             </ImageView>
          </graphic>
       </Button>
-      <ListView fx:id="UserList" layoutX="31.0" layoutY="140.0" prefHeight="213.0" prefWidth="284.0" />
       <TextField fx:id="buscarTextField" layoutX="32.0" layoutY="111.0" prefHeight="25.0" prefWidth="216.0" promptText="Buscar" />
-      <Button fx:id="buscarButton" defaultButton="true" layoutX="256.0" layoutY="111.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: #850243;" text="Buscar" textFill="WHITE" />
-      <Button fx:id="excluirButton" layoutX="116.0" layoutY="361.0" mnemonicParsing="false" prefHeight="2.0" prefWidth="103.0" style="-fx-background-color: #850243;" text="Excluir" textFill="WHITE" />
+      <Button fx:id="buscarButton" defaultButton="true" layoutX="256.0" layoutY="111.0" mnemonicParsing="false" onAction="#buscarButtonAction" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: #850243;" text="Buscar" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="excluirButton" layoutX="116.0" layoutY="361.0" mnemonicParsing="false" onAction="#excluirButtonAction" prefHeight="2.0" prefWidth="103.0" style="-fx-background-color: #850243;" text="Excluir" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <Text fill="#831868" layoutX="112.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuários ">
          <font>
             <Font name="System Bold" size="20.0" />
@@ -57,20 +61,17 @@
             <Image url="@../icons/Anamary%20logo.png" />
          </image>
       </ImageView>
-      <MenuButton fx:id="atualizarDadosMenunButton" layoutX="392.0" layoutY="268.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="255.0" text="Atualizar" textAlignment="CENTER">
-        <items>
-          <MenuItem fx:id="loginMenuItem" mnemonicParsing="false" text="Login">
-               <graphic>
-                  <TextField fx:id="novoLoginTextField" prefHeight="25.0" prefWidth="255.0" promptText="Novo login" />
-               </graphic>
-            </MenuItem>
-          <MenuItem fx:id="senhaMenuItem" mnemonicParsing="false" text="Senha">
-               <graphic>
-                  <PasswordField fx:id="novaSenhaPassawordField" prefHeight="25.0" prefWidth="255.0" promptText="Nova senha" />
-               </graphic>
-            </MenuItem>
-        </items>
-      </MenuButton>
-      <Button fx:id="atualizarButton" layoutX="468.0" layoutY="341.0" mnemonicParsing="false" prefHeight="2.0" prefWidth="103.0" style="-fx-background-color: #850243;" text="Atualizar" textFill="WHITE" />
+      <Button fx:id="atualizarButton" layoutX="468.0" layoutY="341.0" mnemonicParsing="false" onAction="#atualizarButtonAction" prefHeight="2.0" prefWidth="103.0" style="-fx-background-color: #850243;" text="Atualizar" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <TableView layoutX="32.0" layoutY="146.0" prefHeight="200.0" prefWidth="286.0">
+        <columns>
+          <TableColumn fx:id="loginTableColumn" prefWidth="103.0" text="Login" />
+          <TableColumn fx:id="emailTableColumn" prefWidth="182.0" text="E-mail" />
+        </columns>
+      </TableView>
+      <TextField fx:id="novoLoginTextField" layoutX="412.0" layoutY="264.0" prefHeight="25.0" prefWidth="216.0" promptText="Novo Login" />
+      <PasswordField fx:id="novaSenhaPasswordField" layoutX="412.0" layoutY="301.0" prefHeight="25.0" prefWidth="216.0" promptText="Nova Senha" />
    </children>
 </AnchorPane>

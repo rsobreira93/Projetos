@@ -34,4 +34,8 @@ public class NovoUserController{
                 Logger.getLogger(NovoUserController.class.getName()).log(Level.SEVERE, null, ex);
             } 
     } 
+    @FXML
+    void ButtonCadastrarAction(ActionEvent event){
+        // é aqui romulo 
+    }
 }

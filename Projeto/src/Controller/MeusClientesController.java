@@ -30,10 +30,8 @@ public class MeusClientesController{
     private Parent nova;
     @FXML
     private TextField buscarTextField;
-    
     @FXML
     private Button excluirButton;
-
     @FXML
     private Button inicioButton;
     @FXML    private TableView<ModeloUsuario> meusClientestableView;
@@ -44,21 +42,16 @@ public class MeusClientesController{
     @FXML    private TableColumn<ModeloUsuario, String> cpfClientestableView;
     @FXML    private TableColumn<ModeloUsuario, String> enderecoClientestableView;
     @FXML    private TableColumn<ModeloUsuario, String> obsClientestableView;
-    
     @FXML
     private Button atualizarButton;
     @FXML
     private Button enfButton;
-
     @FXML
     private Button sairButton;
-
     @FXML
     private Button voltarButton;
-
     @FXML
-    private Button buscarButton;
-          
+    private Button buscarButton;    
    @FXML
    public void initialize(URL url, ResourceBundle rb){
         initable();
@@ -106,6 +99,10 @@ public class MeusClientesController{
     }
     @FXML
     void excluirButtonAction(ActionEvent event){
+       //é aqui romulo
+    }
+    @FXML
+    void atualizarButtonAction(ActionEvent event){
        //é aqui romulo
     }
     public void initable(){
