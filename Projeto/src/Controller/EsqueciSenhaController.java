@@ -12,8 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-
-
+import java.util.Random;
 public class EsqueciSenhaController{
     private Parent nova;
     @FXML
@@ -26,8 +25,13 @@ public class EsqueciSenhaController{
     private Button ButtonCancelar;
     @FXML
     void ButtonRecuperarAction(ActionEvent event){
-        if(EmailTextField.getText().equals("jvyctor12@gmail.com"))
+        //verifica se o email existe no banco de dados
+        if(EmailTextField.getText().equals("jvyctor12@gmail.com")){
+           Random novaSenha = new Random();
+           //muda a senha lá no bando de dados
+           Main.emailEsqueciSenha("jvyctor12@gmail.com",novaSenha.nextInt());
             IncorretoLabel.setText("Sua nova senha foi enviada para seu e-mail");
+      }
         else if(EmailTextField.getText().equals(NULL))
             IncorretoLabel.setText("Digite seu e-mail");
         else

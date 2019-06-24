@@ -47,7 +47,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <Button fx:id="buscarButton" defaultButton="true" layoutX="612.0" layoutY="113.0" mnemonicParsing="false" onAction="#buscarButtonActio" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: #850243;" text="Buscar" textFill="WHITE">
+      <Button fx:id="buscarButton" defaultButton="true" layoutX="612.0" layoutY="113.0" mnemonicParsing="false" onAction="#buscarButtonAction" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: #850243;" text="Buscar" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>

@@ -1,5 +1,4 @@
 package Main;
-
 import ModeloConection.ConexaoBD;
 import java.util.Optional;
 import javafx.application.Application;
@@ -10,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
+import org.apache.commons.mail.DefaultAuthenticator;
+import org.apache.commons.mail.SimpleEmail;
 
 public class Main extends Application{
     ConexaoBD con = new ConexaoBD();
@@ -44,4 +45,31 @@ public class Main extends Application{
         }
         return 0;
 }  
+    public static void emailEsqueciSenha(String emailUser, int novaSenha){
+        String email= "sistemanamay@gmail.com";
+        String senha="anamary12";
+        SimpleEmail meuEmail= new SimpleEmail();
+        //conexao com servidor gmail
+        meuEmail.setHostName("smtp.gmail.com");
+        meuEmail.setSmtpPort(465);
+        // estabelecendo conexão
+        meuEmail.setAuthenticator(new DefaultAuthenticator(email,senha));
+        meuEmail.setSSLOnConnect(true);
+        //criando email e enviando
+        try{
+            meuEmail.setFrom(email);//remetente
+            meuEmail.setSubject("AnaMary: nova senha");//assunto
+            meuEmail.setMsg("Sua nova senha é"+novaSenha);//mensagem
+            meuEmail.addTo(emailUser);//destinatario
+            meuEmail.send();
+            System.out.println("Email Enviado com sucesso");
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
+        
+        
+        
+        
+    } 
 }
