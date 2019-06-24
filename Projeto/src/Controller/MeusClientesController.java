@@ -17,10 +17,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 
 public class MeusClientesController{
@@ -35,14 +33,9 @@ public class MeusClientesController{
     private Button excluirButton;
     @FXML
     private Button inicioButton;
-    @FXML    private TableView<ModeloUsuario> meusClientestableView;
-    @FXML    private TableColumn<ModeloUsuario, Long> codClientestableView;
-    @FXML    private TableColumn<ModeloUsuario, String> nomeClientestableView;
-    @FXML    private TableColumn<ModeloUsuario, String> tefefoneClientestableView;
-    @FXML    private TableColumn<ModeloUsuario, String> emailClientestableView;
-    @FXML    private TableColumn<ModeloUsuario, String> cpfClientestableView;
-    @FXML    private TableColumn<ModeloUsuario, String> enderecoClientestableView;
-    @FXML    private TableColumn<ModeloUsuario, String> obsClientestableView;
+   
+    @FXML
+    private ListView<ModeloUsuario> listeView;
     @FXML
     private Button atualizarButton;
     @FXML
@@ -53,10 +46,13 @@ public class MeusClientesController{
     private Button voltarButton;
     @FXML
     private Button buscarButton;    
-   @FXML
+    
+    
    public void initialize(URL url, ResourceBundle rb){
         initable();
+        listaUsuario();
    }
+   
    @FXML
     void inicioButtonAction(ActionEvent event){
         try {
@@ -108,16 +104,9 @@ public class MeusClientesController{
        //é aqui romulo
     }
     public void initable(){
-        codClientestableView.setCellValueFactory(new PropertyValueFactory("cod"));
-        nomeClientestableView.setCellValueFactory(new PropertyValueFactory("nome"));
-        tefefoneClientestableView.setCellValueFactory(new PropertyValueFactory("telefone"));
-        cpfClientestableView.setCellValueFactory(new PropertyValueFactory("cpf"));
-        emailClientestableView.setCellValueFactory(new PropertyValueFactory("email"));  
-        enderecoClientestableView.setCellValueFactory(new PropertyValueFactory("endereco"));
-        obsClientestableView.setCellFactory(new PropertyValueFactory("observa"));
-        meusClientestableView.setItems(atualizaTabela());
+        listeView.setItems(atualizaLista());
     }
-    public ObservableList<ModeloUsuario> atualizaTabela(){
+    public ObservableList<ModeloUsuario> atualizaLista(){
        UsuarioDao dao = new UsuarioDao();
        return FXCollections.observableArrayList(dao.getList());
     }
@@ -127,6 +116,5 @@ public class MeusClientesController{
         for(int x = 0; x < clientes.size(); x++){
             clientes.get(x).mostraUsuario();
         }
-        
     }
 }

@@ -1,7 +1,5 @@
 package Controller;
 
-import ModeloDao.DaoUsuario;
-import ModeloConection.ConexaoBD;
 import Modelo.ModeloUsuario;
 import Main.Main;
 import ModeloConection.ConnectionFactory;
