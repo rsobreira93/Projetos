@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GerenciamentoProdutoController">
+   <children>
+      <Button fx:id="enfButton" layoutY="25.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="704.0" style="-fx-background-color: #850243;" />
+      <Button fx:id="inicioButton" layoutX="14.0" layoutY="30.0" mnemonicParsing="false" onAction="#inicioButtonAction" prefHeight="25.0" prefWidth="41.0" style="-fx-background-color: #850243;" textFill="#b5178e">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fx:id="inicioImg" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <image>
+                  <Image url="@../icons/home_icon-icons.com_73532.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Text fill="WHITE" layoutX="57.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gerenciamento de produtos">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Button fx:id="sairButton" layoutX="631.0" layoutY="30.0" mnemonicParsing="false" onAction="#sairButtonAction" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: #ffff;" text="Sair" textFill="#b5178e">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="voltarButton" layoutX="557.0" layoutY="30.0" mnemonicParsing="false" onAction="#voltarButtonAction" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: #ffff;" text="Voltar" textFill="#b5178e">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <ListView layoutX="41.0" layoutY="149.0" prefHeight="208.0" prefWidth="630.0" />
+      <Text fill="#831868" layoutX="319.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estoque">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Button fx:id="buscarButton" defaultButton="true" layoutX="612.0" layoutY="113.0" mnemonicParsing="false" onAction="#buscarButtonAction" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: #850243;" text="Buscar" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <TextField fx:id="buscarTextField" layoutX="41.0" layoutY="113.0" prefHeight="25.0" prefWidth="566.0" promptText="Buscar" />
+      <Button fx:id="excluirButton" layoutX="568.0" layoutY="361.0" mnemonicParsing="false" onAction="#excluirButtonAction" prefHeight="2.0" prefWidth="103.0" style="-fx-background-color: #850243;" text="Excluir" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="addButton" layoutX="458.0" layoutY="361.0" mnemonicParsing="false" onAction="#addButtonAction" prefHeight="2.0" prefWidth="103.0" style="-fx-background-color: #850243;" text="Adicionar Item" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Text fill="#831868" layoutX="35.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor de custo">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text fill="#831868" layoutX="146.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor de venda">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Label fx:id="vCustoLabel" layoutX="50.0" layoutY="365.0" prefHeight="17.0" prefWidth="75.0" text="R$ 0,00" wrapText="true" />
+      <Label fx:id="vVendaLabel" layoutX="161.0" layoutY="365.0" prefHeight="17.0" prefWidth="75.0" text="R$ 0,00" wrapText="true" />
+   </children>
+</AnchorPane>

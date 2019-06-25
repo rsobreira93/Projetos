@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.NovoUserController">
+   <children>
+      <ImageView fx:id="imgLogin" fitHeight="461.0" fitWidth="725.0" layoutX="-12.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/Teladelogin.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="ButtonCancelar" layoutX="381.0" layoutY="284.0" mnemonicParsing="false" onAction="#ButtonCancelarAction" prefHeight="25.0" prefWidth="112.0" style="-fx-background-color: #850243;" text="Voltar" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <PasswordField fx:id="NovaSenhaPassawordField" layoutX="381.0" layoutY="237.0" prefHeight="25.0" prefWidth="243.0" promptText="Senha" />
+      <TextField fx:id="EmailTextField" layoutX="381.0" layoutY="195.0" prefHeight="25.0" prefWidth="243.0" promptText="E-mail" />
+      <ImageView fitHeight="17.0" fitWidth="17.0" layoutX="356.0" layoutY="241.0" opacity="0.77" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/locked-black-padlock-security-interface-symbol_icon-icons.com_54500.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="353.0" layoutY="196.0" opacity="0.77" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/email.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="ButtonCadastrar" layoutX="512.0" layoutY="284.0" mnemonicParsing="false" onAction="#ButtonCadastrarAction" prefHeight="25.0" prefWidth="112.0" style="-fx-background-color: #850243;" text="Concluir Cadastro" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <ImageView fitHeight="17.0" fitWidth="17.0" layoutX="356.0" layoutY="157.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/name_user_3716.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="NovoLoginTextField1" layoutX="381.0" layoutY="153.0" prefHeight="25.0" prefWidth="243.0" promptText="Login" />
+      <Text layoutX="447.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastrar Novo Usuario" textAlignment="CENTER" wrappingWidth="112.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
