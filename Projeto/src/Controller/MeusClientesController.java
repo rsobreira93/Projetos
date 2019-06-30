@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javafx.application.Application.launch;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -33,9 +34,6 @@ public class MeusClientesController{
     private Button excluirButton;
     @FXML
     private Button inicioButton;
-   
-    @FXML
-    private ListView<ModeloUsuario> listeView;
     @FXML
     private Button atualizarButton;
     @FXML
@@ -47,12 +45,6 @@ public class MeusClientesController{
     @FXML
     private Button buscarButton;    
     
-    
-   public void initialize(URL url, ResourceBundle rb){
-        initable();
-        listaUsuario();
-   }
-   
    @FXML
     void inicioButtonAction(ActionEvent event){
         try {
@@ -65,7 +57,7 @@ public class MeusClientesController{
     @FXML
     void voltarButtonAction(ActionEvent event){
         try {
-                 nova= FXMLLoader.load(getClass().getResource("/View/GerenciamentoCliente.fxml"));
+            nova= FXMLLoader.load(getClass().getResource("/View/GerenciamentoCliente.fxml"));
             Main.trocarTela(nova);
             } catch (IOException ex) {
                 Logger.getLogger(MeusClientesController.class.getName()).log(Level.SEVERE, null, ex);
@@ -82,7 +74,7 @@ public class MeusClientesController{
     }
     @FXML
     void buscarButtonAction(ActionEvent event){
-       /*mod.setPesquisa(buscarTextField.getText());
+      /* mod.setPesquisa(buscarTextField.getText());
        ModeloUsuario model = control.buscaCliente(mod);
        mod.setNome(model.getNome());
        mod.setTelefone(model.getTelefone());
@@ -103,13 +95,7 @@ public class MeusClientesController{
     void atualizarButtonAction(ActionEvent event){
        //é aqui romulo
     }
-    public void initable(){
-        listeView.setItems(atualizaLista());
-    }
-    public ObservableList<ModeloUsuario> atualizaLista(){
-       UsuarioDao dao = new UsuarioDao();
-       return FXCollections.observableArrayList(dao.getList());
-    }
+    
     public void listaUsuario(){
         System.out.println("Listando Clientes");
         List<ModeloUsuario> clientes =  new UsuarioDao().getList();

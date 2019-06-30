@@ -15,7 +15,7 @@
             <Image url="@../icons/Teladelogin.png" />
          </image>
       </ImageView>
-      <Button fx:id="ButtonCancelar" layoutX="381.0" layoutY="284.0" mnemonicParsing="false" onAction="#ButtonCancelarAction" prefHeight="25.0" prefWidth="112.0" style="-fx-background-color: #850243;" text="Cancelar" textFill="WHITE">
+      <Button fx:id="ButtonCancelar" layoutX="381.0" layoutY="284.0" mnemonicParsing="false" onAction="#ButtonCancelarAction" prefHeight="25.0" prefWidth="112.0" style="-fx-background-color: #850243;" text="Voltar" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

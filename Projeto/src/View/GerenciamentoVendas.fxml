@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GerenciamentoVendasController">
+   <children>
+      <Button fx:id="enfButton" layoutY="27.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="704.0" style="-fx-background-color: #850243;" />
+      <Text fill="WHITE" layoutX="62.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gerenciamento de vendas">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Button fx:id="sairButton" layoutX="628.0" layoutY="33.0" mnemonicParsing="false" onAction="#sairButtonAction" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: #ffff;" text="Sair" textFill="#b5178e">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="voltarButton" layoutX="553.0" layoutY="33.0" mnemonicParsing="false" onAction="#voltarButtonAction" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: #ffff;" text="Voltar" textFill="#b5178e">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="inicioButton" layoutX="13.0" layoutY="33.0" mnemonicParsing="false" onAction="#inicioButtonAction" prefHeight="25.0" prefWidth="41.0" style="-fx-background-color: #850243;" textFill="#b5178e">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fx:id="inicioImg1" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <image>
+                  <Image url="@../icons/home_icon-icons.com_73532.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ImageView fitHeight="120.0" fitWidth="219.0" layoutX="250.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/Anamary%20logo.png" />
+         </image>
+      </ImageView>
+      <ComboBox fx:id="referenciaProdutoComboBox" layoutX="175.0" layoutY="226.0" prefHeight="25.0" prefWidth="355.0" promptText="Produto" style="-fx-background-color: #A014;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
+      <ComboBox fx:id="idClienteComboBox1" layoutX="175.0" layoutY="257.0" prefHeight="25.0" prefWidth="355.0" promptText="Cliente" style="-fx-background-color: #A014;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
+      <TextField fx:id="precoVendaTextField" layoutX="175.0" layoutY="295.0" prefHeight="25.0" prefWidth="173.0" promptText="Preço de venda" />
+      <TextField fx:id="pagamentoTextField" layoutX="357.0" layoutY="295.0" prefHeight="25.0" prefWidth="173.0" promptText="Forma de pagamento" />
+      <TextField fx:id="descontoTextField" layoutX="175.0" layoutY="329.0" prefHeight="25.0" prefWidth="173.0" promptText="Desconto" />
+      <DatePicker fx:id="dataVendaDatePicker" layoutX="357.0" layoutY="329.0" promptText="Data da venda" />
+      <Button fx:id="registrarVendaButton" layoutX="210.0" layoutY="363.0" mnemonicParsing="false" onAction="#registrarVendaButtonAction" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #850243;" text="Registrar venda" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="historicoButton" layoutX="394.0" layoutY="363.0" mnemonicParsing="false" onAction="#historicoButtonAction" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #850243;" text="Exibir histórico" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

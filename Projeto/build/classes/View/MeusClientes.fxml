@@ -59,6 +59,15 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <ListView fx:id="listeView" layoutX="55.0" layoutY="169.0" prefHeight="169.0" prefWidth="597.0" />
+      <TableView fx:id="tableView" layoutX="49.0" layoutY="169.0" prefHeight="167.0" prefWidth="602.0">
+        <columns>
+          <TableColumn fx:id="idTb" prefWidth="56.0" text="ID" />
+          <TableColumn fx:id="nomeTb" prefWidth="94.0" text="Nome" />
+            <TableColumn fx:id="telefoneTb" prefWidth="94.0" text="Telefone" />
+            <TableColumn fx:id="cpfTb" prefWidth="94.0" text="CPF" />
+            <TableColumn fx:id="enderecoTb" prefWidth="94.0" text="Endereço" />
+            <TableColumn fx:id="observaTb" prefWidth="168.0" text="Observações" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
