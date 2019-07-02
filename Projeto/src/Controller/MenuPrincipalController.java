@@ -2,6 +2,7 @@
 package Controller;
 
 import Main.Main;
+import ModeloDao.VendasDao;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -73,7 +74,9 @@ public class MenuPrincipalController {
                 Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
+    @FXML
+    void financasButtonAction(ActionEvent event){
+        VendasDao relatorio = new VendasDao();
+        relatorio.gerarRelatorio();
+    }
 }
-    
-
-

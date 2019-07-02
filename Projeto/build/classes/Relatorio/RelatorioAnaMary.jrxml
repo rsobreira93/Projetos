@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioAnaMary" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9520cf5d-9c3f-4b09-9d7a-a8dad52a973a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     clientes."id" AS clientes_id,
+     produto."id" AS produto_id,
+     produto."referenci" AS produto_referenci,
+     venda."id" AS venda_id,
+     venda."referencia" AS venda_referencia,
+     venda."valordavenda" AS venda_valordavenda,
+     venda."valordedesconto" AS venda_valordedesconto,
+     venda."datavenda" AS venda_datavenda,
+     venda."referenciaProduto" AS venda_referenciaProduto,
+     venda."cliente" AS venda_cliente,
+     produto."precocusto" AS produto_precocusto
+FROM
+     "public"."clientes" clientes INNER JOIN "public"."venda" venda ON clientes."id" = venda."cliente"
+     INNER JOIN "public"."produto" produto ON venda."referencia" = produto."id"]]>
+	</queryString>
+	<field name="clientes_id" class="java.lang.Integer"/>
+	<field name="produto_id" class="java.lang.Integer"/>
+	<field name="produto_referenci" class="java.lang.Integer"/>
+	<field name="venda_id" class="java.lang.Integer"/>
+	<field name="venda_referencia" class="java.lang.Integer"/>
+	<field name="venda_valordavenda" class="java.lang.Double"/>
+	<field name="venda_valordedesconto" class="java.lang.Double"/>
+	<field name="venda_datavenda" class="java.sql.Date"/>
+	<field name="venda_referenciaproduto" class="java.lang.Integer"/>
+	<field name="venda_cliente" class="java.lang.Integer"/>
+	<field name="produto_precocusto" class="java.sql.Array"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="145" splitType="Stretch">
+			<image>
+				<reportElement x="141" y="7" width="280" height="134" uuid="1c296774-9c58-4c97-9bf7-0f34aea6d92e"/>
+				<imageExpression><![CDATA["C:\\Users\\João Victor Queiroz\\Desktop\\UFERSA\\4º Periodo\\Programação Orientada a Objetos\\Projeto ANAMARY\\Imagens utilizadas\\Anamary logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="192" y="0" width="185" height="35" uuid="d0bad537-ac61-4d6d-a1f6-699cdac417c2"/>
+				<textElement textAlignment="Center">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Relatório de Vendas]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="3" width="123" height="20" uuid="def67bab-d9e9-4dd1-824e-0821fae50e73"/>
+				<box leftPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="125" y="3" width="136" height="20" uuid="81599590-9422-46e8-ad78-d3bc7b220a62"/>
+				<box leftPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Produto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="261" y="3" width="116" height="20" uuid="602c1789-262e-47da-9271-9f6398685057"/>
+				<box leftPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Preço de venda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="377" y="3" width="94" height="20" uuid="397dd9be-d0ea-4a5f-afdf-77d5ac915102"/>
+				<box leftPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Preço de custo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="471" y="3" width="49" height="20" uuid="a5bbb0c7-ec6d-43af-9389-bf904e9599ec"/>
+				<box leftPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Lucro ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="520" y="3" width="34" height="20" uuid="b7dd1fe8-0c74-4eed-a4f1-d6f21f71f896"/>
+				<box leftPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Data]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="2" y="0" width="123" height="20" isPrintWhenDetailOverflows="true" uuid="a122f04b-d956-45ac-9320-fb54edb4e4e0"/>
+				<box leftPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="125" y="0" width="136" height="20" isPrintWhenDetailOverflows="true" uuid="57fa8255-07e2-4bf6-9cca-432ba6a7d6f4"/>
+				<box leftPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="261" y="0" width="116" height="20" uuid="b77bc737-d8ff-4cda-95eb-4bf7fc1f7ef8"/>
+				<box leftPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{venda_valordavenda}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="377" y="0" width="94" height="20" uuid="ec1f4830-f90c-47c6-a55d-8e1d640c6182"/>
+				<box leftPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{produto_precocusto}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00 %">
+				<reportElement x="471" y="0" width="49" height="20" uuid="288b4677-2ef6-45a2-bd43-139e3951c146"/>
+				<box leftPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM">
+				<reportElement x="521" y="0" width="33" height="20" uuid="8f90468e-d9f0-4ce0-b62b-73ca83900852"/>
+				<box leftPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{venda_datavenda}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="421" y="22" width="80" height="20" uuid="2d10e188-8260-427f-a211-c443836b64fc"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="501" y="22" width="40" height="20" uuid="31144248-10ae-42ea-9c4b-817dd7a2873c"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="12" y="22" width="100" height="20" uuid="d6aa182e-e81e-45b4-85dd-639c4b511c38"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
