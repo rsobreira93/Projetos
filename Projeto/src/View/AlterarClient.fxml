@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AlterarClientController">
+   <children>
+      <Button fx:id="enfButton" layoutY="21.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="700.0" style="-fx-background-color: #850243;" />
+      <Button fx:id="inicioButton" layoutX="6.0" layoutY="27.0" mnemonicParsing="false" onAction="#inicioButtonAction" prefHeight="25.0" prefWidth="41.0" style="-fx-background-color: #850243;" textFill="#b5178e">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fx:id="inicioImg" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <image>
+                  <Image url="@../icons/home_icon-icons.com_73532.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="348.0" layoutY="220.0" opacity="0.77" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/67872.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="14.0" layoutX="9.0" layoutY="327.0" opacity="0.77" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/money.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="181.0" layoutY="259.0" opacity="0.77" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/birthday-cake.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="20.0" layoutX="6.0" layoutY="293.0" opacity="0.77" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/email.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="6.0" layoutY="256.0" opacity="0.77" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/phone.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="25.0" layoutX="6.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/name_user_3716.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="52.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Atualizar dados do cliente">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Button fx:id="atualizarButton" layoutX="97.0" layoutY="361.0" mnemonicParsing="false" onAction="#atualizarButtonAction" prefHeight="25.0" prefWidth="169.0" style="-fx-background-color: #850243;" text="Atualizar" textFill="WHITE" wrapText="true" />
+      <ImageView fitHeight="188.0" fitWidth="251.0" layoutX="220.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/Anamary%20logo.png" />
+         </image>
+      </ImageView>
+      <TextArea fx:id="obsTextField" layoutX="374.0" layoutY="325.0" prefHeight="55.0" prefWidth="309.0" promptText="Adicone uma observação" />
+      <TextField fx:id="bairroTextField" layoutX="374.0" layoutY="287.0" prefHeight="25.0" prefWidth="136.0" promptText="Bairro" />
+      <TextField fx:id="cidadeTextField" layoutX="516.0" layoutY="287.0" prefHeight="25.0" prefWidth="169.0" promptText="Cidade" />
+      <TextField fx:id="complementoTextField" layoutX="517.0" layoutY="249.0" prefHeight="25.0" prefWidth="169.0" promptText="Complemento" />
+      <TextField fx:id="nTextField" layoutX="375.0" layoutY="249.0" prefHeight="25.0" prefWidth="136.0" promptText="Nº" />
+      <TextField fx:id="enderecoTextField" layoutX="378.0" layoutY="217.0" prefHeight="25.0" prefWidth="309.0" promptText="Endereço" />
+      <TextField fx:id="cpfTextField" layoutX="36.0" layoutY="321.0" prefHeight="25.0" prefWidth="309.0" promptText="CPF" />
+      <TextField fx:id="emailTextField" layoutX="36.0" layoutY="290.0" prefHeight="25.0" prefWidth="309.0" promptText="E-mail" />
+      <TextField fx:id="cNascimentoTextField" layoutX="209.0" layoutY="256.0" prefHeight="25.0" prefWidth="136.0" promptText="Data de nascimento" />
+      <TextField fx:id="celularTextField" layoutX="36.0" layoutY="256.0" prefHeight="25.0" prefWidth="136.0" promptText="Celular" />
+      <TextField fx:id="nomeTextField" layoutX="36.0" layoutY="217.0" prefHeight="25.0" prefWidth="309.0" promptText="Nome" />
+      <Button fx:id="sairButton" layoutX="635.0" layoutY="26.0" mnemonicParsing="false" onAction="#sairButtonAction" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: #ffff;" text="Sair" textFill="#b5178e">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="voltarButton" layoutX="560.0" layoutY="26.0" mnemonicParsing="false" onAction="#voltarButtonAction" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: #ffff;" text="Voltar" textFill="#b5178e">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

@@ -60,8 +60,6 @@ public class MeusClientesController implements Initializable{
     @FXML    private TableColumn<ModeloUsuario, String> observaTb;
     @FXML    private TableColumn<ModeloUsuario, String> enderecoTb;
     private ModeloUsuario selecionada;
-    
-    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initTable();
@@ -84,7 +82,7 @@ public class MeusClientesController implements Initializable{
    @FXML
     void inicioButtonAction(ActionEvent event){
         try {
-                 nova= FXMLLoader.load(getClass().getResource("/View/MenuPrincipal.fxml"));
+            nova= FXMLLoader.load(getClass().getResource("/View/MenuPrincipal.fxml"));
             Main.trocarTela(nova);
             } catch (IOException ex) {
                 Logger.getLogger(MeusClientesController.class.getName()).log(Level.SEVERE, null, ex);
@@ -128,7 +126,12 @@ public class MeusClientesController implements Initializable{
     }
     @FXML
     void atualizarButtonAction(ActionEvent event){
-       //é aqui romulo
+       try {
+            nova= FXMLLoader.load(getClass().getResource("/View/AlterarClient.fxml"));
+            Main.trocarTela(nova);
+            } catch (IOException ex) {
+                Logger.getLogger(MeusClientesController.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
     public void initTable(){
         idTb.setCellValueFactory(new PropertyValueFactory("cod"));
