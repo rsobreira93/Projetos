@@ -41,8 +41,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <ListView layoutX="41.0" layoutY="149.0" prefHeight="208.0" prefWidth="630.0" />
-      <Text fill="#831868" layoutX="319.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estoque">
+      <Text fill="#831868" layoutX="343.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estoque">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -51,27 +50,37 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <TextField fx:id="buscarTextField" layoutX="41.0" layoutY="113.0" prefHeight="25.0" prefWidth="566.0" promptText="Buscar" />
-      <Button fx:id="excluirButton" layoutX="568.0" layoutY="361.0" mnemonicParsing="false" onAction="#excluirButtonAction" prefHeight="2.0" prefWidth="103.0" style="-fx-background-color: #850243;" text="Excluir" textFill="WHITE">
+      <TextField fx:id="buscarTextField" layoutX="153.0" layoutY="113.0" prefHeight="25.0" prefWidth="454.0" promptText="Buscar" />
+      <Button fx:id="excluirButton" layoutX="415.0" layoutY="361.0" mnemonicParsing="false" onAction="#excluirButtonAction" prefHeight="2.0" prefWidth="103.0" style="-fx-background-color: #850243;" text="Excluir" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="addButton" layoutX="458.0" layoutY="361.0" mnemonicParsing="false" onAction="#addButtonAction" prefHeight="2.0" prefWidth="103.0" style="-fx-background-color: #850243;" text="Adicionar Item" textFill="WHITE">
+      <Button fx:id="addButton" layoutX="305.0" layoutY="361.0" mnemonicParsing="false" onAction="#addButtonAction" prefHeight="2.0" prefWidth="103.0" style="-fx-background-color: #850243;" text="Adicionar Item" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Text fill="#831868" layoutX="35.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor de custo">
+      <Text fill="#831868" layoutX="48.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor de custo">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <Text fill="#831868" layoutX="146.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor de venda">
+      <Text fill="#831868" layoutX="43.0" layoutY="349.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor de venda">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <Label fx:id="vCustoLabel" layoutX="50.0" layoutY="365.0" prefHeight="17.0" prefWidth="75.0" text="R$ 0,00" wrapText="true" />
-      <Label fx:id="vVendaLabel" layoutX="161.0" layoutY="365.0" prefHeight="17.0" prefWidth="75.0" text="R$ 0,00" wrapText="true" />
+      <Label fx:id="vCustoLabel" layoutX="63.0" layoutY="280.0" prefHeight="17.0" prefWidth="75.0" text="R$ 0,00" wrapText="true" />
+      <Label fx:id="vVendaLabel" layoutX="58.0" layoutY="323.0" prefHeight="17.0" prefWidth="75.0" text="R$ 0,00" wrapText="true" />
+      <TableView fx:id="tableView" layoutX="152.0" layoutY="145.0" prefHeight="208.0" prefWidth="519.0">
+        <columns>
+          <TableColumn fx:id="refTb" prefWidth="105.0" text="Referência" />
+          <TableColumn fx:id="nomeTb" prefWidth="118.0" text="Nome" />
+            <TableColumn fx:id="qtdTb" prefWidth="84.0" text="Quantidade" />
+            <TableColumn fx:id="pvTb" prefWidth="105.0" text="Preço de venda" />
+            <TableColumn fx:id="pcTb" prefWidth="109.0" text="Preço de custo" />
+        </columns>
+      </TableView>
+      <ImageView fx:id="imgFoto" fitHeight="119.0" fitWidth="120.0" layoutX="28.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

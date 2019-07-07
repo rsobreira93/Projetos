@@ -5,7 +5,6 @@
  */
 package ModeloDao;
 
-import Modelo.ModeloUsuario;
 import Modelo.Produto;
 import ModeloConection.ConnectionFactory;
 import java.sql.Connection;
@@ -30,13 +29,15 @@ public class ProdutoDao {
     
     public boolean add(Produto p){
         try {
-            String sql = "INSERT INTO produtos(nome, quantidade, precoV, precoC, data) VALUES(?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO produto(referencia, precovenda, precocusto, nome, data, quantidade, foto) VALUES(?, ?, ?, ?, ?, ?, ?);";
             PreparedStatement stmt = con.prepareStatement(sql);
-            stmt.setString(1, p.getNomeProduto());
-            stmt.setInt(2, p.getQuantidadeProduto());
-            stmt.setFloat(3, p.getPrecoVenda());
-            stmt.setFloat(4, p.getPrecoCusto());
+            stmt.setLong(1, p.getReferenciaProduto());
+            stmt.setFloat(2, p.getPrecoVenda());
+            stmt.setFloat(3, p.getPrecoCusto());
+            stmt.setString(4, p.getNomeProduto());
             stmt.setDate(5, (Date) p.getDataCadastro());
+            stmt.setLong(6, p.getQuantidadeProduto());
+            stmt.setString(7, p.getFoto());
             stmt.execute();
             JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
             return true;
@@ -47,13 +48,15 @@ public class ProdutoDao {
     }
     public boolean update(Produto p){
         try {
-            String sql = "UPDATE produtos SET nome = ?, quantidade = ?, precoV = ?, precoC = ?, data = ? WHRE id = ?;";
+            String sql = "UPDATE produto SET nome = ?, precovenda = ?, precocusto = ?, data = ?, quantidade = ?, foto = ? WHERE id = ?;";
             PreparedStatement stmt = con.prepareStatement(sql);
-            stmt.setString(1, p.getNomeProduto());
-            stmt.setInt(2, p.getQuantidadeProduto());
-            stmt.setFloat(3, p.getPrecoVenda());
-            stmt.setFloat(4, p.getPrecoCusto());
+            stmt.setLong(1, p.getReferenciaProduto());
+            stmt.setFloat(2, p.getPrecoVenda());
+            stmt.setFloat(3, p.getPrecoCusto());
+            stmt.setString(4, p.getNomeProduto());
             stmt.setDate(5, (Date) p.getDataCadastro());
+            stmt.setLong(6, p.getQuantidadeProduto());
+            stmt.setString(7, p.getFoto());
             stmt.execute();
             JOptionPane.showMessageDialog(null, "produto atualizado com sucesso!");
             return true;
@@ -65,7 +68,7 @@ public class ProdutoDao {
      
     public boolean delete(Produto p){
         try {
-            String sql = "DELETE FROM produtos WHRE id = ?;";
+            String sql = "DELETE FROM produto WHERE id_prod = ?;";
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setLong(1, p.getReferenciaProduto());
             stmt.execute();
@@ -79,18 +82,19 @@ public class ProdutoDao {
     
     public List<Produto> getList(){
         List<Produto> produtos = new ArrayList<>();
-        String sql = "SELECT * FROM produtos;";
+        String sql = "SELECT * FROM produto;";
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             while(rs.next()){
                 Produto p  = new Produto();
-                p.setReferenciaProduto(rs.getInt("id"));
+                p.setReferenciaProduto(rs.getInt("id_prod"));
+                p.setPrecoVenda(rs.getFloat("precovenda"));
+                p.setPrecoCusto(rs.getFloat("precocusto"));
                 p.setNomeProduto(rs.getString("nome"));
-                p.setPrecoVenda(rs.getFloat("precoV"));
-                p.setPrecoCusto(rs.getFloat("precoC"));
-                p.setQuantidadeProduto(rs.getInt("quantidade"));
                 p.setDataCadastro(rs.getDate("data"));
+                p.setQuantidadeProduto(rs.getInt("quantidade"));
+                p.setFoto(rs.getString("foto"));
                 produtos.add(p);
             }
             stmt.close();

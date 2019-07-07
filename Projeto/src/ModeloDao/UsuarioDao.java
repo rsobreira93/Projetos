@@ -48,7 +48,7 @@ public class UsuarioDao {
     }
     public boolean update(ModeloUsuario u){
         try {
-            String sql = "UPDATE clientes SET nome = ?, telefon = ?, cpf = ?, email = ?, cidade = ?, bairro = ?, complemento = ?, endereco = ?, n = ? WHRE id = ?;";
+            String sql = "UPDATE clientes SET nome = ?, telefon = ?, cpf = ?, email = ?, cidade = ?, bairro = ?, complemento = ?, endereco = ?, n = ? WHERE id = ?;";
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, u.getNome());
             stmt.setString(2, u.getTelefone());
@@ -59,7 +59,7 @@ public class UsuarioDao {
             stmt.setString(7, u.getComplemento());
             stmt.setString(8, u.getEndereco());
             stmt.setString(9, u.getN());
-            stmt.setLong(9, u.getCod());
+            stmt.setLong(10, u.getCod());
             stmt.execute();
             JOptionPane.showMessageDialog(null, "Cliente atualizado com sucesso!");
             return true;
@@ -71,7 +71,7 @@ public class UsuarioDao {
      
     public boolean delete(ModeloUsuario u){
         try {
-            String sql = "DELETE FROM clientes WHRE id = ?;";
+            String sql = "DELETE FROM clientes WHERE id = ?";
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setLong(1, u.getCod());
             stmt.execute();

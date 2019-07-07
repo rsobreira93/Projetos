@@ -8,56 +8,10 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="JavaFXApplication3.jar" size="761063" download="eager" />
-    <jar href="lib\aopalliance-1.0.jar" size="4467" download="eager" />
-    <jar href="lib\bcmail-jdk14-1.38.jar" size="192035" download="eager" />
-    <jar href="lib\bcmail-jdk14-138.jar" size="192035" download="eager" />
-    <jar href="lib\bcprov-jdk14-1.38.jar" size="1551468" download="eager" />
-    <jar href="lib\bcprov-jdk14-138.jar" size="1551468" download="eager" />
-    <jar href="lib\bctsp-jdk14-1.38.jar" size="22994" download="eager" />
-    <jar href="lib\castor-core-1.3.3.jar" size="49513" download="eager" />
-    <jar href="lib\castor-xml-1.3.3.jar" size="872827" download="eager" />
-    <jar href="lib\commons-beanutils-1.9.0.jar" size="230951" download="eager" />
-    <jar href="lib\commons-cli-1.0.jar" size="30117" download="eager" />
-    <jar href="lib\commons-collections-3.2.1.jar" size="575389" download="eager" />
-    <jar href="lib\commons-digester-2.1.jar" size="196768" download="eager" />
+    <jar href="JavaFXApplication3.jar" size="859794" download="eager" />
     <jar href="lib\commons-email-1.5.jar" size="54495" download="eager" />
-    <jar href="lib\commons-lang-2.1.jar" size="207723" download="eager" />
-    <jar href="lib\commons-lang-2.6.jar" size="284220" download="eager" />
-    <jar href="lib\commons-logging-1.1.1.jar" size="60686" download="eager" />
-    <jar href="lib\core-2.3.0.jar" size="528506" download="eager" />
-    <jar href="lib\doxia-sink-api-1.0-alpha-7.jar" size="5936" download="eager" />
-    <jar href="lib\ecj-4.3.1.jar" size="1830791" download="eager" />
-    <jar href="lib\groovy-all-2.4.6.jar" size="7024433" download="eager" />
-    <jar href="lib\itext-2.1.7.js2.jar" size="1130575" download="eager" />
-    <jar href="lib\jackson-annotations-2.1.4.jar" size="34476" download="eager" />
-    <jar href="lib\jackson-core-2.1.4.jar" size="206866" download="eager" />
-    <jar href="lib\jackson-databind-2.1.4.jar" size="926562" download="eager" />
-    <jar href="lib\jakarta-regexp-1.4.jar" size="28576" download="eager" />
-    <jar href="lib\jasperreports-6.1.0.jar" size="5201360" download="eager" />
-    <jar href="lib\javax.inject-1.jar" size="2497" download="eager" />
-    <jar href="lib\jcommon-1.0.15.jar" size="309294" download="eager" />
-    <jar href="lib\jfreechart-1.0.12.jar" size="1368681" download="eager" />
-    <jar href="lib\junit-3.8.1.jar" size="121070" download="eager" />
-    <jar href="lib\lucene-analyzers-common-4.5.1.jar" size="1586103" download="eager" />
-    <jar href="lib\lucene-core-4.5.1.jar" size="2297477" download="eager" />
-    <jar href="lib\lucene-queries-4.5.1.jar" size="205195" download="eager" />
-    <jar href="lib\lucene-queryparser-4.5.1.jar" size="384884" download="eager" />
-    <jar href="lib\lucene-sandbox-4.5.1.jar" size="45578" download="eager" />
     <jar href="lib\mail.jar" size="434812" download="eager" />
-    <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
-    <jar href="lib\olap4j-0.9.7.309-JS-3.jar" size="445343" download="eager" />
     <jar href="lib\postgresql-9.4.1209.jar" size="678049" download="eager" />
-    <jar href="lib\spring-aop-3.0.6.RELEASE.jar" size="321428" download="eager" />
-    <jar href="lib\spring-asm-3.0.6.RELEASE.jar" size="53082" download="eager" />
-    <jar href="lib\spring-beans-3.0.6.RELEASE.jar" size="556590" download="eager" />
-    <jar href="lib\spring-context-3.0.6.RELEASE.jar" size="670258" download="eager" />
-    <jar href="lib\spring-core-3.0.6.RELEASE.jar" size="382184" download="eager" />
-    <jar href="lib\spring-expression-3.0.6.RELEASE.jar" size="169752" download="eager" />
-    <jar href="lib\stax-1.2.0.jar" size="179346" download="eager" />
-    <jar href="lib\stax-api-1.0-2.jar" size="23346" download="eager" />
-    <jar href="lib\stax-api-1.0.1.jar" size="26514" download="eager" />
-    <jar href="lib\xml-apis-1.3.02.jar" size="194205" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="JavaFXApplication3" >
     <param name="requiredFXVersion" value="8.0+"/>

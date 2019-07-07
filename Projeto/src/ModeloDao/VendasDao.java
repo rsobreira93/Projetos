@@ -27,8 +27,7 @@ public class VendasDao {
     }
     public void gerarRelatorio(){
             try {
-            String sql =""
-                    + " SELECT"
+            String sql = " SELECT"
                     + "     clientes.\"id\" AS clientes_id,"
                     + "     produto.\"id\" AS produto_id,"
                     + "     produto.\"referenci\" AS produto_referenci,"

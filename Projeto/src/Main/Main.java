@@ -1,5 +1,4 @@
 package Main;
-import ModeloConection.ConexaoBD;
 import java.util.Optional;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -13,7 +12,6 @@ import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.SimpleEmail;
 
 public class Main extends Application{
-    ConexaoBD con = new ConexaoBD();
     private static Stage stage;
     @Override
     public void start(Stage StagePrincipal) throws Exception {

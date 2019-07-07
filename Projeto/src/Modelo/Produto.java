@@ -12,39 +12,50 @@ import java.util.Date;
  * @author Romulo Sobreira
  */
 public class Produto {
+
    
-    private int referenciaProduto;
-    private int quantidadeProduto;
+    private long cod;
+    private long referenciaProduto;
+    private long quantidadeProduto;
     private float precoVenda;
     private float precoCusto;
     private String nomeProduto;
     private Date dataCadastro;
+    private String foto;
 
-    public Produto(int referencia, int qtd, float precoV, float precoC, String n,Date data){
+    public Produto(int referencia, int qtd, float precoV, float precoC, String n,Date data, String ft){
        this.referenciaProduto = referencia;
        this.quantidadeProduto = qtd;
        this.precoVenda = precoV;
        this.precoCusto = precoC;
        this.nomeProduto = n;
        this.dataCadastro = data;
+       this.foto = ft;
     }
     public Produto(){
-        this(0, 0, 0.0f, 0.0f, "", null);
+        this(0, 0, 0.0f, 0.0f, "", null,"");
     }
     
-    public int getReferenciaProduto() {
+    public long getCod() {
+        return cod;
+    }
+
+    public void setCod(long cod) {
+        this.cod = cod;
+    }
+    public long getReferenciaProduto() {
         return referenciaProduto;
     }
 
-    public void setReferenciaProduto(int referenciaProduto) {
+    public void setReferenciaProduto(long referenciaProduto) {
         this.referenciaProduto = referenciaProduto;
     }
 
-    public int getQuantidadeProduto() {
+    public long getQuantidadeProduto() {
         return quantidadeProduto;
     }
 
-    public void setQuantidadeProduto(int quantidadeProduto) {
+    public void setQuantidadeProduto(long quantidadeProduto) {
         this.quantidadeProduto = quantidadeProduto;
     }
 
@@ -79,6 +90,14 @@ public class Produto {
     public void setDataCadastro(Date dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+  
     
     
 }

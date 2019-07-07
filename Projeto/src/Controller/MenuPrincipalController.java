@@ -2,12 +2,12 @@
 package Controller;
 
 import Main.Main;
-import ModeloDao.VendasDao;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.LoadException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
@@ -15,20 +15,28 @@ public class MenuPrincipalController {
     private Parent nova;
     @FXML
     private Button aClientesButton;
+
     @FXML
     private Button gProdutosButton;
+
     @FXML
     private Button financasButton;
+
     @FXML
     private Button enfButton;
+
     @FXML
     private Button sairButton;
+
     @FXML
     private Button contaButton;
+
     @FXML
     private Button gClientesButton;
+
     @FXML
     private Button gVendasButton;
+
     @FXML
     void sairButtonAction(ActionEvent event){
         try {
@@ -66,17 +74,16 @@ public class MenuPrincipalController {
             }
     }
     @FXML
-    void gVendasButtonAction(ActionEvent event) {
-          try {
+    void gVendasButtonAction(ActionEvent envent){
+         try {
                  nova= FXMLLoader.load(getClass().getResource("/View/GerenciamentoVendas.fxml"));
                  Main.trocarTela(nova);
             } catch (IOException ex) {
                 Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
-    @FXML
-    void financasButtonAction(ActionEvent event){
-        VendasDao relatorio = new VendasDao();
-        relatorio.gerarRelatorio();
-    }
+
 }
+    
+
+

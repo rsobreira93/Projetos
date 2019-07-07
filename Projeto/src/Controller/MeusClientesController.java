@@ -1,28 +1,35 @@
 package Controller;
 
 import Main.Main;
+import Modelo.ListarCliente;
 import Modelo.ModeloUsuario;
 import ModeloConection.ConnectionFactory;
 import ModeloDao.UsuarioDao;
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static javafx.application.Application.launch;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 
-public class MeusClientesController{
+public class MeusClientesController implements Initializable{
     ModeloUsuario mod = new ModeloUsuario();
     UsuarioDao control = new UsuarioDao();
     ConnectionFactory conex = new ConnectionFactory();
@@ -45,6 +52,35 @@ public class MeusClientesController{
     @FXML
     private Button buscarButton;    
     
+    @FXML    private TableView<ModeloUsuario> tableView;
+    @FXML    private TableColumn<ModeloUsuario, Long> idTb;
+    @FXML    private TableColumn<ModeloUsuario, String> cpfTb;
+    @FXML    private TableColumn<ModeloUsuario, String> telefoneTb;
+    @FXML    private TableColumn<ModeloUsuario, String> nomeTb;
+    @FXML    private TableColumn<ModeloUsuario, String> observaTb;
+    @FXML    private TableColumn<ModeloUsuario, String> enderecoTb;
+    private ModeloUsuario selecionada;
+    
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        initTable();
+        
+        atualizarButton.setOnMouseClicked((MouseEvent e ) -> {
+            tableView.setItems(atualizaTabela());
+        });
+        
+        excluirButton.setOnMouseClicked((MouseEvent e ) -> {
+            deletar();
+        });
+        
+        tableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
+            @Override
+            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                selecionada = (ModeloUsuario) newValue;
+            }
+        });
+    }
    @FXML
     void inicioButtonAction(ActionEvent event){
         try {
@@ -85,22 +121,50 @@ public class MeusClientesController{
        mod.setComplemento(model.getComplemento());
        mod.setEndereco(model.getEndereco());
        mod.setN(model.getN());*/
-       listaUsuario();
     }
     @FXML
     void excluirButtonAction(ActionEvent event){
-       //é aqui romulo
+        deletar();
     }
     @FXML
     void atualizarButtonAction(ActionEvent event){
        //é aqui romulo
     }
-    
-    public void listaUsuario(){
-        System.out.println("Listando Clientes");
-        List<ModeloUsuario> clientes =  new UsuarioDao().getList();
-        for(int x = 0; x < clientes.size(); x++){
-            clientes.get(x).mostraUsuario();
+    public void initTable(){
+        idTb.setCellValueFactory(new PropertyValueFactory("cod"));
+        nomeTb.setCellValueFactory(new PropertyValueFactory("nome"));
+        cpfTb.setCellValueFactory(new PropertyValueFactory("cpf"));
+        telefoneTb.setCellValueFactory(new PropertyValueFactory("telefone"));
+        enderecoTb.setCellValueFactory(new PropertyValueFactory("endereco"));
+        tableView.setItems(atualizaTabela());
+    }
+    public ObservableList<ModeloUsuario> atualizaTabela(){
+       UsuarioDao dao = new UsuarioDao();
+       return FXCollections.observableArrayList(dao.getList());
+    }
+        public void listaUsuario(){
+        ListarCliente p = new ListarCliente();
+        try{
+            p.start(new Stage());
+        }catch(Exception ex){
+            Logger.getLogger(MeusClientesController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+        public void fecha(){
+            ListarCliente.getStage().close();
+        }
+        public void deletar(){
+            if(selecionada != null){
+                UsuarioDao dao = new UsuarioDao();
+                dao.delete(selecionada);
+                Alert a = new Alert(Alert.AlertType.CONFIRMATION);
+                a.setHeaderText("Cliente deletado com sucesso");
+                a.show();
+                tableView.setItems(atualizaTabela());
+            }else{
+                Alert a = new Alert(Alert.AlertType.WARNING);
+                a.setHeaderText("Selecione um cliente");
+                a.show();
+            }
+        }
 }

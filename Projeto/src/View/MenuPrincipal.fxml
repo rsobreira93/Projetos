@@ -54,17 +54,14 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="financasButton" layoutX="426.0" layoutY="244.0" mnemonicParsing="false" onAction="#financasButtonAction" prefHeight="85.0" prefWidth="113.0" style="-fx-background-color: #850243;" textFill="WHITE">
+      <Button fx:id="financasButton" layoutX="426.0" layoutY="244.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="113.0" style="-fx-background-color: #850243;" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="66.0" fitWidth="77.0" opacity="0.35" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../icons/dollar116.png" />
                </image>
             </ImageView>
-         </graphic>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
+         </graphic></Button>
       <Button fx:id="aClientesButton" layoutX="559.0" layoutY="244.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="113.0" style="-fx-background-color: #850243;" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="66.0" fitWidth="77.0" opacity="0.35" pickOnBounds="true" preserveRatio="true">
