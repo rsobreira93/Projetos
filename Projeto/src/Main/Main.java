@@ -63,11 +63,7 @@ public class Main extends Application{
             System.out.println("Email Enviado com sucesso");
         }catch(Exception e){
             e.printStackTrace();
-        }
-        
-        
-        
-        
-        
-    } 
+        } 
+    }
+
 }

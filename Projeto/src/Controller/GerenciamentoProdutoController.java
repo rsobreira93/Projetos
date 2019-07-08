@@ -2,9 +2,9 @@ package Controller;
 
 import Main.Main;
 import Modelo.ListarProduto;
+import Modelo.ModeloUsuario;
 import Modelo.Produto;
 import ModeloDao.ProdutoDao;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,9 +28,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.FileChooser;
-import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 
 public class GerenciamentoProdutoController implements Initializable{
@@ -68,7 +67,8 @@ public class GerenciamentoProdutoController implements Initializable{
     @FXML    private ImageView imgFoto;
     private Produto selecionada;
    // private String caminhaFoto;
-
+    
+    ObservableList<Produto> produtos = FXCollections.observableArrayList();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initTable();
@@ -76,7 +76,9 @@ public class GerenciamentoProdutoController implements Initializable{
         excluirButton.setOnMouseClicked((MouseEvent e ) -> {
             deletar();
         });
-        
+        buscarTextField.setOnKeyReleased((KeyEvent e) ->{
+            tableView.setItems(busca());
+        });
         tableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
@@ -123,7 +125,7 @@ public class GerenciamentoProdutoController implements Initializable{
     }
     @FXML
     void buscarButtonAction(ActionEvent event){
-        //é aqui romulo
+        tableView.setItems(busca());
     }
     @FXML
     void excluirButtonAction(ActionEvent event){
@@ -139,7 +141,8 @@ public class GerenciamentoProdutoController implements Initializable{
     }
     public ObservableList<Produto> atualizaTabela(){
        ProdutoDao dao = new ProdutoDao();
-       return FXCollections.observableArrayList(dao.getList());
+       produtos = FXCollections.observableArrayList(dao.getList()); 
+       return produtos;
     }
     public void listaProduto(){
             ListarProduto p = new ListarProduto();
@@ -173,5 +176,17 @@ public class GerenciamentoProdutoController implements Initializable{
         }else{
             imgFoto.setImage(new Image("/Imagens/img.png"));
         }
+    }
+    private ObservableList<Produto> busca(){
+            ObservableList<Produto> produtoPesquisa = FXCollections.observableArrayList();
+            for(int x = 0; x < produtos.size(); x++){
+                if(produtos.get(x).getNomeProduto().toLowerCase().contains(buscarTextField.getText().toLowerCase())){
+                    produtoPesquisa.add(produtos.get(x));
+                }
+            }
+            return produtoPesquisa;
+    }
+    public void somaCusto(){
+
     }
 }

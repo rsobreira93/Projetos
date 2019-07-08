@@ -1,5 +1,7 @@
 package Modelo;
 
+import java.util.Date;
+
 /**
  *
  * @author Romulo Sobreira
@@ -16,6 +18,24 @@ public class ModeloUsuario {
   private String cidade;
   private String bairro;
   private String complemento;
+  private String dNascimento;
+  private String obs;
+
+    public String getdNascimento() {
+        return this.dNascimento;
+    }
+    public void setdNascimento(String dNascimento) {
+        this.dNascimento = dNascimento;
+    }
+
+    public String getObs() {
+        return this.obs;
+    }
+
+    public void setObs(String obs) {
+        this.obs = obs;
+    }
+  
   
     /**
      * @return the cod

@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="JavaFXApplication3.jar" size="882876" download="eager" />
+    <jar href="JavaFXApplication3.jar" size="870642" download="eager" />
     <jar href="lib\commons-email-1.5.jar" size="54495" download="eager" />
     <jar href="lib\mail.jar" size="434812" download="eager" />
     <jar href="lib\postgresql-9.4.1209.jar" size="678049" download="eager" />

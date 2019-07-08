@@ -1,19 +1,17 @@
 package Controller;
 
-import Main.Main;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+
+import Modelo.ModeloUsuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
-public class AlterarClientController {
+public class AlterarClientController{
     private Parent nova;
     @FXML
     private TextField cNascimentoTextField;
@@ -40,13 +38,7 @@ public class AlterarClientController {
     private TextField bairroTextField;
 
     @FXML
-    private Button voltarButton;
-
-    @FXML
     private TextField enderecoTextField;
-
-    @FXML
-    private ImageView inicioImg;
 
     @FXML
     private TextField celularTextField;
@@ -55,55 +47,65 @@ public class AlterarClientController {
     private TextField nomeTextField;
 
     @FXML
-    private Button inicioButton;
-
-    @FXML
     private TextField nTextField;
 
     @FXML
     private TextField cidadeTextField;
+    
+    private Stage dialogStage;
+    private boolean buttonConfimar= false;
+    private ModeloUsuario cliente;
 
-    @FXML
-    private Button sairButton;
-    @FXML
-    void sairButtonAction(ActionEvent event){
-        int op = Main.telaAlerta(); 
-        if(op==1){
-            try {
-                nova= FXMLLoader.load(getClass().getResource("/View/Login.fxml"));
-                 Main.trocarTela(nova);
-            } catch (IOException ex) {
-                Logger.getLogger(AlterarClientController.class.getName()).log(Level.SEVERE, null, ex);
-            }  
-        }        
-    }   
-    @FXML
-    void voltarButtonAction(ActionEvent event){
-        int op = Main.telaAlerta(); 
-        if(op==1){
-            try {
-                 nova= FXMLLoader.load(getClass().getResource("/View/MeusClientes.fxml"));
-            Main.trocarTela(nova);
-            } catch (IOException ex) {
-                Logger.getLogger(AlterarClientController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+    public Stage getDialogStage() {
+        return this.dialogStage;
     }
-    @FXML
-    void inicioButtonAction(ActionEvent event){
-        int op = Main.telaAlerta(); 
-        if(op==1){
-            try {
-                 nova= FXMLLoader.load(getClass().getResource("/View/MenuPrincipal.fxml"));
-            Main.trocarTela(nova);
-            } catch (IOException ex) {
-                Logger.getLogger(AlterarClientController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+
+    public void setDialogStage(Stage dialogStage) {
+        this.dialogStage = dialogStage;
     }
+
+    public boolean isButtonConfimar() {
+        return this.buttonConfimar;
+    }
+
+    public void setButtonConfimar(boolean buttonConfimar) {
+        this.buttonConfimar = buttonConfimar;
+    }
+
+    public ModeloUsuario getCliente() {
+        return this.cliente;
+    }
+
+    public void setCliente(ModeloUsuario cliente) {
+        this.cliente = cliente;
+        this.nomeTextField.setText(cliente.getNome());
+        this.celularTextField.setText(cliente.getTelefone());
+        this.emailTextField.setText(cliente.getEmail());
+        this.cpfTextField.setText(cliente.getCpf());
+        this.enderecoTextField.setText(cliente.getEndereco());
+        this.nTextField.setText(cliente.getN());
+        this.complementoTextField.setText(cliente.getComplemento());
+        this.bairroTextField.setText(cliente.getBairro());
+        this.cidadeTextField.setText(cliente.getCidade());
+        this.obsTextField.setText(cliente.getObs());
+        this.cNascimentoTextField.setText(cliente.getdNascimento());
+    } 
     @FXML
     void atualizarButtonAction(ActionEvent event){
-    // aqui romulo
+        cliente.setNome(nomeTextField.getText());
+        cliente.setTelefone(celularTextField.getText());
+        cNascimentoTextField.getText();
+        cliente.setEmail(emailTextField.getText());
+        cliente.setCpf(cpfTextField.getText());
+        cliente.setEndereco(enderecoTextField.getText());
+        cliente.setN(nTextField.getText());
+        cliente.setComplemento(complementoTextField.getText());
+        cliente.setBairro(bairroTextField.getText());
+        cliente.setCidade(cidadeTextField.getText());
+        cliente.setdNascimento (cNascimentoTextField.getText());
+        cliente.setObs(obsTextField.getText());
+        
+        buttonConfimar=true;
+        dialogStage.close();
     }
-   
 }

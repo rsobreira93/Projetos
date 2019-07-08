@@ -82,6 +82,15 @@ public class MenuPrincipalController {
                 Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
+    @FXML
+    void financasButtonAction(ActionEvent envent){
+         try {
+                 nova= FXMLLoader.load(getClass().getResource("/View/Financas.fxml"));
+                 Main.trocarTela(nova);
+            } catch (IOException ex) {
+                Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
 
 }
     

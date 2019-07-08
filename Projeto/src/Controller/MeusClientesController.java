@@ -17,8 +17,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import static javafx.fxml.FXMLLoader.load;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -26,6 +28,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 
@@ -33,7 +36,6 @@ public class MeusClientesController implements Initializable{
     ModeloUsuario mod = new ModeloUsuario();
     UsuarioDao control = new UsuarioDao();
     ConnectionFactory conex = new ConnectionFactory();
-    
     private Parent nova;
     @FXML
     private TextField buscarTextField;
@@ -59,9 +61,10 @@ public class MeusClientesController implements Initializable{
     @FXML    private TableColumn<ModeloUsuario, String> nomeTb;
     @FXML    private TableColumn<ModeloUsuario, String> observaTb;
     @FXML    private TableColumn<ModeloUsuario, String> enderecoTb;
-    private ModeloUsuario selecionada;
+    private ModeloUsuario selecionada; 
+     ObservableList<ModeloUsuario> clientes = FXCollections.observableArrayList();
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources){
         initTable();
         
         atualizarButton.setOnMouseClicked((MouseEvent e ) -> {
@@ -71,7 +74,6 @@ public class MeusClientesController implements Initializable{
         excluirButton.setOnMouseClicked((MouseEvent e ) -> {
             deletar();
         });
-        
         tableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
@@ -82,7 +84,7 @@ public class MeusClientesController implements Initializable{
    @FXML
     void inicioButtonAction(ActionEvent event){
         try {
-            nova= FXMLLoader.load(getClass().getResource("/View/MenuPrincipal.fxml"));
+                 nova= FXMLLoader.load(getClass().getResource("/View/MenuPrincipal.fxml"));
             Main.trocarTela(nova);
             } catch (IOException ex) {
                 Logger.getLogger(MeusClientesController.class.getName()).log(Level.SEVERE, null, ex);
@@ -100,7 +102,7 @@ public class MeusClientesController implements Initializable{
     @FXML
     void sairButtonAction(ActionEvent event){
        try {
-                 nova= FXMLLoader.load(getClass().getResource("/Viw/Login.fxml"));
+                 nova= FXMLLoader.load(getClass().getResource("/View/Login.fxml"));
             Main.trocarTela(nova);
             } catch (IOException ex) {
                 Logger.getLogger(MeusClientesController.class.getName()).log(Level.SEVERE, null, ex);
@@ -108,30 +110,15 @@ public class MeusClientesController implements Initializable{
     }
     @FXML
     void buscarButtonAction(ActionEvent event){
-      /* mod.setPesquisa(buscarTextField.getText());
-       ModeloUsuario model = control.buscaCliente(mod);
-       mod.setNome(model.getNome());
-       mod.setTelefone(model.getTelefone());
-       mod.setCpf(model.getCpf());
-       mod.setEmail(model.getEmail());
-       mod.setCidade(model.getCidade());
-       mod.setBairro(model.getBairro());
-       mod.setComplemento(model.getComplemento());
-       mod.setEndereco(model.getEndereco());
-       mod.setN(model.getN());*/
+      tableView.setItems(busca());
     }
     @FXML
     void excluirButtonAction(ActionEvent event){
         deletar();
     }
     @FXML
-    void atualizarButtonAction(ActionEvent event){
-       try {
-            nova= FXMLLoader.load(getClass().getResource("/View/AlterarClient.fxml"));
-            Main.trocarTela(nova);
-            } catch (IOException ex) {
-                Logger.getLogger(MeusClientesController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+    void atualizarButtonAction(ActionEvent event) throws Exception{
+       alterar();
     }
     public void initTable(){
         idTb.setCellValueFactory(new PropertyValueFactory("cod"));
@@ -139,6 +126,7 @@ public class MeusClientesController implements Initializable{
         cpfTb.setCellValueFactory(new PropertyValueFactory("cpf"));
         telefoneTb.setCellValueFactory(new PropertyValueFactory("telefone"));
         enderecoTb.setCellValueFactory(new PropertyValueFactory("endereco"));
+        observaTb.setCellValueFactory(new PropertyValueFactory("obs"));
         tableView.setItems(atualizaTabela());
     }
     public ObservableList<ModeloUsuario> atualizaTabela(){
@@ -169,5 +157,53 @@ public class MeusClientesController implements Initializable{
                 a.setHeaderText("Selecione um cliente");
                 a.show();
             }
+        }
+        public void alterar() throws Exception{
+            ModeloUsuario cliente = tableView.getSelectionModel().getSelectedItem();
+            if(cliente != null){  
+            try{
+              boolean buttonConfirmarClicked = telaAlterarCliente(cliente);
+            if (buttonConfirmarClicked) {
+                control.update(cliente);
+                initTable();
+            }
+            }catch (IOException ex){
+                Logger.getLogger(MeusClientesController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            }else{
+                Alert a = new Alert(Alert.AlertType.WARNING);
+                a.setHeaderText("Selecione um cliente");
+                a.show();
+            }
+        }
+        public boolean telaAlterarCliente(ModeloUsuario cliente) throws IOException{
+            FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(AlterarClientController.class.getResource("/View/AlterarClient.fxml"));
+        AnchorPane page = (AnchorPane) loader.load();
+
+        // Criando um Estágio de Diálogo (Stage Dialog)
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle("Anamary");
+        Scene scene = new Scene(page);
+        dialogStage.setScene(scene);
+
+        // Setando o cliente no Controller.
+        AlterarClientController controller = loader.getController();
+        controller.setDialogStage(dialogStage);
+        controller.setCliente(cliente);
+
+        // Mostra o Dialog e espera até que o usuário o feche
+        dialogStage.showAndWait();
+
+        return controller.isButtonConfimar();
+        }
+        private ObservableList<ModeloUsuario> busca(){
+            ObservableList<ModeloUsuario> clientePesquisa = FXCollections.observableArrayList();
+            for(int x = 0; x < clientes.size(); x++){
+                if(clientes.get(x).getNome().toLowerCase().contains(buscarTextField.getText().toLowerCase())){
+                    clientePesquisa.add(clientes.get(x));
+                }
+            }
+            return clientePesquisa;
         }
 }

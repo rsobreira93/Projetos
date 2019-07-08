@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -20,11 +21,9 @@ public class GerenciamentoClienteController {
    ModeloUsuario mod = new ModeloUsuario();
    UsuarioDao dao = new UsuarioDao();
     ConnectionFactory con = new ConnectionFactory();
-    
-    private Parent nova;
     @FXML
-    private TextField cNascimentoTextField;
-
+    private TextField cNascimento;
+    private Parent nova;
     @FXML
     private Button meusClientesButton;
         
@@ -100,7 +99,7 @@ public class GerenciamentoClienteController {
     void cadastrarButtonAction(ActionEvent event){
         mod.setNome(nomeTextField.getText());
         mod.setTelefone(celularTextField.getText());
-        cNascimentoTextField.getText();
+        mod.setdNascimento(cNascimento.getPromptText());
         mod.setEmail(emailTextField.getText());
         mod.setCpf(cpfTextField.getText());
         mod.setEndereco(enderecoTextField.getText());
@@ -108,7 +107,10 @@ public class GerenciamentoClienteController {
         mod.setComplemento(complementoTextField.getText());
         mod.setBairro(bairroTextField.getText());
         mod.setCidade(cidadeTextField.getText());
+         mod.setObs(cNascimento.getText());
+        mod.setObs(obsTextField.getText());
         dao.add(mod);
+        
     }
     @FXML
     void inicioButtonAction(ActionEvent event){
