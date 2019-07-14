@@ -105,8 +105,8 @@ public class UsuarioDao {
                 u.setComplemento(rs.getString("complemento"));
                 u.setEndereco(rs.getString("endereco"));
                 u.setN(rs.getString("n"));
-                u.setN(rs.getString("datanascimento"));
-                u.setN(rs.getString("obs"));
+                //u.setN(rs.getString("datanascimento"));
+                //u.setN(rs.getString("obs"));
                 
                 usuarios.add(u);
             }

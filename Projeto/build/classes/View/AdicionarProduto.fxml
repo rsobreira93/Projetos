@@ -51,7 +51,7 @@
       <TextField fx:id="referenciaTextField" layoutX="301.0" layoutY="234.0" prefHeight="25.0" prefWidth="106.0" promptText="Referência" />
       <TextField fx:id="pCustoTextField" layoutX="414.0" layoutY="201.0" prefHeight="25.0" prefWidth="106.0" promptText="Preço de Custo" />
       <TextField fx:id="pVendaTextField" layoutX="301.0" layoutY="201.0" prefHeight="25.0" prefWidth="106.0" promptText="Preço de venda" />
-      <TextField fx:id="quantTextField" layoutX="414.0" layoutY="234.0" prefHeight="25.0" prefWidth="106.0" promptText="Quantidade" />
+      <TextField fx:id="quantTextField" layoutX="414.0" layoutY="234.0" prefHeight="25.0" prefWidth="106.0" promptText="Data da compra" />
       <Button fx:id="inserirEstoqueButton" layoutX="256.0" layoutY="354.0" mnemonicParsing="false" onAction="#inserirEstoqueButtonAction" prefHeight="13.0" prefWidth="175.0" style="-fx-background-color: #850243;" text="Inserir no estoque" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />

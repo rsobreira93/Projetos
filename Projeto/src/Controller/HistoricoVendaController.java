@@ -1,26 +1,38 @@
 package Controller;
 
 import Main.Main;
+import Modelo.ModeloUsuario;
+import Modelo.Produto;
+import Modelo.Venda;
+import ModeloConection.ConnectionFactory;
+import ModeloDao.VendaDao;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 
-public class HistoricoVendaController{
+public class HistoricoVendaController implements Initializable{
+    Venda mod = new Venda();
+    VendaDao dao = new VendaDao();
+    ConnectionFactory con = new ConnectionFactory();
     private Parent nova;
     @FXML
-    private TableColumn<?, ?> descontoColuna;
+    private TableColumn<Venda, Float> descontoColuna;
     @FXML
-    private ImageView inicioImg1;
-    @FXML
-    private TableColumn<?, ?> DataVendaCoulna;
+    private TableColumn<Venda, String> DataVendaCoulna;
     @FXML
     private Button excluirButton;
     @FXML
@@ -28,21 +40,21 @@ public class HistoricoVendaController{
     @FXML
     private Button voltarButton;
     @FXML
-    private TableColumn<?, ?> idColuna;
+    private TableColumn<Venda, Long> idColuna;
     @FXML
-    private TableColumn<?, ?> clienteColuna;
+    private TableColumn<Venda, ModeloUsuario> clienteColuna;
     @FXML
-    private TableColumn<?, ?> produtoColuna;
+    private TableColumn<Venda, Produto> produtoColuna;
     @FXML
-    private TableColumn<?, ?> precoVendaColuna;
+    private TableColumn<Venda, Float> precoVendaColuna;
     @FXML
     private Button inicioButton;
     @FXML
-    private TableView<?> historicoTableView;
+    private TableView<Venda> historicoTableView;
     @FXML
     private Button sairButton;
     @FXML
-    private TableColumn<?, ?> pagamentoColuna;
+    private TableColumn<Venda, Float> pagamentoColuna;
     @FXML
     void sairButtonAction(ActionEvent event){
        
@@ -73,6 +85,25 @@ public class HistoricoVendaController{
     }
     @FXML
     void excluirButtonAction(ActionEvent event){
-        // aqui romulo
+        // aqui romulo 
     }
-}
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        initTable();
+    }
+       public ObservableList<Venda> atualizaTabela(){
+           VendaDao dao = new VendaDao();
+       return FXCollections.observableArrayList(dao.getList());
+    }
+    public void initTable(){
+        idColuna.setCellValueFactory(new PropertyValueFactory("id"));
+        precoVendaColuna.setCellValueFactory(new PropertyValueFactory("precovenda"));
+        descontoColuna.setCellValueFactory(new PropertyValueFactory("descontovenda"));
+        pagamentoColuna.setCellValueFactory(new PropertyValueFactory("formapagamento"));
+        DataVendaCoulna.setCellValueFactory(new PropertyValueFactory("datavenda"));
+        produtoColuna.setCellValueFactory(new PropertyValueFactory("id_prod"));
+        clienteColuna.setCellValueFactory(new PropertyValueFactory("id_cli"));
+        historicoTableView.setItems(atualizaTabela());
+    }
+    }

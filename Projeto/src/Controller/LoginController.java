@@ -1,7 +1,14 @@
 package Controller;
 
 import Main.Main;
+import Modelo.Administrador;
+import ModeloConection.ConexaoBD;
+import ModeloConection.ConnectionFactory;
+import ModeloDao.AdministradorDao;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
@@ -12,8 +19,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import static sun.security.jgss.GSSUtil.login;
 
 public class LoginController {
+    ConexaoBD conBd = new ConexaoBD();
+    Administrador vendedor = new Administrador();
     private Parent nova;
     @FXML
     private Button ButtonNovoUser;
@@ -28,16 +38,28 @@ public class LoginController {
     @FXML
     private PasswordField SenhaPassawordField;
     @FXML
-    void buttonAction(ActionEvent event){   
-        if(LoginTextField.getText().equals("admin") && SenhaPassawordField.getText().equals("123456")){
-            try {
-                  nova= FXMLLoader.load(getClass().getResource("/View/MenuPrincipal.fxml"));
-                  Main.trocarTela(nova);
-            } catch (IOException ex) {
-                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+    void buttonAction(ActionEvent event){
+        
+        /*try {
+            conBd.conexao();
+            conBd.executaSql("SELECT * from usuarios where login = ' "+LoginTextField.getText()+"'");
+            conBd.rs.first();
+            while( conBd.rs.next()){
+                vendedor.setSenha(conBd.rs.getString("senha"));
             }
+            if(vendedor.getSenha().equals(SenhaPassawordField.getText())){*/
+                try {
+                    nova= FXMLLoader.load(getClass().getResource("/View/MenuPrincipal.fxml"));
+                    Main.trocarTela(nova);
+                } catch (IOException ex) {
+                    Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                  
+       /* }
+        } catch (SQLException ex ) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        IncorretoLabel.setText("Login ou senha incorretos");
+        IncorretoLabel.setText("Login ou senha incorretos");*/
     }
     @FXML
     void ButtonNovoUserAction(ActionEvent event){

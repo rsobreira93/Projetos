@@ -1,7 +1,8 @@
-
 package Controller;
-
 import Main.Main;
+import Modelo.Administrador;
+import ModeloConection.ConnectionFactory;
+import ModeloDao.AdministradorDao;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,6 +15,11 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class NovoUserController{
+    
+   Administrador mod = new Administrador();
+   AdministradorDao dao = new AdministradorDao();
+   ConnectionFactory con = new ConnectionFactory();
+    
     private Parent nova;
     @FXML
     private TextField NovoLoginTextField1;
@@ -36,6 +42,9 @@ public class NovoUserController{
     } 
     @FXML
     void ButtonCadastrarAction(ActionEvent event){
-        // é aqui romulo 
+       mod.setLogin(NovoLoginTextField1.getText());
+       mod.setEmail(EmailTextField.getText());
+       mod.setSenha(NovaSenhaPassawordField.getText());
+       dao.add(mod);
     }
 }

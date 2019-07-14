@@ -1,7 +1,5 @@
 package Modelo;
 
-import java.util.Date;
-
 /**
  *
  * @author Romulo Sobreira
@@ -176,4 +174,10 @@ public class ModeloUsuario {
     public void setEmail(String email) {
         this.email = email;
     }   
+
+    @Override
+    public String toString() {
+        return getNome();
+    }
+    
 }

@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.SimpleEmail;
@@ -19,7 +20,11 @@ public class Main extends Application{
         Scene teste = new Scene(TesteFXML);
         StagePrincipal.setScene(teste);
         StagePrincipal.setTitle("Anamary");
-        //stage.setResizable(false);
+        StagePrincipal.setResizable(false);
+        StagePrincipal.setMinHeight(400);
+        StagePrincipal.setMinWidth(700);
+        Image image = new Image("/icons/AnamaryLogo2.png");
+        StagePrincipal.getIcons().add(image);
         stage = StagePrincipal;
         StagePrincipal.show();
     }

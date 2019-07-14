@@ -17,10 +17,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class GerenciamentoClienteController {
-    
    ModeloUsuario mod = new ModeloUsuario();
    UsuarioDao dao = new UsuarioDao();
-    ConnectionFactory con = new ConnectionFactory();
+   ConnectionFactory con = new ConnectionFactory();
     @FXML
     private TextField cNascimento;
     private Parent nova;
@@ -99,7 +98,7 @@ public class GerenciamentoClienteController {
     void cadastrarButtonAction(ActionEvent event){
         mod.setNome(nomeTextField.getText());
         mod.setTelefone(celularTextField.getText());
-        mod.setdNascimento(cNascimento.getPromptText());
+        mod.setdNascimento(cNascimento.getText());
         mod.setEmail(emailTextField.getText());
         mod.setCpf(cpfTextField.getText());
         mod.setEndereco(enderecoTextField.getText());
@@ -107,7 +106,7 @@ public class GerenciamentoClienteController {
         mod.setComplemento(complementoTextField.getText());
         mod.setBairro(bairroTextField.getText());
         mod.setCidade(cidadeTextField.getText());
-         mod.setObs(cNascimento.getText());
+        mod.setObs(obsTextField.getText());
         mod.setObs(obsTextField.getText());
         dao.add(mod);
         
