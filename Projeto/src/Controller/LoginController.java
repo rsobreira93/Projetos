@@ -19,11 +19,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javax.swing.JOptionPane;
 import static sun.security.jgss.GSSUtil.login;
 
 public class LoginController {
-    ConexaoBD conBd = new ConexaoBD();
     Administrador vendedor = new Administrador();
+    AdministradorDao vendedorDao= new AdministradorDao();
     private Parent nova;
     @FXML
     private Button ButtonNovoUser;
@@ -39,27 +40,14 @@ public class LoginController {
     private PasswordField SenhaPassawordField;
     @FXML
     void buttonAction(ActionEvent event){
-        
-        /*try {
-            conBd.conexao();
-            conBd.executaSql("SELECT * from usuarios where login = ' "+LoginTextField.getText()+"'");
-            conBd.rs.first();
-            while( conBd.rs.next()){
-                vendedor.setSenha(conBd.rs.getString("senha"));
-            }
-            if(vendedor.getSenha().equals(SenhaPassawordField.getText())){*/
-                try {
-                    nova= FXMLLoader.load(getClass().getResource("/View/MenuPrincipal.fxml"));
-                    Main.trocarTela(nova);
-                } catch (IOException ex) {
-                    Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                vendedor= vendedorDao.validar(LoginTextField.getText());
+                if(vendedor.getSenha().equals(SenhaPassawordField.getText())){
+                    mudarTela();
                 }
-                  
-       /* }
-        } catch (SQLException ex ) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        IncorretoLabel.setText("Login ou senha incorretos");*/
+                else{
+                    JOptionPane.showMessageDialog(null, "Login ou senha incorretos");
+                    //IncorretoLabel.setText("Login ou senha incorretos");
+                }
     }
     @FXML
     void ButtonNovoUserAction(ActionEvent event){
@@ -78,5 +66,13 @@ public class LoginController {
             } catch (IOException ex) {
                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
+    }
+    public void mudarTela(){
+        try {
+            nova= FXMLLoader.load(getClass().getResource("/View/MenuPrincipal.fxml"));
+            Main.trocarTela(nova);
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

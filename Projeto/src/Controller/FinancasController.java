@@ -115,29 +115,21 @@ public class FinancasController implements Initializable{
                    doc.add(logo);
                    Paragraph cabecalho = new Paragraph("RELATÓRIO DE VENDAS");
                    cabecalho.setAlignment(Element.ALIGN_CENTER);
-                   doc.add(cabecalho);
                    doc.add(new Paragraph("                  "));
                    doc.add(new Paragraph("                  "));
                    
                    Paragraph vGeral = new Paragraph("VISÃO GERAL");
                    vGeral.setAlignment(Element.ALIGN_CENTER);
-                   doc.add(vGeral);
                    doc.add(new Paragraph("                  "));
                    doc.add(new Paragraph("Valor total: R$0,00"));
-                   doc.add(new Paragraph("                  "));
                    doc.add(new Paragraph("Quantidade de vendas: 0"));
-                   doc.add(new Paragraph("                  "));
                    doc.add(new Paragraph("Média das vendas: R$0,00"));
-                   doc.add(new Paragraph("                  "));
                    doc.add(new Paragraph("Lucro Estimado: R$0,00"));
-                   doc.add(new Paragraph("                  "));
                    doc.add(new Paragraph("Produto mais vendido: Nenhum produto foi vendido"));
                    doc.add(new Paragraph("                  "));
                    doc.add(new Paragraph("                  "));
                    
                    Paragraph historico = new Paragraph("HISTÓRICO");
-                   historico.setAlignment(Element.ALIGN_CENTER);
-                   doc.add(historico);
                    doc.add(new Paragraph("                  "));
                    PdfPTable tabela = new PdfPTable (3);
                    PdfPCell col1 = new PdfPCell(new Paragraph("Nome"));

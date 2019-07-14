@@ -17,7 +17,7 @@ public class ConexaoBD {
         System.setProperty("jdbc.Drivers", driver);
         try {
             con = DriverManager.getConnection(caminho, usuario, senha);
-            JOptionPane.showMessageDialog(null, "Conectado com sucesso ao BD");
+            //JOptionPane.showMessageDialog(null, "Conectado com sucesso ao BD");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao conectar com o BD\n"+ex.getMessage());
         }

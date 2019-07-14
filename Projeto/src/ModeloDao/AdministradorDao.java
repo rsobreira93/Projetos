@@ -6,13 +6,17 @@
 package ModeloDao;
 
 import Modelo.Administrador;
+import ModeloConection.ConexaoBD;
 import ModeloConection.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,7 +25,7 @@ import javax.swing.JOptionPane;
  */
 public class AdministradorDao {
     private Connection con;
-    
+    ConexaoBD conBd = new ConexaoBD();    
     public AdministradorDao(){
         this.con = new ConnectionFactory().getConnection();
     }
@@ -88,4 +92,19 @@ public class AdministradorDao {
         }
         return usuarios;
     }
+   public Administrador validar(String login){
+       Administrador vendedor = new Administrador();
+            try {
+            conBd.conexao();
+            conBd.executaSql("SELECT * from usuarios where login = '"+login+"';");
+                conBd.rs.first();
+            vendedor.setLogin(conBd.rs.getString("login"));
+            vendedor.setEmail(conBd.rs.getString("email"));
+            vendedor.setSenha(conBd.rs.getString("senha"));
+            return vendedor;
+        } catch (SQLException ex) {
+            Logger.getLogger(AdministradorDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null ;
+   }
 }

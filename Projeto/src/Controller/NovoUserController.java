@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javax.swing.JOptionPane;
 
 public class NovoUserController{
     
@@ -42,9 +43,15 @@ public class NovoUserController{
     } 
     @FXML
     void ButtonCadastrarAction(ActionEvent event){
-       mod.setLogin(NovoLoginTextField1.getText());
-       mod.setEmail(EmailTextField.getText());
-       mod.setSenha(NovaSenhaPassawordField.getText());
-       dao.add(mod);
+      mod=dao.validar(EmailTextField.getText());
+       if(mod.getLogin().equals(NovoLoginTextField1.getText())){
+         JOptionPane.showMessageDialog(null, "O e-mail informado já pertecem a algum usuário! \nPor favor, informe um novo e-mail");
+       }
+       else{
+        mod.setLogin(NovoLoginTextField1.getText());
+        mod.setEmail(EmailTextField.getText());
+        mod.setSenha(NovaSenhaPassawordField.getText());
+        dao.add(mod);
+       }
     }
 }

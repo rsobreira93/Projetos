@@ -48,7 +48,7 @@ public class Main extends Application{
         }
         return 0;
 }  
-    public static void emailEsqueciSenha(String emailUser, int novaSenha){
+    public static void emailEsqueciSenha(String emailUser, String novaSenha){
         String email= "sistemanamay@gmail.com";
         String senha="anamary12";
         SimpleEmail meuEmail= new SimpleEmail();
