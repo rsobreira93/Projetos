@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Auxiliares;
+package Controller;
 
 import javafx.application.Application;
+import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,7 +16,7 @@ import javafx.stage.Stage;
  *
  * @author Romulo Sobreira
  */
-public class GerenciamentoVendas extends Application{
+public class GerenciamentoVendasProdutos extends Application{
     private static Stage stage;
     
     public static void main(String[] args){
@@ -25,7 +26,7 @@ public class GerenciamentoVendas extends Application{
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("view/Financas.fxml"));
         Scene scene = new Scene(root);
-        stage.setTitle("Gerenciamento de  vendas");
+        stage.setTitle("Gerenciamento de vendas produtos");
         stage.setScene(scene);
         stage.show();
         setStage(stage);
@@ -35,7 +36,7 @@ public class GerenciamentoVendas extends Application{
         return stage;
     }
     public static void setStage(Stage stage){
-        GerenciamentoVendas.stage = stage;
+        GerenciamentoVendasProdutos.stage = stage;
     }
     
 }

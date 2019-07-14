@@ -1,4 +1,4 @@
-package Controller;
+package Auxiliares;
 
 import Modelo.ModeloUsuario;
 import ModeloDao.UsuarioDao;

@@ -5,7 +5,7 @@
 package Controller;
 
 import Main.Main;
-import Modelo.ListarCliente;
+import Auxiliares.ListarCliente;
 import Modelo.ModeloUsuario;
 import ModeloConection.ConnectionFactory;
 import ModeloDao.UsuarioDao;
@@ -21,7 +21,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import static javafx.fxml.FXMLLoader.load;
+
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

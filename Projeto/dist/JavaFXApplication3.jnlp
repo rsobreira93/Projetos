@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="JavaFXApplication3.jar" size="2543085" download="eager" />
+    <jar href="JavaFXApplication3.jar" size="2547697" download="eager" />
     <jar href="lib\commons-email-1.5.jar" size="54495" download="eager" />
     <jar href="lib\itext-5.0.5.jar" size="1599728" download="eager" />
     <jar href="lib\mail.jar" size="434812" download="eager" />

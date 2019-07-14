@@ -1,8 +1,7 @@
 package Controller;
 
 import Main.Main;
-import Modelo.ListarProduto;
-import Modelo.ModeloUsuario;
+import Auxiliares.ListarProduto;
 import Modelo.Produto;
 import ModeloDao.ProdutoDao;
 import java.io.IOException;
