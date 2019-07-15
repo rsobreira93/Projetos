@@ -4,6 +4,7 @@ import Modelo.Administrador;
 import ModeloConection.ConnectionFactory;
 import ModeloDao.AdministradorDao;
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
@@ -16,7 +17,7 @@ import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 
 public class NovoUserController{
-    
+   Administrador vendedor = new Administrador();
    Administrador mod = new Administrador();
    AdministradorDao dao = new AdministradorDao();
    ConnectionFactory con = new ConnectionFactory();
@@ -43,15 +44,34 @@ public class NovoUserController{
     } 
     @FXML
     void ButtonCadastrarAction(ActionEvent event){
-      mod=dao.validar(EmailTextField.getText());
-       if(mod.getLogin().equals(NovoLoginTextField1.getText())){
-         JOptionPane.showMessageDialog(null, "O e-mail informado já pertecem a algum usuário! \nPor favor, informe um novo e-mail");
-       }
-       else{
+       /* vendedor=dao.validar(NovoLoginTextField1.getText());
+       if(vendedor.getLogin().equals(EmailTextField.getText())){
+        JOptionPane.showMessageDialog(null, "O e-mail informado já pertecem a algum usuário! \nPor favor, informe um novo e-mail");
+      }else{
         mod.setLogin(NovoLoginTextField1.getText());
         mod.setEmail(EmailTextField.getText());
         mod.setSenha(NovaSenhaPassawordField.getText());
         dao.add(mod);
-       }
+       }*/
+        
+        int x;
+               List<Administrador> administrador = dao.getList();
+               for(x=0; x< administrador.size();x++){
+                 if(EmailTextField.getText().equals(administrador.get(x).getLogin())){
+                    x= administrador.size();
+                     JOptionPane.showMessageDialog(null, "Login ou senha incorretos");
+                  }else {
+                   if(x == administrador.size()-1){
+                       mod.setLogin(NovoLoginTextField1.getText());
+                       mod.setEmail(EmailTextField.getText());
+                       mod.setSenha(NovaSenhaPassawordField.getText());
+                       dao.add(mod);
+                   }
+                 }
+               }
     }
 }
+               
+
+        
+

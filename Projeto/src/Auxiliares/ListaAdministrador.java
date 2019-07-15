@@ -16,7 +16,7 @@ import javafx.stage.Stage;
  *
  * @author Romulo Sobreira
  */
-public class GerenciamentoVendasProdutos extends Application{
+public class ListaAdministrador extends Application{
     private static Stage stage;
     
     public static void main(String[] args){
@@ -24,9 +24,9 @@ public class GerenciamentoVendasProdutos extends Application{
     }
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("view/Financas.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("view/ContaUser.fxml"));
         Scene scene = new Scene(root);
-        stage.setTitle("Gerenciamento de vendas produtos");
+        stage.setTitle("Listar administradores");
         stage.setScene(scene);
         stage.show();
         setStage(stage);
@@ -36,7 +36,7 @@ public class GerenciamentoVendasProdutos extends Application{
         return stage;
     }
     public static void setStage(Stage stage){
-        GerenciamentoVendasProdutos.stage = stage;
+        ListaAdministrador.stage = stage;
     }
     
 }

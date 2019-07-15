@@ -60,14 +60,14 @@ public class AdministradorDao {
     }
    public boolean delete(Administrador u){
         try {
-            String sql = "DELETE FROM usuarios WHERE id = ?";
+            String sql = "DELETE FROM usuarios WHERE login = ?";
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, u.getLogin());
             stmt.execute();
-            JOptionPane.showMessageDialog(null, "Usuário excluido com sucesso!");
+            JOptionPane.showMessageDialog(null, "Administrador excluido com sucesso!");
             return true;
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao excluir Usuário!\n"+ex.getMessage()); 
+            JOptionPane.showMessageDialog(null, "Erro ao excluir Administrador!\n"+ex.getMessage()); 
             return false;
         }
     }
@@ -81,12 +81,14 @@ public class AdministradorDao {
                 Administrador u  = new Administrador();
                 u.setLogin(rs.getString("login"));//Essa string é de acordo com o nome da coluna no BD
                 u.setEmail(rs.getString("email")); 
+                u.setSenha(rs.getString("senha"));
                 usuarios.add(u);
             }
             stmt.close();
             rs.close();
             con.close();
         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Deu erro na lista");
             ex.printStackTrace();
             return null;
         }
@@ -97,14 +99,17 @@ public class AdministradorDao {
             try {
             conBd.conexao();
             conBd.executaSql("SELECT * from usuarios where login = '"+login+"';");
-                conBd.rs.first();
-            vendedor.setLogin(conBd.rs.getString("login"));
-            vendedor.setEmail(conBd.rs.getString("email"));
-            vendedor.setSenha(conBd.rs.getString("senha"));
-            return vendedor;
+            conBd.rs.first();
+            //while(conBd.rs.next()){
+             vendedor.setLogin(conBd.rs.getString("login"));
+             vendedor.setEmail(conBd.rs.getString("email"));
+             vendedor.setSenha(conBd.rs.getString("senha"));
+            //}
+            con.close(); 
         } catch (SQLException ex) {
             Logger.getLogger(AdministradorDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null ;
+        
+        return vendedor;
    }
 }

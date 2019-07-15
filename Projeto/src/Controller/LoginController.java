@@ -2,13 +2,9 @@ package Controller;
 
 import Main.Main;
 import Modelo.Administrador;
-import ModeloConection.ConexaoBD;
-import ModeloConection.ConnectionFactory;
 import ModeloDao.AdministradorDao;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
@@ -20,7 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
-import static sun.security.jgss.GSSUtil.login;
+
 
 public class LoginController {
     Administrador vendedor = new Administrador();
@@ -40,14 +36,18 @@ public class LoginController {
     private PasswordField SenhaPassawordField;
     @FXML
     void buttonAction(ActionEvent event){
-                vendedor= vendedorDao.validar(LoginTextField.getText());
-                if(vendedor.getSenha().equals(SenhaPassawordField.getText())){
-                    mudarTela();
-                }
-                else{
-                    JOptionPane.showMessageDialog(null, "Login ou senha incorretos");
-                    //IncorretoLabel.setText("Login ou senha incorretos");
-                }
+               
+        vendedor = vendedorDao.validar(LoginTextField.getText());
+               
+                 if(SenhaPassawordField.getText().equals(vendedor.getSenha())){
+    
+                     mudarTela();
+                  }else {
+                   
+                       JOptionPane.showMessageDialog(null, "Login ou senha incorretos");
+                   
+                 }
+                              
     }
     @FXML
     void ButtonNovoUserAction(ActionEvent event){

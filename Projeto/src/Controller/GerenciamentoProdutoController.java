@@ -186,7 +186,4 @@ public class GerenciamentoProdutoController implements Initializable{
             }
             return produtoPesquisa;
     }
-    public void somaCusto(){
-
-    }
 }
