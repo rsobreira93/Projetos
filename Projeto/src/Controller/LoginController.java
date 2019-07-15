@@ -38,21 +38,17 @@ public class LoginController {
     void buttonAction(ActionEvent event){
                
         vendedor = vendedorDao.validar(LoginTextField.getText());
-               
                  if(SenhaPassawordField.getText().equals(vendedor.getSenha())){
-    
                      mudarTela();
                   }else {
-                   
                        JOptionPane.showMessageDialog(null, "Login ou senha incorretos");
-                   
                  }
                               
     }
     @FXML
     void ButtonNovoUserAction(ActionEvent event){
         try {
-                 nova= FXMLLoader.load(getClass().getResource("/View/NovoUser.fxml"));
+            nova= FXMLLoader.load(getClass().getResource("/View/NovoUser.fxml"));
             Main.trocarTela(nova);
             } catch (IOException ex) {
                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);

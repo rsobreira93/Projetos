@@ -44,22 +44,12 @@ public class NovoUserController{
     } 
     @FXML
     void ButtonCadastrarAction(ActionEvent event){
-       /* vendedor=dao.validar(NovoLoginTextField1.getText());
-       if(vendedor.getLogin().equals(EmailTextField.getText())){
-        JOptionPane.showMessageDialog(null, "O e-mail informado já pertecem a algum usuário! \nPor favor, informe um novo e-mail");
-      }else{
-        mod.setLogin(NovoLoginTextField1.getText());
-        mod.setEmail(EmailTextField.getText());
-        mod.setSenha(NovaSenhaPassawordField.getText());
-        dao.add(mod);
-       }*/
-        
-        int x;
+              int x;
                List<Administrador> administrador = dao.getList();
                for(x=0; x< administrador.size();x++){
-                 if(EmailTextField.getText().equals(administrador.get(x).getLogin())){
+                 if(NovoLoginTextField1.getText().equals(administrador.get(x).getLogin()) || EmailTextField.getText().equals(administrador.get(x).getEmail())){
                     x= administrador.size();
-                     JOptionPane.showMessageDialog(null, "Login ou senha incorretos");
+                     JOptionPane.showMessageDialog(null, "Login ou e-mail já percetem a algum usuário já cadastrado");
                   }else {
                    if(x == administrador.size()-1){
                        mod.setLogin(NovoLoginTextField1.getText());
@@ -69,6 +59,12 @@ public class NovoUserController{
                    }
                  }
                }
+               if(administrador == null){
+                       mod.setLogin(NovoLoginTextField1.getText());
+                       mod.setEmail(EmailTextField.getText());
+                       mod.setSenha(NovaSenhaPassawordField.getText());
+                       dao.add(mod);
+                  }
     }
 }
                

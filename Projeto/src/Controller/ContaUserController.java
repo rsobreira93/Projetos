@@ -55,6 +55,7 @@ public class ContaUserController implements Initializable{
     private Button sairButton;
     @FXML
     private Button buscarButton;
+    private boolean confirmacao=false;
     
     private Administrador selecionada; 
     ObservableList<Administrador> admins = FXCollections.observableArrayList();
@@ -70,7 +71,9 @@ public class ContaUserController implements Initializable{
         excluirButton.setOnMouseClicked((MouseEvent e ) -> {
             deletar();
         });
-        
+       
+        tableView.getSelectionModel().selectedItemProperty().addListener(
+        (observable, oldValue, newValue) -> mostrarDados((newValue))); 
         tableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
@@ -101,7 +104,7 @@ public class ContaUserController implements Initializable{
         try{
             p.start(new Stage());
         }catch(Exception ex){
-            Logger.getLogger(MeusClientesController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ContaUserController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     @FXML
@@ -119,7 +122,19 @@ public class ContaUserController implements Initializable{
     }
     @FXML
     void atualizarButtonAction(ActionEvent event){
-        // é aqui romulo
+        if(selecionada != null){
+                AdministradorDao dao = new AdministradorDao();
+                //novoLoginTextField.setText(selecionada.getLogin());
+                //novaSenhaPasswordField.setText(selecionada.getSenha());
+                selecionada.setLogin(novoLoginTextField.getText());
+                selecionada.setSenha(novaSenhaPasswordField.getText());
+                dao.update(selecionada);
+                tableView.setItems(atualizaTabela());
+            }else{
+                Alert a = new Alert(Alert.AlertType.WARNING);
+                a.setHeaderText("Selecione um Administrador");
+                a.show();
+            }
     }
     @FXML
     void buscarButtonAction(ActionEvent event){
@@ -157,6 +172,10 @@ public class ContaUserController implements Initializable{
                 }
             }
             return pesquisa;
+        }
+        public void mostrarDados(Administrador adm){
+            novoLoginTextField.setText(adm.getLogin());
+            novaSenhaPasswordField.setText(adm.getSenha());
         }
     
 }

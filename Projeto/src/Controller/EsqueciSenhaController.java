@@ -3,9 +3,7 @@ package Controller;
 import Main.Main;
 import Modelo.Administrador;
 import ModeloDao.AdministradorDao;
-import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.String;
 import java.io.IOException;
-import static java.sql.Types.NULL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
@@ -16,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import java.util.Random;
+import javax.swing.JOptionPane;
 public class EsqueciSenhaController{
     Administrador vendedor = new Administrador();
     AdministradorDao vendedorDao= new AdministradorDao();
@@ -30,17 +29,38 @@ public class EsqueciSenhaController{
     private Button ButtonCancelar;
     @FXML
     void ButtonRecuperarAction(ActionEvent event){
-        vendedor= vendedorDao.validar(EmailTextField.getText());
-        System.out.println(vendedor);
-        if(vendedor.getEmail().equals(EmailTextField.getText())){
-           Random novaSenha = new Random();
-           vendedor.setSenha("anamary");
-           vendedorDao.update(vendedor);
-           Main.emailEsqueciSenha("jvyctor12@gmail.com", vendedor.getSenha());
-            IncorretoLabel.setText("Sua nova senha foi enviada para seu e-mail");
-      }
-        else
-            IncorretoLabel.setText("Esse e-mail não pertence a nenhum usuário");
+                 vendedor = vendedorDao.validar(EmailTextField.getText());
+                 System.out.println(vendedor.getLogin());
+                 System.out.println(vendedor.getSenha());
+                 if(EmailTextField.getText().equals(vendedor.getEmail())){
+                     Random novaSenha = new Random();
+                     vendedor.setSenha("a"+novaSenha.nextInt());
+                     vendedorDao.update(vendedor);
+                     Main.emailEsqueciSenha(vendedor.getEmail(), vendedor.getSenha());
+                    JOptionPane.showMessageDialog(null, "Sua nova senha foi enviada para seu e-mail");
+                  }else {
+                       JOptionPane.showMessageDialog(null, "Esse e-mail não pertence a nenhum usuário");
+                 }
+               /*int x;
+               List<Administrador> administrador =vendedorDao.getList();
+                for(x=0; x< administrador.size();x++){
+                if(EmailTextField.getText().equals(administrador.get(x).getEmail())){
+                    x= administrador.size();
+                    Random novaSenha = new Random();
+                    administrador.get(x).setSenha("anamary"+novaSenha);
+                    vendedor.setLogin(administrador.get(x).getLogin());
+                    vendedor.setEmail(administrador.get(x).getEmail());
+                    vendedor.setSenha(administrador.get(x).getSenha());
+                    vendedorDao.update(vendedor);
+                    Main.emailEsqueciSenha(vendedor.getEmail(), vendedor.getSenha());
+                    JOptionPane.showMessageDialog(null, "Sua nova senha foi enviada para seu e-mail");
+                  }else {
+                   if(x == administrador.size()-1){
+                      JOptionPane.showMessageDialog(null, "Esse e-mail não pertence a nenhum usuário"); 
+                   }
+                 }
+                }
+                JOptionPane.showMessageDialog(null, "Esse e-mail não pertence a nenhum usuário");*/
     }
     @FXML
     void ButtonCancelarAction(ActionEvent event){

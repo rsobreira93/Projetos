@@ -166,7 +166,7 @@ public class MeusClientesController implements Initializable{
             if(cliente != null){  
             try{
               boolean buttonConfirmarClicked = telaAlterarCliente(cliente);
-            if (buttonConfirmarClicked) {
+            if (buttonConfirmarClicked){
                 control.update(cliente);
                 initTable();
             }

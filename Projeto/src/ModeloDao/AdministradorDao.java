@@ -46,7 +46,7 @@ public class AdministradorDao {
     }
    public boolean update(Administrador u){
         try {
-            String sql = "UPDATE usuarios SET login = ?, senha = ?, WHERE id = ?;";
+            String sql = "UPDATE usuarios SET login = ?, senha = ?;";
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, u.getLogin());
             stmt.setString(2, u.getSenha());
@@ -86,7 +86,6 @@ public class AdministradorDao {
             }
             stmt.close();
             rs.close();
-            con.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Deu erro na lista");
             ex.printStackTrace();
@@ -96,16 +95,15 @@ public class AdministradorDao {
     }
    public Administrador validar(String login){
        Administrador vendedor = new Administrador();
+            String sql = "SELECT * from usuarios where login = '"+login+"' or email ='"+login+"';";
             try {
-            conBd.conexao();
-            conBd.executaSql("SELECT * from usuarios where login = '"+login+"';");
-            conBd.rs.first();
-            //while(conBd.rs.next()){
-             vendedor.setLogin(conBd.rs.getString("login"));
-             vendedor.setEmail(conBd.rs.getString("email"));
-             vendedor.setSenha(conBd.rs.getString("senha"));
-            //}
-            con.close(); 
+                PreparedStatement stmt = con.prepareStatement(sql);
+                ResultSet rs = stmt.executeQuery();
+                while(rs.next()){
+                    vendedor.setLogin(rs.getString("login"));
+                    vendedor.setEmail(rs.getString("email"));
+                    vendedor.setSenha(rs.getString("senha"));
+            }
         } catch (SQLException ex) {
             Logger.getLogger(AdministradorDao.class.getName()).log(Level.SEVERE, null, ex);
         }
