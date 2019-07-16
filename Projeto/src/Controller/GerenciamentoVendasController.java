@@ -35,6 +35,13 @@ public class GerenciamentoVendasController implements Initializable{
     UsuarioDao dao = new UsuarioDao();
     ProdutoDao d = new ProdutoDao();
     private Parent nova;
+    
+    @FXML
+    private Button carrinhoButton;
+    
+    @FXML
+    private ComboBox<?> carrinhoBomboBox;
+      
     @FXML
     private TextField pagamentoTextField;
     @FXML
@@ -134,6 +141,10 @@ public class GerenciamentoVendasController implements Initializable{
             } catch (IOException ex) {
                 Logger.getLogger(GerenciamentoVendasController.class.getName()).log(Level.SEVERE, null, ex);
             }
+    }
+    @FXML
+    void carrinhoButtonAction(ActionEvent event) {
+        //aqui Romulo
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {

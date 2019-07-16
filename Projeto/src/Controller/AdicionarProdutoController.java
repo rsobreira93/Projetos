@@ -32,6 +32,9 @@ public class AdicionarProdutoController implements Initializable{
     
     private Parent nova;
     @FXML
+    private TextField dataTextField;
+    
+    @FXML
     private ImageView inicioImg;
 
     @FXML

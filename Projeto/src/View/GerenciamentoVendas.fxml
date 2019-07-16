@@ -42,32 +42,43 @@
             </ImageView>
          </graphic>
       </Button>
-      <ImageView fitHeight="120.0" fitWidth="219.0" layoutX="250.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="120.0" fitWidth="219.0" layoutX="228.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icons/Anamary%20logo.png" />
          </image>
       </ImageView>
-      <ComboBox fx:id="referenciaProdutoComboBox" layoutX="175.0" layoutY="226.0" prefHeight="25.0" prefWidth="355.0" promptText="Produto" style="-fx-background-color: #A014;">
+      <ComboBox fx:id="referenciaProdutoComboBox" layoutX="153.0" layoutY="222.0" prefHeight="25.0" prefWidth="248.0" promptText="Produto" style="-fx-background-color: #A014;">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>
-      <ComboBox fx:id="idClienteComboBox1" layoutX="175.0" layoutY="257.0" prefHeight="25.0" prefWidth="355.0" promptText="Cliente" style="-fx-background-color: #A014;">
+      <ComboBox fx:id="idClienteComboBox1" layoutX="153.0" layoutY="253.0" prefHeight="25.0" prefWidth="355.0" promptText="Cliente" style="-fx-background-color: #A014;">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>
-      <TextField fx:id="precoVendaTextField" layoutX="175.0" layoutY="295.0" prefHeight="25.0" prefWidth="173.0" promptText="Preço de venda" />
-      <TextField fx:id="pagamentoTextField" layoutX="357.0" layoutY="295.0" prefHeight="25.0" prefWidth="173.0" promptText="Forma de pagamento" />
-      <TextField fx:id="descontoTextField" layoutX="175.0" layoutY="329.0" prefHeight="25.0" prefWidth="173.0" promptText="Desconto" />
-      <DatePicker fx:id="dataVendaDatePicker" layoutX="357.0" layoutY="329.0" promptText="Data da venda" />
-      <Button fx:id="registrarVendaButton" layoutX="210.0" layoutY="363.0" mnemonicParsing="false" onAction="#registrarVendaButtonAction" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #850243;" text="Registrar venda" textFill="WHITE">
+      <TextField fx:id="precoVendaTextField" layoutX="153.0" layoutY="291.0" prefHeight="25.0" prefWidth="173.0" promptText="Preço de venda" />
+      <TextField fx:id="pagamentoTextField" layoutX="335.0" layoutY="291.0" prefHeight="25.0" prefWidth="173.0" promptText="Forma de pagamento" />
+      <TextField fx:id="descontoTextField" layoutX="153.0" layoutY="325.0" prefHeight="25.0" prefWidth="173.0" promptText="Desconto" />
+      <DatePicker fx:id="dataVendaDatePicker" layoutX="335.0" layoutY="325.0" promptText="Data da venda" />
+      <Button fx:id="registrarVendaButton" layoutX="188.0" layoutY="359.0" mnemonicParsing="false" onAction="#registrarVendaButtonAction" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #850243;" text="Registrar venda" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="historicoButton" layoutX="394.0" layoutY="363.0" mnemonicParsing="false" onAction="#historicoButtonAction" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #850243;" text="Exibir histórico" textFill="WHITE">
+      <Button fx:id="historicoButton" layoutX="372.0" layoutY="359.0" mnemonicParsing="false" onAction="#historicoButtonAction" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #850243;" text="Exibir histórico" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Button fx:id="carrinhoButton" layoutX="413.0" layoutY="222.0" mnemonicParsing="false" onAction="#carrinhoButtonAction" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #850243;" text="Adicionar " textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <ImageView fitHeight="52.0" fitWidth="41.0" layoutX="617.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/carrinho.png" />
+         </image>
+      </ImageView>
+      <ComboBox fx:id="carrinhoBomboBox" layoutX="586.0" layoutY="121.0" prefHeight="25.0" prefWidth="103.0" promptText="Carrinho" style="-fx-background-color: #A014;" />
    </children>
 </AnchorPane>
