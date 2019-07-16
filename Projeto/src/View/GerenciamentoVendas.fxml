@@ -74,11 +74,16 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <ImageView fitHeight="52.0" fitWidth="41.0" layoutX="617.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="52.0" fitWidth="41.0" layoutX="599.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icons/carrinho.png" />
          </image>
       </ImageView>
-      <ComboBox fx:id="carrinhoBomboBox" layoutX="586.0" layoutY="121.0" prefHeight="25.0" prefWidth="103.0" promptText="Carrinho" style="-fx-background-color: #A014;" />
+      <ListView fx:id="carrinhoList" layoutX="554.0" layoutY="122.0" prefHeight="113.0" prefWidth="131.0" />
+      <Button fx:id="removerCarrinhoButton" layoutX="587.0" layoutY="241.0" mnemonicParsing="false" onAction="#removerCarrinhoButtonAction" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: #850243;" text="Remover" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>

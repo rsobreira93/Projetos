@@ -25,6 +25,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 public class GerenciamentoVendasController implements Initializable{  
@@ -40,7 +41,10 @@ public class GerenciamentoVendasController implements Initializable{
     private Button carrinhoButton;
     
     @FXML
-    private ComboBox<?> carrinhoBomboBox;
+    private ListView<?> carrinhoList;
+    
+    @FXML
+    private Button removerCarrinhoButton;
       
     @FXML
     private TextField pagamentoTextField;
@@ -144,6 +148,10 @@ public class GerenciamentoVendasController implements Initializable{
     }
     @FXML
     void carrinhoButtonAction(ActionEvent event) {
+        //aqui Romulo
+    }
+    @FXML
+    void removerCarrinhoButtonAction(ActionEvent event) {
         //aqui Romulo
     }
     @Override
