@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 
 public class AlterarClientController{
     private Parent nova;
@@ -92,6 +93,11 @@ public class AlterarClientController{
     } 
     @FXML
     void atualizarButtonAction(ActionEvent event){
+        if(nomeTextField.getText().isEmpty() ||
+           celularTextField.getText().isEmpty() ||
+           enderecoTextField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Todos os campos obrigatórios devem está preenchidos");
+        }else {
         cliente.setNome(nomeTextField.getText());
         cliente.setTelefone(celularTextField.getText());
         cNascimentoTextField.getText();
@@ -104,8 +110,8 @@ public class AlterarClientController{
         cliente.setCidade(cidadeTextField.getText());
         cliente.setdNascimento (cNascimentoTextField.getText());
         cliente.setObs(obsTextField.getText());
-        
         buttonConfimar=true;
         dialogStage.close();
+        }
     }
 }

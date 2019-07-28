@@ -44,6 +44,9 @@ public class NovoUserController{
     } 
     @FXML
     void ButtonCadastrarAction(ActionEvent event){
+        if(NovoLoginTextField1.getText().isEmpty() || EmailTextField.getText().isEmpty() || NovoLoginTextField1.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios");
+        }else{
               int x;
                List<Administrador> administrador = dao.getList();
                for(x=0; x< administrador.size();x++){
@@ -66,6 +69,7 @@ public class NovoUserController{
                        dao.add(mod);
                   }
     }
+   }
 }
                
 

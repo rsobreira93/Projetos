@@ -36,13 +36,17 @@ public class LoginController {
     private PasswordField SenhaPassawordField;
     @FXML
     void buttonAction(ActionEvent event){
-               
-        vendedor = vendedorDao.validar(LoginTextField.getText());
+
+        if(SenhaPassawordField.getText().isEmpty() || LoginTextField.getText().isEmpty()){  
+           JOptionPane.showMessageDialog(null, "Login e senha são campos obrigatórios");
+        }else {
+            vendedor = vendedorDao.validar(LoginTextField.getText());
                  if(SenhaPassawordField.getText().equals(vendedor.getSenha())){
                      mudarTela();
                   }else {
                        JOptionPane.showMessageDialog(null, "Login ou senha incorretos");
                  }
+        }
                               
     }
     @FXML

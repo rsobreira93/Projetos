@@ -31,6 +31,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 
 public class GerenciamentoProdutoController implements Initializable{
 
@@ -125,7 +126,11 @@ public class GerenciamentoProdutoController implements Initializable{
     }
     @FXML
     void buscarButtonAction(ActionEvent event){
+        if(buscarTextField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Informe um produto");
+        }else{
         tableView.setItems(busca());
+        }
     }
     @FXML
     void excluirButtonAction(ActionEvent event){

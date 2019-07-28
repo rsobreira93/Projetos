@@ -47,12 +47,12 @@
             <Image url="@../icons/Anamary%20logo.png" />
          </image>
       </ImageView>
-      <TextField fx:id="nomeProdutoTextField" layoutX="183.0" layoutY="268.0" prefHeight="25.0" prefWidth="339.0" promptText="Nome do produto" />
+      <TextField fx:id="nomeProdutoTextField" layoutX="183.0" layoutY="268.0" prefHeight="25.0" prefWidth="225.0" promptText="Nome do produto" />
       <TextField fx:id="referenciaTextField" layoutX="301.0" layoutY="234.0" prefHeight="25.0" prefWidth="106.0" promptText="Referência" />
       <TextField fx:id="pCustoTextField" layoutX="414.0" layoutY="201.0" prefHeight="25.0" prefWidth="106.0" promptText="Preço de Custo" />
       <TextField fx:id="pVendaTextField" layoutX="301.0" layoutY="201.0" prefHeight="25.0" prefWidth="106.0" promptText="Preço de venda" />
-      <TextField fx:id="quantTextField" layoutX="414.0" layoutY="234.0" prefHeight="25.0" prefWidth="106.0" promptText="Data da compra" />
-      <Button fx:id="inserirEstoqueButton" layoutX="256.0" layoutY="354.0" mnemonicParsing="false" onAction="#inserirEstoqueButtonAction" prefHeight="13.0" prefWidth="175.0" style="-fx-background-color: #850243;" text="Inserir no estoque" textFill="WHITE">
+      <TextField fx:id="dataTextField" layoutX="414.0" layoutY="234.0" prefHeight="25.0" prefWidth="106.0" promptText="Data da compra" />
+      <Button fx:id="inserirEstoqueButton" layoutX="256.0" layoutY="361.0" mnemonicParsing="false" onAction="#inserirEstoqueButtonAction" prefHeight="13.0" prefWidth="175.0" style="-fx-background-color: #850243;" text="Inserir no estoque" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
@@ -69,5 +69,11 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
+      <TextField fx:id="quantTextField" layoutX="414.0" layoutY="268.0" prefHeight="25.0" prefWidth="106.0" promptText="Quantidade" />
+      <Text fill="#850243" layoutX="190.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apenas os campos &quot;observação &quot;e &quot;data de compra&quot; naõ são obrigatórios">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

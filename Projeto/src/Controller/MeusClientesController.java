@@ -33,6 +33,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 
 
 public class MeusClientesController implements Initializable{
@@ -113,7 +114,11 @@ public class MeusClientesController implements Initializable{
     }
     @FXML
     void buscarButtonAction(ActionEvent event){
+      if(buscarTextField.getText().isEmpty()){
+          JOptionPane.showMessageDialog(null, "Informe um cliente");
+      }else{
       tableView.setItems(busca());
+      }
     }
     @FXML
     void excluirButtonAction(ActionEvent event){

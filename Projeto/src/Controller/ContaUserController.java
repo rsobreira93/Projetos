@@ -29,6 +29,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 
 public class ContaUserController implements Initializable{
     private Parent nova;
@@ -138,7 +139,11 @@ public class ContaUserController implements Initializable{
     }
     @FXML
     void buscarButtonAction(ActionEvent event){
+        if(buscarTextField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Informe um usuário");
+        }else{
         tableView.setItems(busca());
+        }
     }
     public void initTable(){
         loginTableColumn.setCellValueFactory(new PropertyValueFactory("login"));

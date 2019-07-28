@@ -29,6 +29,9 @@ public class EsqueciSenhaController{
     private Button ButtonCancelar;
     @FXML
     void ButtonRecuperarAction(ActionEvent event){
+        if(EmailTextField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "O campo de e-mail é obrigatório");
+        }else{
                  vendedor = vendedorDao.validar(EmailTextField.getText());
                  System.out.println(vendedor.getLogin());
                  System.out.println(vendedor.getSenha());
@@ -41,26 +44,7 @@ public class EsqueciSenhaController{
                   }else {
                        JOptionPane.showMessageDialog(null, "Esse e-mail não pertence a nenhum usuário");
                  }
-               /*int x;
-               List<Administrador> administrador =vendedorDao.getList();
-                for(x=0; x< administrador.size();x++){
-                if(EmailTextField.getText().equals(administrador.get(x).getEmail())){
-                    x= administrador.size();
-                    Random novaSenha = new Random();
-                    administrador.get(x).setSenha("anamary"+novaSenha);
-                    vendedor.setLogin(administrador.get(x).getLogin());
-                    vendedor.setEmail(administrador.get(x).getEmail());
-                    vendedor.setSenha(administrador.get(x).getSenha());
-                    vendedorDao.update(vendedor);
-                    Main.emailEsqueciSenha(vendedor.getEmail(), vendedor.getSenha());
-                    JOptionPane.showMessageDialog(null, "Sua nova senha foi enviada para seu e-mail");
-                  }else {
-                   if(x == administrador.size()-1){
-                      JOptionPane.showMessageDialog(null, "Esse e-mail não pertence a nenhum usuário"); 
-                   }
-                 }
-                }
-                JOptionPane.showMessageDialog(null, "Esse e-mail não pertence a nenhum usuário");*/
+        }
     }
     @FXML
     void ButtonCancelarAction(ActionEvent event){

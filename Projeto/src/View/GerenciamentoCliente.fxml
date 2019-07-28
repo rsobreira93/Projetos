@@ -20,8 +20,8 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextField fx:id="nomeTextField" layoutX="53.0" layoutY="84.0" prefHeight="25.0" prefWidth="309.0" promptText="Nome" />
-      <TextField fx:id="celularTextField" layoutX="53.0" layoutY="123.0" prefHeight="25.0" prefWidth="136.0" promptText="Celular" />
+      <TextField fx:id="nomeTextField" layoutX="53.0" layoutY="74.0" prefHeight="25.0" prefWidth="309.0" promptText="Nome" />
+      <TextField fx:id="celularTextField" layoutX="53.0" layoutY="117.0" prefHeight="25.0" prefWidth="136.0" promptText="Celular" />
       <TextField fx:id="emailTextField" layoutX="53.0" layoutY="157.0" prefHeight="25.0" prefWidth="309.0" promptText="E-mail" />
       <TextField fx:id="cpfTextField" layoutX="53.0" layoutY="188.0" prefHeight="25.0" prefWidth="309.0" promptText="CPF" />
       <TextField fx:id="enderecoTextField" layoutX="53.0" layoutY="222.0" prefHeight="25.0" prefWidth="309.0" promptText="Endereço" />
@@ -48,12 +48,12 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Text>
-      <ImageView fitHeight="20.0" fitWidth="25.0" layoutX="23.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="20.0" fitWidth="25.0" layoutX="23.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icons/name_user_3716.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="23.0" layoutY="123.0" opacity="0.77" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="23.0" layoutY="117.0" opacity="0.77" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icons/phone.png" />
          </image>
@@ -63,7 +63,7 @@
             <Image url="@../icons/email.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="198.0" layoutY="126.0" opacity="0.77" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="198.0" layoutY="119.0" opacity="0.77" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icons/birthday-cake.png" />
          </image>
@@ -93,6 +93,21 @@
             </ImageView>
          </graphic>
       </Button>
-      <TextField fx:id="cNascimento" layoutX="225.0" layoutY="124.0" prefHeight="25.0" prefWidth="136.0" promptText="Data de nascimento" />
+      <TextField fx:id="cNascimento" layoutX="225.0" layoutY="118.0" prefHeight="25.0" prefWidth="136.0" promptText="Data de nascimento" />
+      <Text fill="#850243" layoutX="53.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Campo obrigatório">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Text>
+      <Text fill="#850243" layoutX="53.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Campo obrigatório">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Text>
+      <Text fill="#850243" layoutX="53.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Campo obrigatório">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
