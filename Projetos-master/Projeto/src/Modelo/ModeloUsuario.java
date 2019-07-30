@@ -16,7 +16,24 @@ public class ModeloUsuario {
   private String cidade;
   private String bairro;
   private String complemento;
-  private String pesquisa;
+  private String dNascimento;
+  private String obs;
+
+    public String getdNascimento() {
+        return this.dNascimento;
+    }
+    public void setdNascimento(String dNascimento) {
+        this.dNascimento = dNascimento;
+    }
+
+    public String getObs() {
+        return this.obs;
+    }
+
+    public void setObs(String obs) {
+        this.obs = obs;
+    }
+  
   
     /**
      * @return the cod
@@ -30,20 +47,6 @@ public class ModeloUsuario {
      */
     public void setCod(long cod) {
         this.cod = cod;
-    }
-
-    /**
-     * @return the pesquisa
-     */
-    public String getPesquisa() {
-        return pesquisa;
-    }
-
-    /**
-     * @param pesquisa the pesquisa to set
-     */
-    public void setPesquisa(String pesquisa) {
-        this.pesquisa = pesquisa;
     }
 
     /**
@@ -171,12 +174,10 @@ public class ModeloUsuario {
     public void setEmail(String email) {
         this.email = email;
     }   
-    public void mostraUsuario(){
-        System.out.println("---------------------");
-        System.out.println("Id "+getCod());
-        System.out.println("Nome "+getNome());
-        System.out.println("CPF "+getCpf());
-        System.out.println("E-mail "+getEmail());
-        System.out.println("Telefone "+getTelefone());
+
+    @Override
+    public String toString() {
+        return getNome();
     }
+    
 }

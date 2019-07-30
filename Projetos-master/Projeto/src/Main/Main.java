@@ -1,5 +1,4 @@
 package Main;
-import ModeloConection.ConexaoBD;
 import java.util.Optional;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -8,12 +7,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.SimpleEmail;
 
 public class Main extends Application{
-    ConexaoBD con = new ConexaoBD();
     private static Stage stage;
     @Override
     public void start(Stage StagePrincipal) throws Exception {
@@ -21,7 +20,11 @@ public class Main extends Application{
         Scene teste = new Scene(TesteFXML);
         StagePrincipal.setScene(teste);
         StagePrincipal.setTitle("Anamary");
-        //stage.setResizable(false);
+        StagePrincipal.setResizable(false);
+        StagePrincipal.setMinHeight(400);
+        StagePrincipal.setMinWidth(700);
+        Image image = new Image("/icons/AnamaryLogo2.png");
+        StagePrincipal.getIcons().add(image);
         stage = StagePrincipal;
         StagePrincipal.show();
     }
@@ -45,7 +48,7 @@ public class Main extends Application{
         }
         return 0;
 }  
-    public static void emailEsqueciSenha(String emailUser, int novaSenha){
+    public static void emailEsqueciSenha(String emailUser, String novaSenha){
         String email= "sistemanamay@gmail.com";
         String senha="anamary12";
         SimpleEmail meuEmail= new SimpleEmail();
@@ -73,11 +76,7 @@ public class Main extends Application{
             System.out.println("Email Enviado com sucesso");
         }catch(Exception e){
             e.printStackTrace();
-        }
-        
-        
-        
-        
-        
-    } 
+        } 
+    }
+
 }

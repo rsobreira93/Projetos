@@ -1,7 +1,10 @@
 package Controller;
 
 import Main.Main;
+import Modelo.Administrador;
+import ModeloDao.AdministradorDao;
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
@@ -12,8 +15,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javax.swing.JOptionPane;
+
 
 public class LoginController {
+    Administrador vendedor = new Administrador();
+    AdministradorDao vendedorDao= new AdministradorDao();
     private Parent nova;
     @FXML
     private Button ButtonNovoUser;
@@ -28,21 +35,24 @@ public class LoginController {
     @FXML
     private PasswordField SenhaPassawordField;
     @FXML
-    void buttonAction(ActionEvent event){   
-        if(LoginTextField.getText().equals("admin") && SenhaPassawordField.getText().equals("123456")){
-            try {
-                  nova= FXMLLoader.load(getClass().getResource("/View/MenuPrincipal.fxml"));
-                  Main.trocarTela(nova);
-            } catch (IOException ex) {
-                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+    void buttonAction(ActionEvent event){
+
+        if(SenhaPassawordField.getText().isEmpty() || LoginTextField.getText().isEmpty()){  
+           JOptionPane.showMessageDialog(null, "Login e senha são campos obrigatórios");
+        }else {
+            vendedor = vendedorDao.validar(LoginTextField.getText());
+                 if(SenhaPassawordField.getText().equals(vendedor.getSenha())){
+                     mudarTela();
+                  }else {
+                       JOptionPane.showMessageDialog(null, "Login ou senha incorretos");
+                 }
         }
-        IncorretoLabel.setText("Login ou senha incorretos");
+                              
     }
     @FXML
     void ButtonNovoUserAction(ActionEvent event){
         try {
-                 nova= FXMLLoader.load(getClass().getResource("/View/NovoUser.fxml"));
+            nova= FXMLLoader.load(getClass().getResource("/View/NovoUser.fxml"));
             Main.trocarTela(nova);
             } catch (IOException ex) {
                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
@@ -56,5 +66,13 @@ public class LoginController {
             } catch (IOException ex) {
                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
+    }
+    public void mudarTela(){
+        try {
+            nova= FXMLLoader.load(getClass().getResource("/View/MenuPrincipal.fxml"));
+            Main.trocarTela(nova);
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

@@ -15,20 +15,28 @@ public class MenuPrincipalController {
     private Parent nova;
     @FXML
     private Button aClientesButton;
+
     @FXML
     private Button gProdutosButton;
+
     @FXML
     private Button financasButton;
+
     @FXML
     private Button enfButton;
+
     @FXML
     private Button sairButton;
+
     @FXML
     private Button contaButton;
+
     @FXML
     private Button gClientesButton;
+
     @FXML
     private Button gVendasButton;
+
     @FXML
     void sairButtonAction(ActionEvent event){
         try {
@@ -66,14 +74,24 @@ public class MenuPrincipalController {
             }
     }
     @FXML
-    void gVendasButtonAction(ActionEvent event) {
-          try {
+    void gVendasButtonAction(ActionEvent envent){
+         try {
                  nova= FXMLLoader.load(getClass().getResource("/View/GerenciamentoVendas.fxml"));
                  Main.trocarTela(nova);
             } catch (IOException ex) {
                 Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
+    @FXML
+    void financasButtonAction(ActionEvent envent){
+         try {
+                 nova= FXMLLoader.load(getClass().getResource("/View/Financas.fxml"));
+                 Main.trocarTela(nova);
+            } catch (IOException ex) {
+                Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+
 }
     
 

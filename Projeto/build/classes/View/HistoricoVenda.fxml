@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.*?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Controller.HistoricoVendaController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #ffff;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Controller.HistoricoVendaController">
    <children>
       <Button fx:id="enfButton" layoutY="27.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="704.0" style="-fx-background-color: #850243;" />
       <Button fx:id="inicioButton" layoutX="13.0" layoutY="33.0" mnemonicParsing="false" onAction="#inicioButtonAction" prefHeight="25.0" prefWidth="41.0" style="-fx-background-color: #850243;" textFill="#b5178e">
@@ -42,7 +42,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Text>
-      <TableView fx:id="historicoTableView" layoutX="9.0" layoutY="101.0" prefHeight="261.0" prefWidth="687.0">
+      <TableView fx:id="historicoTableView" editable="true" layoutX="9.0" layoutY="101.0" prefHeight="261.0" prefWidth="687.0">
         <columns>
           <TableColumn fx:id="idColuna" prefWidth="27.0" text="ID" />
           <TableColumn fx:id="clienteColuna" prefWidth="229.0" text="Cliente" />

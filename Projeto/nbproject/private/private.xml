@@ -4,6 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <file>file:/C:/Users/João%20Victor%20Queiroz/Desktop/Projetos-master/Projeto/src/Main/Main.java</file>
             <file>file:/C:/Users/João%20Victor%20Queiroz/Desktop/Projetos-master/Projeto/src/Controller/EsqueciSenhaController.java</file>
 =======
@@ -11,6 +12,12 @@
             <file>file:/C:/Users/João%20Victor%20Queiroz/Desktop/Projetos-master/Projeto/src/ModeloConection/ConnectionFactory.java</file>
             <file>file:/C:/Users/João%20Victor%20Queiroz/Desktop/Projetos-master/Projeto/src/ModeloConection/ConexaoBD.java</file>
 >>>>>>> feeae37dcc6f75b0720c1c261fa986c8ba917e98
+=======
+            <file>file:/C:/Users/João%20Victor%20Queiroz/Documents/GitHub/Projetos/Projeto/src/Controller/AdicionarProdutoController.java</file>
+            <file>file:/C:/Users/João%20Victor%20Queiroz/Documents/GitHub/Projetos/Projeto/src/Controller/LoginController.java</file>
+            <file>file:/C:/Users/João%20Victor%20Queiroz/Documents/GitHub/Projetos/Projeto/src/Controller/GerenciamentoClienteController.java</file>
+            <file>file:/C:/Users/João%20Victor%20Queiroz/Documents/GitHub/Projetos/Projeto/src/Controller/GerenciamentoProdutoController.java</file>
+>>>>>>> f0d3c5dcba53602cf20f37ca4cb68079744db91a
         </group>
     </open-files>
 </project-private>
