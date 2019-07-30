@@ -47,14 +47,6 @@ public class MeusClientesController implements Initializable{
     private Button excluirButton;
     @FXML
     private Button inicioButton;
-<<<<<<< HEAD:Projetos-master/Projeto/src/Controller/MeusClientesController.java
-   
-  
-    @FXML
-    private ListView<ModeloUsuario> listeView;
-    
-=======
->>>>>>> feeae37dcc6f75b0720c1c261fa986c8ba917e98:Projeto/src/Controller/MeusClientesController.java
     @FXML
     private Button atualizarButton;
     @FXML
@@ -66,7 +58,6 @@ public class MeusClientesController implements Initializable{
     @FXML
     private Button buscarButton;    
     
-<<<<<<< HEAD:Projeto/src/Controller/MeusClientesController.java
     @FXML    private TableView<Cliente> tableView;
     @FXML    private TableColumn<Cliente, Long> idTb;
     @FXML    private TableColumn<Cliente, String> cpfTb;
@@ -76,26 +67,6 @@ public class MeusClientesController implements Initializable{
     @FXML    private TableColumn<Cliente, String> enderecoTb;
     private Cliente selecionada; 
      ObservableList<Cliente> clientes = FXCollections.observableArrayList();
-=======
-<<<<<<< HEAD:Projetos-master/Projeto/src/Controller/MeusClientesController.java
-<<<<<<< HEAD:Projetos-master/Projeto/src/Controller/MeusClientesController.java
-    
-  public void initialize(URL url, ResourceBundle rb){
-        initable();
-   }
-=======
->>>>>>> feeae37dcc6f75b0720c1c261fa986c8ba917e98:Projeto/src/Controller/MeusClientesController.java
-=======
-    @FXML    private TableView<ModeloUsuario> tableView;
-    @FXML    private TableColumn<ModeloUsuario, Long> idTb;
-    @FXML    private TableColumn<ModeloUsuario, String> cpfTb;
-    @FXML    private TableColumn<ModeloUsuario, String> telefoneTb;
-    @FXML    private TableColumn<ModeloUsuario, String> nomeTb;
-    @FXML    private TableColumn<ModeloUsuario, String> observaTb;
-    @FXML    private TableColumn<ModeloUsuario, String> enderecoTb;
-    private ModeloUsuario selecionada; 
-     ObservableList<ModeloUsuario> clientes = FXCollections.observableArrayList();
->>>>>>> cf21869508d1a58726718d17fe312c579c469031:Projetos-master/Projeto/src/Controller/MeusClientesController.java
     @Override
     public void initialize(URL location, ResourceBundle resources){
         initTable();
@@ -114,7 +85,6 @@ public class MeusClientesController implements Initializable{
             }
         });
     }
->>>>>>> f0d3c5dcba53602cf20f37ca4cb68079744db91a:Projeto/src/Controller/MeusClientesController.java
    @FXML
     void inicioButtonAction(ActionEvent event){
         try {

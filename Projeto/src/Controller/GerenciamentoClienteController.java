@@ -21,23 +21,9 @@ import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 
 public class GerenciamentoClienteController {
-<<<<<<< HEAD:Projeto/src/Controller/GerenciamentoClienteController.java
    Cliente mod = new Cliente();
    ClienteDAO dao = new ClienteDAO();
-=======
-<<<<<<< HEAD:Projetos-master/Projeto/src/Controller/GerenciamentoClienteController.java
-    
-   ModeloUsuario mod = new ModeloUsuario();
-   UsuarioDao dao = new UsuarioDao();
-    ConnectionFactory con = new ConnectionFactory();
-    
-    private Parent nova;
-=======
-   ModeloUsuario mod = new ModeloUsuario();
-   UsuarioDao dao = new UsuarioDao();
->>>>>>> cf21869508d1a58726718d17fe312c579c469031:Projetos-master/Projeto/src/Controller/GerenciamentoClienteController.java
    ConnectionFactory con = new ConnectionFactory();
->>>>>>> f0d3c5dcba53602cf20f37ca4cb68079744db91a:Projeto/src/Controller/GerenciamentoClienteController.java
     @FXML
     private TextField cNascimento;
     private Parent nova;

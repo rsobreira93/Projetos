@@ -62,15 +62,7 @@ public class Main extends Application{
         try{
             meuEmail.setFrom(email);//remetente
             meuEmail.setSubject("AnaMary: nova senha");//assunto
-<<<<<<< HEAD:Projetos-master/Projeto/src/Main/Main.java
-<<<<<<< HEAD:Projetos-master/Projeto/src/Main/Main.java
             meuEmail.setMsg("Sua nova senha é "+novaSenha);//mensagem
-=======
-            meuEmail.setMsg("Sua nova senha é"+novaSenha);//mensagem
->>>>>>> 80b6c0a567a143d0c15866c31f65cffb8145bfe9:Projeto/src/Main/Main.java
-=======
-            meuEmail.setMsg("Sua nova senha é "+novaSenha);//mensagem
->>>>>>> feeae37dcc6f75b0720c1c261fa986c8ba917e98:Projeto/src/Main/Main.java
             meuEmail.addTo(emailUser);//destinatario
             meuEmail.send();
             System.out.println("Email Enviado com sucesso");
