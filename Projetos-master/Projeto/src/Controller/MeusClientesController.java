@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javafx.application.Application.launch;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -33,11 +34,14 @@ public class MeusClientesController{
     private Button excluirButton;
     @FXML
     private Button inicioButton;
+<<<<<<< HEAD:Projetos-master/Projeto/src/Controller/MeusClientesController.java
    
   
     @FXML
     private ListView<ModeloUsuario> listeView;
     
+=======
+>>>>>>> feeae37dcc6f75b0720c1c261fa986c8ba917e98:Projeto/src/Controller/MeusClientesController.java
     @FXML
     private Button atualizarButton;
     @FXML
@@ -49,10 +53,13 @@ public class MeusClientesController{
     @FXML
     private Button buscarButton;    
     
+<<<<<<< HEAD:Projetos-master/Projeto/src/Controller/MeusClientesController.java
     
   public void initialize(URL url, ResourceBundle rb){
         initable();
    }
+=======
+>>>>>>> feeae37dcc6f75b0720c1c261fa986c8ba917e98:Projeto/src/Controller/MeusClientesController.java
    @FXML
     void inicioButtonAction(ActionEvent event){
         try {
@@ -103,13 +110,7 @@ public class MeusClientesController{
     void atualizarButtonAction(ActionEvent event){
        //é aqui romulo
     }
-    public void initable(){
-        listeView.setItems(atualizaLista());
-    }
-    public ObservableList<ModeloUsuario> atualizaLista(){
-       UsuarioDao dao = new UsuarioDao();
-       return FXCollections.observableArrayList(dao.getList());
-    }
+    
     public void listaUsuario(){
         System.out.println("Listando Clientes");
         List<ModeloUsuario> clientes =  new UsuarioDao().getList();

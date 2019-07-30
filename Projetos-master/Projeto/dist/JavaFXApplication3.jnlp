@@ -9,10 +9,14 @@
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
 <<<<<<< HEAD:Projetos-master/Projeto/dist/JavaFXApplication3.jnlp
+<<<<<<< HEAD:Projetos-master/Projeto/dist/JavaFXApplication3.jnlp
     <jar href="JavaFXApplication3.jar" size="735146" download="eager" />
 =======
     <jar href="JavaFXApplication3.jar" size="735150" download="eager" />
 >>>>>>> 80b6c0a567a143d0c15866c31f65cffb8145bfe9:Projeto/dist/JavaFXApplication3.jnlp
+=======
+    <jar href="JavaFXApplication3.jar" size="742381" download="eager" />
+>>>>>>> feeae37dcc6f75b0720c1c261fa986c8ba917e98:Projeto/dist/JavaFXApplication3.jnlp
     <jar href="lib\commons-email-1.5.jar" size="54495" download="eager" />
     <jar href="lib\mail.jar" size="434812" download="eager" />
     <jar href="lib\postgresql-9.4.1209.jar" size="678049" download="eager" />

@@ -3,8 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/João%20Victor%20Queiroz/Desktop/Projetos-master/Projeto/src/Main/Main.java</file>
             <file>file:/C:/Users/João%20Victor%20Queiroz/Desktop/Projetos-master/Projeto/src/Controller/EsqueciSenhaController.java</file>
+=======
+            <file>file:/C:/Users/João%20Victor%20Queiroz/Desktop/Projetos-master/Projeto/src/ModeloDao/UsuarioDao.java</file>
+            <file>file:/C:/Users/João%20Victor%20Queiroz/Desktop/Projetos-master/Projeto/src/ModeloConection/ConnectionFactory.java</file>
+            <file>file:/C:/Users/João%20Victor%20Queiroz/Desktop/Projetos-master/Projeto/src/ModeloConection/ConexaoBD.java</file>
+>>>>>>> feeae37dcc6f75b0720c1c261fa986c8ba917e98
         </group>
     </open-files>
 </project-private>
