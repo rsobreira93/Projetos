@@ -1,9 +1,9 @@
 package Controller;
 
-import Modelo.ModeloUsuario;
+import Modelo.Cliente;
 import Main.Main;
 import ModeloConection.ConnectionFactory;
-import ModeloDao.UsuarioDao;
+import ModeloDao.ClienteDAO;
 import java.io.IOException;
 import java.util.Optional;
 import java.util.logging.Level;
@@ -21,8 +21,8 @@ import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 
 public class GerenciamentoClienteController {
-   ModeloUsuario mod = new ModeloUsuario();
-   UsuarioDao dao = new UsuarioDao();
+   Cliente mod = new Cliente();
+   ClienteDAO dao = new ClienteDAO();
    ConnectionFactory con = new ConnectionFactory();
     @FXML
     private TextField cNascimento;

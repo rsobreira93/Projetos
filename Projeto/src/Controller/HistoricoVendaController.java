@@ -1,7 +1,7 @@
 package Controller;
 
 import Main.Main;
-import Modelo.ModeloUsuario;
+import Modelo.Cliente;
 import Modelo.Produto;
 import Modelo.Venda;
 import ModeloConection.ConnectionFactory;
@@ -38,7 +38,7 @@ public class HistoricoVendaController implements Initializable{
     @FXML
     private Button voltarButton;
     @FXML    private TableColumn<Venda, Long> idColuna;
-    @FXML    private TableColumn<Venda, ModeloUsuario> clienteColuna;
+    @FXML    private TableColumn<Venda, Cliente> clienteColuna;
     @FXML    private TableColumn<Venda, Produto> produtoColuna;
     @FXML    private TableColumn<Venda, Float> precoVendaColuna;
     @FXML

@@ -20,7 +20,7 @@ public class Venda {
     private String dataVenda;
     private boolean formaPagamento;
     private Produto produtoVendido;
-    private ModeloUsuario cliente;
+    private Cliente cliente;
     
     /**
      * @return the codVenda
@@ -109,14 +109,14 @@ public class Venda {
     /**
      * @return the cliente
      */
-    public ModeloUsuario getCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
 
     /**
      * @param cliente the cliente to set
      */
-    public void setCliente(ModeloUsuario cliente) {
+    public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
     

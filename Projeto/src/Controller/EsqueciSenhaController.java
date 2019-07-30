@@ -1,8 +1,8 @@
 package Controller;
 
 import Main.Main;
-import Modelo.Administrador;
-import ModeloDao.AdministradorDao;
+import Modelo.Vendedor;
+import ModeloDao.VendedorDAO;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,8 +16,8 @@ import javafx.scene.control.TextField;
 import java.util.Random;
 import javax.swing.JOptionPane;
 public class EsqueciSenhaController{
-    Administrador vendedor = new Administrador();
-    AdministradorDao vendedorDao= new AdministradorDao();
+    Vendedor vendedor = new Vendedor();
+    VendedorDAO vendedorDao= new VendedorDAO();
     private Parent nova;
     @FXML
     private Label IncorretoLabel;

@@ -1,8 +1,8 @@
 package Controller;
 import Main.Main;
-import Modelo.Administrador;
+import Modelo.Vendedor;
 import ModeloConection.ConnectionFactory;
-import ModeloDao.AdministradorDao;
+import ModeloDao.VendedorDAO;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
@@ -17,9 +17,9 @@ import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 
 public class NovoUserController{
-   Administrador vendedor = new Administrador();
-   Administrador mod = new Administrador();
-   AdministradorDao dao = new AdministradorDao();
+   Vendedor vendedor = new Vendedor();
+   Vendedor mod = new Vendedor();
+   VendedorDAO dao = new VendedorDAO();
    ConnectionFactory con = new ConnectionFactory();
     
     private Parent nova;
@@ -48,7 +48,7 @@ public class NovoUserController{
                 JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios");
         }else{
               int x;
-               List<Administrador> administrador = dao.getList();
+               List<Vendedor> administrador = dao.getList();
                for(x=0; x< administrador.size();x++){
                  if(NovoLoginTextField1.getText().equals(administrador.get(x).getLogin()) || EmailTextField.getText().equals(administrador.get(x).getEmail())){
                     x= administrador.size();

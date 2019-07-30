@@ -1,8 +1,8 @@
 package Controller;
 
 import Main.Main;
-import Modelo.ModeloUsuario;
-import ModeloDao.UsuarioDao;
+import Modelo.Cliente;
+import ModeloDao.ClienteDAO;
 import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
@@ -142,7 +142,7 @@ public class FinancasController implements Initializable{
                    tabela.addCell(col2);
                    tabela.addCell(col3);
                    
-                   List<ModeloUsuario> clientes = new UsuarioDao().getList();
+                   List<Cliente> clientes = new ClienteDAO().getList();
                    for(int x = 0; x < clientes.size(); x++){
                     tabela.addCell(new Paragraph(clientes.get(x).getNome()));
                     tabela.addCell(new Paragraph(clientes.get(x).getCpf()));

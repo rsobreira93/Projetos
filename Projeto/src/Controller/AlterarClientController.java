@@ -2,7 +2,7 @@ package Controller;
 
 
 
-import Modelo.ModeloUsuario;
+import Modelo.Cliente;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
@@ -55,7 +55,7 @@ public class AlterarClientController{
     
     private Stage dialogStage;
     private boolean buttonConfimar= false;
-    private ModeloUsuario cliente;
+    private Cliente cliente;
 
     public Stage getDialogStage() {
         return this.dialogStage;
@@ -73,11 +73,11 @@ public class AlterarClientController{
         this.buttonConfimar = buttonConfimar;
     }
 
-    public ModeloUsuario getCliente() {
+    public Cliente getCliente() {
         return this.cliente;
     }
 
-    public void setCliente(ModeloUsuario cliente) {
+    public void setCliente(Cliente cliente) {
         this.cliente = cliente;
         this.nomeTextField.setText(cliente.getNome());
         this.celularTextField.setText(cliente.getTelefone());

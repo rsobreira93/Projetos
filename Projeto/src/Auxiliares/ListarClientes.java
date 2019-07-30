@@ -1,7 +1,7 @@
 package Controller;
 
-import Modelo.ModeloUsuario;
-import ModeloDao.UsuarioDao;
+import Modelo.Cliente;
+import ModeloDao.ClienteDAO;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -18,19 +18,19 @@ import javafx.scene.control.cell.PropertyValueFactory;
  */
 public class ListarClientes implements Initializable {
     @FXML
-    private TableView<ModeloUsuario> tableView;
+    private TableView<Cliente> tableView;
     @FXML
-    private TableColumn<ModeloUsuario, Long> idTb;
+    private TableColumn<Cliente, Long> idTb;
      @FXML
-    private TableColumn<ModeloUsuario, String> cpfTb;
+    private TableColumn<Cliente, String> cpfTb;
     @FXML
-    private TableColumn<ModeloUsuario, String> telefoneTb;
+    private TableColumn<Cliente, String> telefoneTb;
     @FXML
-    private TableColumn<ModeloUsuario, String> nomeTb;
+    private TableColumn<Cliente, String> nomeTb;
     @FXML
-    private TableColumn<ModeloUsuario, String> observaTb;
+    private TableColumn<Cliente, String> observaTb;
     @FXML
-    private TableColumn<ModeloUsuario, String> enderecoTb;
+    private TableColumn<Cliente, String> enderecoTb;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -46,8 +46,8 @@ public class ListarClientes implements Initializable {
         observaTb.setCellFactory(new PropertyValueFactory("observacao"));
         tableView.setItems(atualizaLista());
     }
-    public ObservableList<ModeloUsuario> atualizaLista(){
-       UsuarioDao dao = new UsuarioDao();
+    public ObservableList<Cliente> atualizaLista(){
+       ClienteDAO dao = new ClienteDAO();
        return FXCollections.observableArrayList(dao.getList());
     }
 }

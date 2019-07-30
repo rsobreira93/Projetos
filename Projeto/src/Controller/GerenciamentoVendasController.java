@@ -1,12 +1,12 @@
 package Controller;
 
 import Main.Main;
-import Modelo.ModeloUsuario;
+import Modelo.Cliente;
 import Modelo.Produto;
 import Modelo.Venda;
 import ModeloConection.ConnectionFactory;
 import ModeloDao.ProdutoDao;
-import ModeloDao.UsuarioDao;
+import ModeloDao.ClienteDAO;
 import ModeloDao.VendaDao;
 import java.io.IOException;
 import java.net.URL;
@@ -29,11 +29,11 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 public class GerenciamentoVendasController implements Initializable{  
-    ModeloUsuario mod = new ModeloUsuario();
+    Cliente mod = new Cliente();
     Venda v = new Venda();
     Produto p = new Produto();
     ConnectionFactory con = new ConnectionFactory();
-    UsuarioDao dao = new UsuarioDao();
+    ClienteDAO dao = new ClienteDAO();
     ProdutoDao d = new ProdutoDao();
     private Parent nova;
     
@@ -49,7 +49,7 @@ public class GerenciamentoVendasController implements Initializable{
     @FXML
     private TextField pagamentoTextField;
     @FXML
-    private ComboBox<ModeloUsuario> idClienteComboBox1;
+    private ComboBox<Cliente> idClienteComboBox1;
 
     @FXML
     private DatePicker dataVendaDatePicker;
@@ -81,8 +81,8 @@ public class GerenciamentoVendasController implements Initializable{
     @FXML
     private Button sairButton;
     
-    private List<ModeloUsuario> clientes = new ArrayList<>();
-    private ObservableList<ModeloUsuario> obsclientes;
+    private List<Cliente> clientes = new ArrayList<>();
+    private ObservableList<Cliente> obsclientes;
     private List<Produto> produtos = new ArrayList<>();
     private ObservableList<Produto> obsproduto;
     
@@ -127,7 +127,7 @@ public class GerenciamentoVendasController implements Initializable{
     }
      @FXML
     void registrarVendaButtonAction(ActionEvent event) {
-        ModeloUsuario client = idClienteComboBox1.getSelectionModel().getSelectedItem();
+        Cliente client = idClienteComboBox1.getSelectionModel().getSelectedItem();
         Produto prod = referenciaProdutoComboBox.getSelectionModel().getSelectedItem();
         
         venda.setPrecoVenda(Float.parseFloat(precoVendaTextField.getText()));

@@ -1,8 +1,8 @@
 package Controller;
 
 import Main.Main;
-import Modelo.Administrador;
-import ModeloDao.AdministradorDao;
+import Modelo.Vendedor;
+import ModeloDao.VendedorDAO;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
@@ -19,8 +19,8 @@ import javax.swing.JOptionPane;
 
 
 public class LoginController {
-    Administrador vendedor = new Administrador();
-    AdministradorDao vendedorDao= new AdministradorDao();
+    Vendedor vendedor = new Vendedor();
+    VendedorDAO vendedorDao= new VendedorDAO();
     private Parent nova;
     @FXML
     private Button ButtonNovoUser;

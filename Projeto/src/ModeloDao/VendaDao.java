@@ -5,7 +5,7 @@
  */
 package ModeloDao;
 
-import Modelo.ModeloUsuario;
+import Modelo.Cliente;
 import Modelo.Produto;
 import Modelo.Venda;
 import ModeloConection.ConnectionFactory;
@@ -69,7 +69,7 @@ public class VendaDao {
             while(rs.next()){
                 Venda  u  = new Venda();
                 Produto p = new Produto();
-                ModeloUsuario m = new ModeloUsuario();
+                Cliente m = new Cliente();
                 
                 u.setCodVenda((rs.getInt("id")));//Essa string é de acordo com o nome da coluna no BD
                 u.setPrecoVenda(rs.getFloat("precovenda"));

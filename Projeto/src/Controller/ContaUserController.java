@@ -2,9 +2,9 @@ package Controller;
 
 import Auxiliares.ListaAdministrador;
 import Main.Main;
-import Modelo.Administrador;
-import Modelo.ModeloUsuario;
-import ModeloDao.AdministradorDao;
+import Modelo.Vendedor;
+import Modelo.Cliente;
+import ModeloDao.VendedorDAO;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -37,9 +37,9 @@ public class ContaUserController implements Initializable{
     private TextField buscarTextField;
     @FXML
     private Button excluirButton;
-    @FXML    private TableView<Administrador> tableView;
-    @FXML    private TableColumn<Administrador, String> emailTableColumn;
-    @FXML    private TableColumn<Administrador, String> loginTableColumn;
+    @FXML    private TableView<Vendedor> tableView;
+    @FXML    private TableColumn<Vendedor, String> emailTableColumn;
+    @FXML    private TableColumn<Vendedor, String> loginTableColumn;
     @FXML
     private PasswordField novaSenhaPasswordField;
     @FXML
@@ -58,8 +58,8 @@ public class ContaUserController implements Initializable{
     private Button buscarButton;
     private boolean confirmacao=false;
     
-    private Administrador selecionada; 
-    ObservableList<Administrador> admins = FXCollections.observableArrayList();
+    private Vendedor selecionada; 
+    ObservableList<Vendedor> admins = FXCollections.observableArrayList();
         
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -78,7 +78,7 @@ public class ContaUserController implements Initializable{
         tableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
-                selecionada = (Administrador) newValue;
+                selecionada = (Vendedor) newValue;
             }
         });
     }
@@ -124,7 +124,7 @@ public class ContaUserController implements Initializable{
     @FXML
     void atualizarButtonAction(ActionEvent event){
         if(selecionada != null){
-                AdministradorDao dao = new AdministradorDao();
+                VendedorDAO dao = new VendedorDAO();
                 //novoLoginTextField.setText(selecionada.getLogin());
                 //novaSenhaPasswordField.setText(selecionada.getSenha());
                 selecionada.setLogin(novoLoginTextField.getText());
@@ -150,14 +150,14 @@ public class ContaUserController implements Initializable{
         emailTableColumn.setCellValueFactory(new PropertyValueFactory("email"));
         tableView.setItems(atualizaTabela());
     }
-    public ObservableList<Administrador> atualizaTabela(){
-       AdministradorDao dao = new AdministradorDao();
+    public ObservableList<Vendedor> atualizaTabela(){
+       VendedorDAO dao = new VendedorDAO();
        admins = FXCollections.observableArrayList(dao.getList());
        return  admins;
     }
     public void deletar(){
             if(selecionada != null){
-                AdministradorDao dao = new AdministradorDao();
+                VendedorDAO dao = new VendedorDAO();
                 dao.delete(selecionada);
                 Alert a = new Alert(Alert.AlertType.CONFIRMATION);
                 a.setHeaderText("Administrador deletado com sucesso");
@@ -169,8 +169,8 @@ public class ContaUserController implements Initializable{
                 a.show();
             }
         }
-        private ObservableList<Administrador> busca(){
-            ObservableList<Administrador> pesquisa = FXCollections.observableArrayList();
+        private ObservableList<Vendedor> busca(){
+            ObservableList<Vendedor> pesquisa = FXCollections.observableArrayList();
             for(int x = 0; x < admins.size(); x++){
                 if(admins.get(x).getLogin().toLowerCase().contains(buscarTextField.getText().toLowerCase())){
                     pesquisa.add(admins.get(x));
@@ -178,7 +178,7 @@ public class ContaUserController implements Initializable{
             }
             return pesquisa;
         }
-        public void mostrarDados(Administrador adm){
+        public void mostrarDados(Vendedor adm){
             novoLoginTextField.setText(adm.getLogin());
             novaSenhaPasswordField.setText(adm.getSenha());
         }

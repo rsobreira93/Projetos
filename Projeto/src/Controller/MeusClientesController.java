@@ -6,9 +6,9 @@ package Controller;
 
 import Main.Main;
 import Modelo.ListarCliente;
-import Modelo.ModeloUsuario;
+import Modelo.Cliente;
 import ModeloConection.ConnectionFactory;
-import ModeloDao.UsuarioDao;
+import ModeloDao.ClienteDAO;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -37,8 +37,8 @@ import javax.swing.JOptionPane;
 
 
 public class MeusClientesController implements Initializable{
-    ModeloUsuario mod = new ModeloUsuario();
-    UsuarioDao control = new UsuarioDao();
+    Cliente mod = new Cliente();
+    ClienteDAO control = new ClienteDAO();
     ConnectionFactory conex = new ConnectionFactory();
     private Parent nova;
     @FXML
@@ -58,15 +58,15 @@ public class MeusClientesController implements Initializable{
     @FXML
     private Button buscarButton;    
     
-    @FXML    private TableView<ModeloUsuario> tableView;
-    @FXML    private TableColumn<ModeloUsuario, Long> idTb;
-    @FXML    private TableColumn<ModeloUsuario, String> cpfTb;
-    @FXML    private TableColumn<ModeloUsuario, String> telefoneTb;
-    @FXML    private TableColumn<ModeloUsuario, String> nomeTb;
-    @FXML    private TableColumn<ModeloUsuario, String> observaTb;
-    @FXML    private TableColumn<ModeloUsuario, String> enderecoTb;
-    private ModeloUsuario selecionada; 
-     ObservableList<ModeloUsuario> clientes = FXCollections.observableArrayList();
+    @FXML    private TableView<Cliente> tableView;
+    @FXML    private TableColumn<Cliente, Long> idTb;
+    @FXML    private TableColumn<Cliente, String> cpfTb;
+    @FXML    private TableColumn<Cliente, String> telefoneTb;
+    @FXML    private TableColumn<Cliente, String> nomeTb;
+    @FXML    private TableColumn<Cliente, String> observaTb;
+    @FXML    private TableColumn<Cliente, String> enderecoTb;
+    private Cliente selecionada; 
+     ObservableList<Cliente> clientes = FXCollections.observableArrayList();
     @Override
     public void initialize(URL location, ResourceBundle resources){
         initTable();
@@ -81,7 +81,7 @@ public class MeusClientesController implements Initializable{
         tableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
-                selecionada = (ModeloUsuario) newValue;
+                selecionada = (Cliente) newValue;
             }
         });
     }
@@ -137,8 +137,8 @@ public class MeusClientesController implements Initializable{
         observaTb.setCellValueFactory(new PropertyValueFactory("obs"));
         tableView.setItems(atualizaTabela());
     }
-    public ObservableList<ModeloUsuario> atualizaTabela(){
-       UsuarioDao dao = new UsuarioDao();
+    public ObservableList<Cliente> atualizaTabela(){
+       ClienteDAO dao = new ClienteDAO();
        return FXCollections.observableArrayList(dao.getList());
     }
         public void listaUsuario(){
@@ -154,7 +154,7 @@ public class MeusClientesController implements Initializable{
         }
         public void deletar(){
             if(selecionada != null){
-                UsuarioDao dao = new UsuarioDao();
+                ClienteDAO dao = new ClienteDAO();
                 dao.delete(selecionada);
                 Alert a = new Alert(Alert.AlertType.CONFIRMATION);
                 a.setHeaderText("Cliente deletado com sucesso");
@@ -167,7 +167,7 @@ public class MeusClientesController implements Initializable{
             }
         }
         public void alterar() throws Exception{
-            ModeloUsuario cliente = tableView.getSelectionModel().getSelectedItem();
+            Cliente cliente = tableView.getSelectionModel().getSelectedItem();
             if(cliente != null){  
             try{
               boolean buttonConfirmarClicked = telaAlterarCliente(cliente);
@@ -184,7 +184,7 @@ public class MeusClientesController implements Initializable{
                 a.show();
             }
         }
-        public boolean telaAlterarCliente(ModeloUsuario cliente) throws IOException{
+        public boolean telaAlterarCliente(Cliente cliente) throws IOException{
             FXMLLoader loader = new FXMLLoader();
         loader.setLocation(AlterarClientController.class.getResource("/View/AlterarClient.fxml"));
         AnchorPane page = (AnchorPane) loader.load();
@@ -205,8 +205,8 @@ public class MeusClientesController implements Initializable{
 
         return controller.isButtonConfimar();
         }
-        private ObservableList<ModeloUsuario> busca(){
-            ObservableList<ModeloUsuario> clientePesquisa = FXCollections.observableArrayList();
+        private ObservableList<Cliente> busca(){
+            ObservableList<Cliente> clientePesquisa = FXCollections.observableArrayList();
             for(int x = 0; x < clientes.size(); x++){
                 if(clientes.get(x).getNome().toLowerCase().contains(buscarTextField.getText().toLowerCase())){
                     clientePesquisa.add(clientes.get(x));
