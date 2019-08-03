@@ -1,7 +1,9 @@
 
 package Controller;
 
+import Calendario.Calendario;
 import Main.Main;
+import java.awt.Color;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -91,7 +93,13 @@ public class MenuPrincipalController {
                 Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
-
+    @FXML
+    void aClientesButtonAction(ActionEvent event) {
+        Calendario calendario = new Calendario();
+        calendario.setLocationRelativeTo(null);
+        calendario.setVisible(true);
+        calendario.getContentPane().setBackground(Color.WHITE);
+    }
 }
     
 
