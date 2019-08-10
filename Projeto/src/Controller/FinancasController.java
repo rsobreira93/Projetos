@@ -122,10 +122,15 @@ public class FinancasController implements Initializable{
                    vGeral.setAlignment(Element.ALIGN_CENTER);
                    doc.add(new Paragraph("                  "));
                    doc.add(new Paragraph("Valor total: R$0,00"));
+                   doc.add(new Paragraph("                  "));
                    doc.add(new Paragraph("Quantidade de vendas: 0"));
+                   doc.add(new Paragraph("                  "));
                    doc.add(new Paragraph("Média das vendas: R$0,00"));
+                   doc.add(new Paragraph("                  "));
                    doc.add(new Paragraph("Lucro Estimado: R$0,00"));
+                   doc.add(new Paragraph("                  "));
                    doc.add(new Paragraph("Produto mais vendido: Nenhum produto foi vendido"));
+                   
                    doc.add(new Paragraph("                  "));
                    doc.add(new Paragraph("                  "));
                    
