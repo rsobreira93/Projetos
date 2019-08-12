@@ -186,7 +186,8 @@ public class VendaDao {
                 u.setNomeCliente(rs.getString("nome_cliente"));
                 u.setQtdItem(rs.getInt("itens_quantidade"));
                 u.setValorVenda(rs.getFloat("valor_venda")); 
-                u.setData(rs.getString("data_venda"));          
+                u.setData(rs.getString("data_venda"));  
+                u.setPrecoCusto(rs.getFloat("precocusto"));
                 vendas.add(u);
             }
             stmt.close();

@@ -21,6 +21,15 @@ public class Venda {
     private String nomeProduto;
     private int codProduto;
     private int qtdItem;
+    private float precoCusto;
+
+    public void setPrecoCusto(float precoCusto) {
+        this.precoCusto = precoCusto;
+    }
+
+    public float getPrecoCusto() {
+        return precoCusto;
+    }
 
     public int getCodProduto() {
         return this.codProduto;

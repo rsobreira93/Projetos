@@ -11,6 +11,7 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Image;
+import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
@@ -106,6 +107,7 @@ public class FinancasController implements Initializable{
 
     public void gerarPdf() throws BadElementException, IOException, SQLException{
        Document doc = new Document();
+       doc.setPageSize(PageSize.A4.rotate());
        FileChooser f = new FileChooser();
        f.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF","*.pdf"));
        File arq = f.showSaveDialog(new Stage());
@@ -114,14 +116,16 @@ public class FinancasController implements Initializable{
                try {
                    PdfWriter.getInstance(doc, new FileOutputStream(arq.getAbsolutePath()));
                    doc.open();
-                   float valorTotal=0, mediaVendas=(float) 0.0, lucro=0;
+                   float valorTotal=0, mediaVendas=(float) 0.0, lucro=0, precoCusto=0;
                    int quantVenda=0;
                    List<Venda> vendas = new VendaDao().getList2();
                    for (int y=0 ;y < vendas.size();y++){
                       valorTotal+=vendas.get(y).getValorVenda();
+                      precoCusto+=vendas.get(y).getPrecoCusto();
                       quantVenda++;
                    }
                    mediaVendas= valorTotal/quantVenda;
+                   lucro= valorTotal-precoCusto;
                    Image logo = Image.getInstance("C:\\Users\\João Victor Queiroz\\Documents\\GitHub\\Projetos\\Projeto\\src\\icons\\Anamary logo.png");
                    logo.scaleAbsolute(221, 115);
                    logo.setAlignment(Element.ALIGN_CENTER);
@@ -140,7 +144,7 @@ public class FinancasController implements Initializable{
                    doc.add(new Paragraph("                  "));
                    doc.add(new Paragraph("Média das vendas: R$"+mediaVendas));
                    doc.add(new Paragraph("                  "));
-                   doc.add(new Paragraph("Lucro Estimado: R$0,00"));
+                   doc.add(new Paragraph("Lucro Estimado: R$"+lucro));
                    
                    doc.add(new Paragraph("                  "));
                    doc.add(new Paragraph("                  "));
