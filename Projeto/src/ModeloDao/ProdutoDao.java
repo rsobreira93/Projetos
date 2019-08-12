@@ -17,7 +17,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
- *
+ *Classe responsavel pelo CRUD do produto
  * @author Romulo Sobreira
  */
 public class ProdutoDao {
@@ -26,7 +26,11 @@ public class ProdutoDao {
     public ProdutoDao(){
         this.con = new ConnectionFactory().getConnection();
     }
-    
+    /**
+     * Metodo responsavel por adicionar o produto no banco de dados
+     * @param p - produdot que sera salvo no banco
+     * @return true/false
+     */
     public boolean add(Produto p){
         try {
             String sql = "INSERT INTO produto(referencia, precovenda, precocusto, nome, data, quantidade, foto) VALUES(?, ?, ?, ?, ?, ?, ?);";
@@ -46,6 +50,11 @@ public class ProdutoDao {
             return false;
         }
     }
+    /**
+     * Metodo responsavel por alterar os dados do  produto no banco de dados
+     * @param p - produto que sera alterado no banco
+     * @return true/false
+     */
     public boolean update(Produto p){
         try {
             String sql = "UPDATE produto SET nome = ?, precovenda = ?, precocusto = ?, data = ?, quantidade = ?, foto = ? WHERE id = ?;";
@@ -65,7 +74,11 @@ public class ProdutoDao {
             return false;
         }
     }
-     
+     /**
+     * Metodo responsavel por deletar o produto no banco de dados
+     * @param p - produto que sera alterado
+     * @return true/false
+     */
     public boolean delete(Produto p){
         try {
             String sql = "DELETE FROM produto WHERE id_prod = ?;";
@@ -79,7 +92,10 @@ public class ProdutoDao {
             return false;
         }
     }
-    
+    /**
+     * Metodos responsavel por listar os produtos
+     * @return List(Lista  de porduto)
+     */
     public List<Produto> getList(){
         List<Produto> produtos = new ArrayList<>();
         String sql = "SELECT * FROM produto;";

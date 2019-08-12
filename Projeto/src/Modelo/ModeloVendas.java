@@ -1,4 +1,8 @@
 package Modelo;
+/**
+ * Classe responsavel por cirar uma venda
+ * @author Romulo Sobreira
+ */
 public class ModeloVendas {
     private int id;
     private int referenciaProduto;

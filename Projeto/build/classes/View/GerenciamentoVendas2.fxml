@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GerenciamentoVendas2Controller">
+   <children>
+      <Button fx:id="enfButton" layoutY="17.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="704.0" style="-fx-background-color: #850243;" />
+      <Button fx:id="addProdutoButton" layoutX="256.0" layoutY="109.0" mnemonicParsing="false" onAction="#addProdutoButtonAction" prefHeight="0.0" prefWidth="103.0" style="-fx-background-color: #ffff;" text="Adicionar" textFill="#850243">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="inicioButton" layoutX="13.0" layoutY="23.0" mnemonicParsing="false" onAction="#inicioButtonAction" prefHeight="25.0" prefWidth="41.0" style="-fx-background-color: #850243;" textFill="#b5178e">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fx:id="inicioImg1" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <image>
+                  <Image url="@../icons/home_icon-icons.com_73532.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="voltarButton" layoutX="553.0" layoutY="23.0" mnemonicParsing="false" onAction="#voltarButtonAction" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: #ffff;" text="Voltar" textFill="#b5178e">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="sairButton" layoutX="628.0" layoutY="23.0" mnemonicParsing="false" onAction="#sairButtonAction" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: #ffff;" text="Sair" textFill="#b5178e">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Text fill="WHITE" layoutX="62.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gerenciamento de vendas">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <TextField fx:id="nomeClienteTextField" layoutX="44.0" layoutY="83.0" prefHeight="25.0" prefWidth="173.0" promptText="Nome do cliente" />
+      <TextField fx:id="nomeProdutoTextField" layoutX="236.0" layoutY="83.0" prefHeight="25.0" prefWidth="173.0" promptText="Nome do produto" />
+      <Button fx:id="pesquisarProdutoButton" layoutX="417.0" layoutY="83.0" mnemonicParsing="false" onAction="#pesquisarProdutoButtonAction" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #850243;" text="Buscar" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <TableView fx:id="produtoTableView" layoutX="43.0" layoutY="133.0" prefHeight="187.0" prefWidth="298.0">
+        <columns>
+          <TableColumn fx:id="id" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="nome" prefWidth="144.0" text="Nome" />
+            <TableColumn fx:id="quantidade" prefWidth="78.0" text="Quantidade" />
+        </columns>
+      </TableView>
+      <TextField fx:id="quantTextField" layoutX="44.0" layoutY="327.0" prefHeight="25.0" prefWidth="84.0" promptText="Quantidade" />
+      <TextField fx:id="precoTextField" layoutX="137.0" layoutY="327.0" prefHeight="25.0" prefWidth="84.0" promptText="Preço" />
+      <TextField fx:id="dataVendaTextField" layoutX="228.0" layoutY="327.0" prefHeight="25.0" prefWidth="117.0" promptText="Data da venda" />
+      <Text layoutX="44.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Produtos do estoque" wrappingWidth="117.0" />
+      <TableView fx:id="carrinho" layoutX="357.0" layoutY="133.0" prefHeight="187.0" prefWidth="291.0">
+        <columns>
+          <TableColumn fx:id="descrição" prefWidth="75.0" text="Descriçao" />
+          <TableColumn fx:id="quantidade2" prefWidth="115.0" text="Quantidade" />
+            <TableColumn fx:id="valorTotal" prefWidth="99.0" text="Valor Total" />
+        </columns>
+      </TableView>
+      <Button fx:id="finalizarButton" layoutX="357.0" layoutY="327.0" mnemonicParsing="false" onAction="#finalizarButtonButtonAction" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #850243;" text="Finalizar" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="historicoButton" layoutX="530.0" layoutY="327.0" mnemonicParsing="false" onAction="#historicoButtonButtonAction" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #850243;" text="Histórico" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Text layoutX="599.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carrinho" wrappingWidth="49.0" />
+      <TextField fx:id="TotalTextField" layoutX="587.0" layoutY="367.0" prefHeight="25.0" prefWidth="103.0" promptText="Total da venda" />
+      <Text layoutX="619.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor total" wrappingWidth="59.0" />
+      <Button fx:id="cancelarVendaButton" layoutX="442.0" layoutY="327.0" mnemonicParsing="false" onAction="#cancelarVendaButton" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #850243;" text="Cancelar" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="abrirVendaButton" layoutX="535.0" layoutY="83.0" mnemonicParsing="false" onAction="#abrirVendaButtonButtonAction" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #850243;" text="Abrir Venda" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

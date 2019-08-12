@@ -74,7 +74,7 @@
       <Label fx:id="vVendaLabel" layoutX="58.0" layoutY="323.0" prefHeight="17.0" prefWidth="75.0" text="R$ 0,00" wrapText="true" />
       <TableView fx:id="tableView" layoutX="152.0" layoutY="145.0" prefHeight="208.0" prefWidth="519.0">
         <columns>
-          <TableColumn fx:id="refTb" prefWidth="105.0" text="Referência" />
+          <TableColumn fx:id="refTb" prefWidth="105.0" text="ID" />
           <TableColumn fx:id="nomeTb" prefWidth="118.0" text="Nome" />
             <TableColumn fx:id="qtdTb" prefWidth="84.0" text="Quantidade" />
             <TableColumn fx:id="pvTb" prefWidth="105.0" text="Preço de venda" />

@@ -8,19 +8,20 @@ package Modelo;
 import java.util.Date;
 
 /**
- *
+ *Classe responsavel por criar um produto
  * @author Romulo Sobreira
  */
 public class Produto {
 
    
-    private long cod;
+    private int cod;
     private long referenciaProduto;
     private long quantidadeProduto;
     private float precoVenda;
     private float precoCusto;
     private String nomeProduto;
     private Date dataCadastro;
+    private String observacao;
     private String foto;
 
     public Produto(int referencia, int qtd, float precoV, float precoC, String n,Date data, String ft){
@@ -36,11 +37,11 @@ public class Produto {
         this(0, 0, 0.0f, 0.0f, "", null,"");
     }
     
-    public long getCod() {
+    public int getCod() {
         return cod;
     }
 
-    public void setCod(long cod) {
+    public void setCod(int cod) {
         this.cod = cod;
     }
     public long getReferenciaProduto() {
@@ -101,6 +102,14 @@ public class Produto {
     @Override
     public String toString() {
         return getNomeProduto();
+    }
+
+    public String getObservacao() {
+        return observacao;
+    }
+
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
     }
   
     

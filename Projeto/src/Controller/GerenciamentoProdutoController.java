@@ -33,6 +33,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 
+/**
+ * Calsse responsavel por gerenciar os produtos 
+ * @author Romulo Sobreira
+ */
 public class GerenciamentoProdutoController implements Initializable{
 
     
@@ -149,6 +153,7 @@ public class GerenciamentoProdutoController implements Initializable{
        produtos = FXCollections.observableArrayList(dao.getList()); 
        return produtos;
     }
+    
     public void listaProduto(){
             ListarProduto p = new ListarProduto();
         try{
@@ -160,6 +165,9 @@ public class GerenciamentoProdutoController implements Initializable{
     public void fecha(){
        ListarProduto.getStage().close();
     }
+    /**
+     * Metodo responsavel por deletr um produto selecionado na tableview
+     */
     public void deletar(){
         if(selecionada != null){
             ProdutoDao dao = new ProdutoDao();
@@ -174,7 +182,9 @@ public class GerenciamentoProdutoController implements Initializable{
             a.show();
         }
     }
-    
+    /**
+     * Metodo responsavel por mostrar a imagem
+     */
     public void mostraDetalhes(){
         if(selecionada != null){
             imgFoto.setImage(new Image("file:///"+selecionada.getFoto()));

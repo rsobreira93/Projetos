@@ -12,6 +12,10 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 
+/**
+ * Classe responsável por alterar os dados do cliente
+ * @author Romulo Sobreira
+ */
 public class AlterarClientController{
     private Parent nova;
     @FXML
@@ -27,7 +31,7 @@ public class AlterarClientController{
     private Button atualizarButton;
 
     @FXML
-    private TextArea obsTextField;
+    private TextField obs;
 
     @FXML
     private Button enfButton;
@@ -84,11 +88,11 @@ public class AlterarClientController{
         this.emailTextField.setText(cliente.getEmail());
         this.cpfTextField.setText(cliente.getCpf());
         this.enderecoTextField.setText(cliente.getEndereco());
-        this.nTextField.setText(cliente.getN());
+        this.nTextField.setText(cliente.getObs());
         this.complementoTextField.setText(cliente.getComplemento());
         this.bairroTextField.setText(cliente.getBairro());
         this.cidadeTextField.setText(cliente.getCidade());
-        this.obsTextField.setText(cliente.getObs());
+        this.obs.setText(cliente.getN());
         this.cNascimentoTextField.setText(cliente.getdNascimento());
     } 
     @FXML
@@ -100,7 +104,7 @@ public class AlterarClientController{
         }else {
         cliente.setNome(nomeTextField.getText());
         cliente.setTelefone(celularTextField.getText());
-        cNascimentoTextField.getText();
+       cliente.setdNascimento(cNascimentoTextField.getText());
         cliente.setEmail(emailTextField.getText());
         cliente.setCpf(cpfTextField.getText());
         cliente.setEndereco(enderecoTextField.getText());
@@ -109,7 +113,7 @@ public class AlterarClientController{
         cliente.setBairro(bairroTextField.getText());
         cliente.setCidade(cidadeTextField.getText());
         cliente.setdNascimento (cNascimentoTextField.getText());
-        cliente.setObs(obsTextField.getText());
+        cliente.setObs(obs.getText());
         buttonConfimar=true;
         dialogStage.close();
         }

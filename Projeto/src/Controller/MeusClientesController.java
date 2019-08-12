@@ -5,7 +5,6 @@
 package Controller;
 
 import Main.Main;
-import Modelo.ListarCliente;
 import Modelo.Cliente;
 import ModeloConection.ConnectionFactory;
 import ModeloDao.ClienteDAO;
@@ -30,11 +29,15 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
-
+/**
+ * Classe responsavel por implementar as funcionalidade do fxml MeusClientesController
+ * @author Romulo Sobreira
+ */
 
 public class MeusClientesController implements Initializable{
     Cliente mod = new Cliente();
@@ -67,6 +70,11 @@ public class MeusClientesController implements Initializable{
     @FXML    private TableColumn<Cliente, String> enderecoTb;
     private Cliente selecionada; 
      ObservableList<Cliente> clientes = FXCollections.observableArrayList();
+     /**
+      * Metodo responsável por mostrar elementos e executar ações referentes a tableview
+      * @param location - Url do inicializable
+      * @param resources  - recurso necessarops para a inicialização da table view
+      */
     @Override
     public void initialize(URL location, ResourceBundle resources){
         initTable();
@@ -74,9 +82,11 @@ public class MeusClientesController implements Initializable{
         atualizarButton.setOnMouseClicked((MouseEvent e ) -> {
             tableView.setItems(atualizaTabela());
         });
-        
         excluirButton.setOnMouseClicked((MouseEvent e ) -> {
             deletar();
+        });
+        buscarTextField.setOnKeyReleased((KeyEvent e) ->{
+            tableView.setItems(busca());
         });
         tableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
@@ -114,11 +124,11 @@ public class MeusClientesController implements Initializable{
     }
     @FXML
     void buscarButtonAction(ActionEvent event){
-      if(buscarTextField.getText().isEmpty()){
-          JOptionPane.showMessageDialog(null, "Informe um cliente");
-      }else{
-      tableView.setItems(busca());
-      }
+        if(buscarTextField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Informe um produto");
+        }else{
+        tableView.setItems(busca());
+        }
     }
     @FXML
     void excluirButtonAction(ActionEvent event){
@@ -128,6 +138,10 @@ public class MeusClientesController implements Initializable{
     void atualizarButtonAction(ActionEvent event) throws Exception{
        alterar();
     }
+    /**
+     * 
+     * Função responsável por inicializar o tabelview.
+     */
     public void initTable(){
         idTb.setCellValueFactory(new PropertyValueFactory("cod"));
         nomeTb.setCellValueFactory(new PropertyValueFactory("nome"));
@@ -166,6 +180,11 @@ public class MeusClientesController implements Initializable{
                 a.show();
             }
         }
+        /**
+         * Metodo responsavel por alterar um cliente
+         * @throws Exception  - caso o cliente seja null, ou seja, ele não tenha selecionado nenhum
+         * ele emite um aletar pedidindo para selecionar
+         */
         public void alterar() throws Exception{
             Cliente cliente = tableView.getSelectionModel().getSelectedItem();
             if(cliente != null){  
@@ -185,7 +204,7 @@ public class MeusClientesController implements Initializable{
             }
         }
         public boolean telaAlterarCliente(Cliente cliente) throws IOException{
-            FXMLLoader loader = new FXMLLoader();
+        FXMLLoader loader = new FXMLLoader();
         loader.setLocation(AlterarClientController.class.getResource("/View/AlterarClient.fxml"));
         AnchorPane page = (AnchorPane) loader.load();
 

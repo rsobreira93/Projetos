@@ -2,7 +2,9 @@ package Controller;
 
 import Main.Main;
 import Modelo.Cliente;
+import Modelo.Venda;
 import ModeloDao.ClienteDAO;
+import ModeloDao.VendaDao;
 import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
@@ -18,6 +20,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -34,7 +37,10 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-
+/**
+ * Classe responsavel por gerar relatorios.
+ * @author Romulo Sobreira
+ */
 public class FinancasController implements Initializable{
     private Parent nova;
 @FXML
@@ -89,7 +95,7 @@ public class FinancasController implements Initializable{
             }
     }
     @FXML
-    void GerarButtonAction(ActionEvent event) throws BadElementException, IOException {
+    void GerarButtonAction(ActionEvent event) throws BadElementException, IOException, SQLException {
         gerarPdf();
     }
 
@@ -98,7 +104,7 @@ public class FinancasController implements Initializable{
     
     }
 
-    public void gerarPdf() throws BadElementException, IOException{
+    public void gerarPdf() throws BadElementException, IOException, SQLException{
        Document doc = new Document();
        FileChooser f = new FileChooser();
        f.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF","*.pdf"));
@@ -108,7 +114,14 @@ public class FinancasController implements Initializable{
                try {
                    PdfWriter.getInstance(doc, new FileOutputStream(arq.getAbsolutePath()));
                    doc.open();
-     
+                   float valorTotal=0, mediaVendas=(float) 0.0, lucro=0;
+                   int quantVenda=0;
+                   List<Venda> vendas = new VendaDao().getList2();
+                   for (int y=0 ;y < vendas.size();y++){
+                      valorTotal+=vendas.get(y).getValorVenda();
+                      quantVenda++;
+                   }
+                   mediaVendas= valorTotal/quantVenda;
                    Image logo = Image.getInstance("C:\\Users\\João Victor Queiroz\\Documents\\GitHub\\Projetos\\Projeto\\src\\icons\\Anamary logo.png");
                    logo.scaleAbsolute(221, 115);
                    logo.setAlignment(Element.ALIGN_CENTER);
@@ -121,15 +134,13 @@ public class FinancasController implements Initializable{
                    Paragraph vGeral = new Paragraph("VISÃO GERAL");
                    vGeral.setAlignment(Element.ALIGN_CENTER);
                    doc.add(new Paragraph("                  "));
-                   doc.add(new Paragraph("Valor total: R$0,00"));
+                   doc.add(new Paragraph("Valor total: R$"+valorTotal));
                    doc.add(new Paragraph("                  "));
-                   doc.add(new Paragraph("Quantidade de vendas: 0"));
+                   doc.add(new Paragraph("Quantidade de vendas: "+quantVenda));
                    doc.add(new Paragraph("                  "));
-                   doc.add(new Paragraph("Média das vendas: R$0,00"));
+                   doc.add(new Paragraph("Média das vendas: R$"+mediaVendas));
                    doc.add(new Paragraph("                  "));
                    doc.add(new Paragraph("Lucro Estimado: R$0,00"));
-                   doc.add(new Paragraph("                  "));
-                   doc.add(new Paragraph("Produto mais vendido: Nenhum produto foi vendido"));
                    
                    doc.add(new Paragraph("                  "));
                    doc.add(new Paragraph("                  "));
@@ -137,21 +148,29 @@ public class FinancasController implements Initializable{
                    Paragraph historico = new Paragraph("HISTÓRICO");
                    doc.add(new Paragraph("                  "));
                    PdfPTable tabela = new PdfPTable (3);
-                   PdfPCell col1 = new PdfPCell(new Paragraph("Nome"));
+                   PdfPCell col1 = new PdfPCell(new Paragraph("Cliente"));
                    col1.setBackgroundColor(BaseColor.LIGHT_GRAY);
-                   PdfPCell col2 = new PdfPCell(new Paragraph("CPF"));
+                   PdfPCell col2 = new PdfPCell(new Paragraph("Produto"));
                    col2.setBackgroundColor(BaseColor.LIGHT_GRAY);
-                   PdfPCell col3 = new PdfPCell(new Paragraph("Telefone"));
+                   PdfPCell col3 = new PdfPCell(new Paragraph("Quantidade"));
                    col3.setBackgroundColor(BaseColor.LIGHT_GRAY);
+                   PdfPCell col4 = new PdfPCell(new Paragraph("Preço da venda"));
+                   col4.setBackgroundColor(BaseColor.LIGHT_GRAY);
+                   PdfPCell col5 = new PdfPCell(new Paragraph("Data da Venda"));
+                   col5.setBackgroundColor(BaseColor.LIGHT_GRAY);
                    tabela.addCell(col1);
                    tabela.addCell(col2);
                    tabela.addCell(col3);
+                   tabela.addCell(col4);
+                   tabela.addCell(col5);
                    
-                   List<Cliente> clientes = new ClienteDAO().getList();
-                   for(int x = 0; x < clientes.size(); x++){
-                    tabela.addCell(new Paragraph(clientes.get(x).getNome()));
-                    tabela.addCell(new Paragraph(clientes.get(x).getCpf()));
-                    tabela.addCell(new Paragraph(clientes.get(x).getTelefone()));
+                   
+                   for(int x = 0; x < vendas.size(); x++){
+                    tabela.addCell(new Paragraph(vendas.get(x).getNomeCliente()));
+                    tabela.addCell(new Paragraph(vendas.get(x).getNomeProduto()));
+                    tabela.addCell(new Paragraph(vendas.get(x).getQtdItem()));
+                    tabela.addCell(new Paragraph(vendas.get(x).getValorVenda()));
+                    tabela.addCell(new Paragraph(vendas.get(x).getData()));
                    }
                    doc.add(tabela);
                    doc.close();

@@ -16,7 +16,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
-
+/**
+ * Classe que implementa o FXML do Login
+ * @author Romulo Sobreira
+ */
 
 public class LoginController {
     Vendedor vendedor = new Vendedor();

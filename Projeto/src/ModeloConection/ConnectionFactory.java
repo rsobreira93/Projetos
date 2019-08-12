@@ -10,11 +10,14 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- *
+ *Classe responsavel por cirar a conexão com o banco de dados
  * @author Romulo Sobreira
  */
 public class ConnectionFactory {
-    
+    /**
+     * Metodos responsavel por abrir a conexão com o Banco de dados
+     * @return Connection
+     */
     public Connection getConnection(){
         try{
             String nomeUsuario = "postgres";

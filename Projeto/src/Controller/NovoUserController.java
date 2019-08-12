@@ -16,6 +16,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 
+/**
+ * Classe responsavel por criar um novo usuario
+ * @author Romulo Sobreira
+ */
 public class NovoUserController{
    Vendedor vendedor = new Vendedor();
    Vendedor mod = new Vendedor();
@@ -43,7 +47,7 @@ public class NovoUserController{
             } 
     } 
     @FXML
-    void ButtonCadastrarAction(ActionEvent event){
+    void ButtonCadastrarAction(ActionEvent event) throws IOException{
         if(NovoLoginTextField1.getText().isEmpty() || EmailTextField.getText().isEmpty() || NovoLoginTextField1.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null, "Todos os campos são obrigatórios");
         }else{
@@ -59,6 +63,8 @@ public class NovoUserController{
                        mod.setEmail(EmailTextField.getText());
                        mod.setSenha(NovaSenhaPassawordField.getText());
                        dao.add(mod);
+                       nova= FXMLLoader.load(getClass().getResource("/View/NovoUser.fxml"));
+                       Main.trocarTela(nova);
                    }
                  }
                }

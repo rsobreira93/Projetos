@@ -21,9 +21,9 @@
          </cursor>
       </Button>
       <TextField fx:id="nomeTextField" layoutX="53.0" layoutY="74.0" prefHeight="25.0" prefWidth="309.0" promptText="Nome" />
-      <TextField fx:id="celularTextField" layoutX="53.0" layoutY="117.0" prefHeight="25.0" prefWidth="136.0" promptText="Celular" />
+      <TextField fx:id="cNascimento" layoutX="227.0" layoutY="117.0" onKeyReleased="#celularOnKeyReleased" prefHeight="25.0" prefWidth="136.0" promptText="Data de Nascimento" />
       <TextField fx:id="emailTextField" layoutX="53.0" layoutY="157.0" prefHeight="25.0" prefWidth="309.0" promptText="E-mail" />
-      <TextField fx:id="cpfTextField" layoutX="53.0" layoutY="188.0" prefHeight="25.0" prefWidth="309.0" promptText="CPF" />
+      <TextField fx:id="cpfTextField" layoutX="53.0" layoutY="188.0" onKeyReleased="#cpfOnKeyReleased" prefHeight="25.0" prefWidth="309.0" promptText="CPF" />
       <TextField fx:id="enderecoTextField" layoutX="53.0" layoutY="222.0" prefHeight="25.0" prefWidth="309.0" promptText="Endereço" />
       <TextField fx:id="nTextField" layoutX="53.0" layoutY="259.0" prefHeight="25.0" prefWidth="136.0" promptText="Nº" />
       <TextField fx:id="complementoTextField" layoutX="195.0" layoutY="259.0" prefHeight="25.0" prefWidth="169.0" promptText="Complemento" />
@@ -93,7 +93,6 @@
             </ImageView>
          </graphic>
       </Button>
-      <TextField fx:id="cNascimento" layoutX="225.0" layoutY="118.0" prefHeight="25.0" prefWidth="136.0" promptText="Data de nascimento" />
       <Text fill="#850243" layoutX="53.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Campo obrigatório">
          <font>
             <Font size="10.0" />
@@ -109,5 +108,6 @@
             <Font size="10.0" />
          </font>
       </Text>
+      <TextField fx:id="celularTextField" layoutX="53.0" layoutY="117.0" onKeyReleased="#celularOnKeyReleased" prefHeight="25.0" prefWidth="136.0" promptText="Celular" />
    </children>
 </AnchorPane>

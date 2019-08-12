@@ -3,16 +3,22 @@ package Controller;
 
 import Calendario.Calendario;
 import Main.Main;
+import ModeloConection.ConexaoBD;
 import java.awt.Color;
 import java.io.IOException;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.LoadException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+/**
+ * Calsse responsavel por implementar o FXML do menu principal
+ * @author Romulo Sobreira
+ */
 public class MenuPrincipalController {
     private Parent nova;
     @FXML
@@ -38,7 +44,6 @@ public class MenuPrincipalController {
 
     @FXML
     private Button gVendasButton;
-
     @FXML
     void sairButtonAction(ActionEvent event){
         try {
@@ -77,9 +82,11 @@ public class MenuPrincipalController {
     }
     @FXML
     void gVendasButtonAction(ActionEvent envent){
-         try {
-                 nova= FXMLLoader.load(getClass().getResource("/View/GerenciamentoVendas.fxml"));
+        try {
+                 
+                 nova= FXMLLoader.load(getClass().getResource("/View/GerenciamentoVendas2.fxml"));
                  Main.trocarTela(nova);
+                 
             } catch (IOException ex) {
                 Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
             }

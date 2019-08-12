@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 /**
- *
+ *Classe responsavel por salvar/alterar/excluir um cliente no banco de dados
  * @author Romulo Sobreira
  */
 public class ClienteDAO {
@@ -24,10 +24,14 @@ public class ClienteDAO {
     public ClienteDAO(){
         this.con = new ConnectionFactory().getConnection();
     }
-    
+    /**
+     * Metodo responsavel por salvar um cliente no banco de dados
+     * @param u - cliente que será salvo
+     * @return true/false 
+     */
     public boolean add(Cliente u){
         try {
-            String sql = "INSERT INTO clientes(nome, telefon, cpf, email, cidade, bairro, complemento,endereco, n, datanascimento, obs) VALUES(?, ?, ?, ?, ?, ? ,?, ?, ?, ?,?);";
+            String sql = "INSERT INTO clientes(nome_cliente, telefon, cpf, email, cidade, bairro, complemento,endereco, n, datanascimento, obs) VALUES(?, ?, ?, ?, ?, ? ,?, ?, ?, ?,?);";
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, u.getNome());
             stmt.setString(2, u.getTelefone());
@@ -48,9 +52,14 @@ public class ClienteDAO {
             return false;
         }
     }
+       /**
+     * Metodo responsavel por alterar os dados de um cliente no banco de dados
+     * @param u - cliente que sofrerar a alteraração
+     * @return true/false 
+     */
     public boolean update(Cliente u){
         try {
-            String sql = "UPDATE clientes SET nome = ?, telefon = ?, cpf = ?, email = ?, cidade = ?, bairro = ?, complemento = ?, endereco = ?, n = ?, datanascimento = ? , obs = ? WHERE id = ?;";
+            String sql = "UPDATE clientes SET nome_cliente = ?, telefon = ?, cpf = ?, email = ?, cidade = ?, bairro = ?, complemento = ?, endereco = ?, n = ?, datanascimento = ? , obs = ? WHERE id = ?;";
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, u.getNome());
             stmt.setString(2, u.getTelefone());
@@ -72,7 +81,11 @@ public class ClienteDAO {
             return false;
         }
     }
-     
+        /**
+     * Metodo responsavel por deletar um cliente no banco de dados
+     * @param u - cliente que será deletado
+     * @return true/false 
+     */
     public boolean delete(Cliente u){
         try {
             String sql = "DELETE FROM clientes WHERE id = ?";
@@ -86,7 +99,10 @@ public class ClienteDAO {
             return false;
         }
     }
-    
+    /**
+     * Metodos responsavel por restornar uma lista de clientes que persistem no banco de dados
+     * @return List 
+     */
     public List<Cliente> getList(){
         List<Cliente> usuarios = new ArrayList<>();
         String sql = "SELECT * FROM clientes;";
@@ -96,7 +112,7 @@ public class ClienteDAO {
             while(rs.next()){
                 Cliente u  = new Cliente();
                 u.setCod(rs.getLong("id"));//Essa string é de acordo com o nome da coluna no BD
-                u.setNome(rs.getString("nome"));
+                u.setNome(rs.getString("nome_cliente"));
                 u.setTelefone(rs.getString("telefon"));
                 u.setCpf(rs.getString("cpf"));
                 u.setEmail(rs.getString("email"));
@@ -105,8 +121,8 @@ public class ClienteDAO {
                 u.setComplemento(rs.getString("complemento"));
                 u.setEndereco(rs.getString("endereco"));
                 u.setN(rs.getString("n"));
-                //u.setN(rs.getString("datanascimento"));
-                //u.setN(rs.getString("obs"));
+                u.setdNascimento(rs.getString("datanascimento"));
+                u.setObs(rs.getString("obs"));
                 
                 usuarios.add(u);
             }

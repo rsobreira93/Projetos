@@ -46,7 +46,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Text>
-      <Button fx:id="atualizarButton" layoutX="97.0" layoutY="361.0" mnemonicParsing="false" onAction="#atualizarButtonAction" prefHeight="25.0" prefWidth="169.0" style="-fx-background-color: #850243;" text="Atualizar" textFill="WHITE" wrapText="true">
+      <Button fx:id="atualizarButton" layoutX="263.0" layoutY="361.0" mnemonicParsing="false" onAction="#atualizarButtonAction" prefHeight="25.0" prefWidth="169.0" style="-fx-background-color: #850243;" text="Atualizar" textFill="WHITE" wrapText="true">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
@@ -55,11 +55,10 @@
             <Image url="@../icons/Anamary%20logo.png" />
          </image>
       </ImageView>
-      <TextArea fx:id="obsTextField" layoutX="374.0" layoutY="325.0" prefHeight="55.0" prefWidth="309.0" promptText="Adicone uma observação" />
       <TextField fx:id="bairroTextField" layoutX="374.0" layoutY="287.0" prefHeight="25.0" prefWidth="136.0" promptText="Bairro" />
       <TextField fx:id="cidadeTextField" layoutX="516.0" layoutY="287.0" prefHeight="25.0" prefWidth="169.0" promptText="Cidade" />
       <TextField fx:id="complementoTextField" layoutX="517.0" layoutY="249.0" prefHeight="25.0" prefWidth="169.0" promptText="Complemento" />
-      <TextField fx:id="nTextField" layoutX="375.0" layoutY="249.0" prefHeight="25.0" prefWidth="136.0" promptText="Nº" />
+      <TextField fx:id="nTextField" layoutX="374.0" layoutY="251.0" prefHeight="25.0" prefWidth="136.0" promptText="Nº" />
       <TextField fx:id="enderecoTextField" layoutX="374.0" layoutY="210.0" prefHeight="25.0" prefWidth="309.0" promptText="Endereço" />
       <TextField fx:id="cpfTextField" layoutX="36.0" layoutY="321.0" prefHeight="25.0" prefWidth="309.0" promptText="CPF" />
       <TextField fx:id="emailTextField" layoutX="36.0" layoutY="290.0" prefHeight="25.0" prefWidth="309.0" promptText="E-mail" />
@@ -81,5 +80,6 @@
             <Font size="10.0" />
          </font>
       </Text>
+      <TextField fx:id="obs" layoutX="374.0" layoutY="320.0" prefHeight="25.0" prefWidth="309.0" promptText="Obsevarsão" />
    </children>
 </AnchorPane>

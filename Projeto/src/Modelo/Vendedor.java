@@ -1,5 +1,9 @@
 
 package Modelo;
+/**
+ * Classe responsavel por criar um vendedor
+ * @author Romulo Sobreira
+ */
 public class Vendedor {
     private String email;
     private String login;

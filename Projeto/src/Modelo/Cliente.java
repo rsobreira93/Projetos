@@ -1,7 +1,7 @@
 package Modelo;
 
 /**
- *
+ *Classe responsavel por criar um cliente
  * @author Romulo Sobreira
  */
 public class Cliente {
@@ -39,7 +39,7 @@ public class Cliente {
      * @return the cod
      */
     public long getCod() {
-        return cod;
+        return this.cod;
     }
 
     /**
@@ -53,7 +53,7 @@ public class Cliente {
      * @return the endereco
      */
     public String getEndereco() {
-        return endereco;
+        return this.endereco;
     }
 
     /**
@@ -67,7 +67,7 @@ public class Cliente {
      * @return the n
      */
     public String getN() {
-        return n;
+        return this.n;
     }
 
     /**
@@ -81,7 +81,7 @@ public class Cliente {
      * @return the cidade
      */
     public String getCidade() {
-        return cidade;
+        return this.cidade;
     }
 
     /**
@@ -95,7 +95,7 @@ public class Cliente {
      * @return the bairro
      */
     public String getBairro() {
-        return bairro;
+        return this.bairro;
     }
 
     /**
@@ -109,7 +109,7 @@ public class Cliente {
      * @return the complemento
      */
     public String getComplemento() {
-        return complemento;
+        return this.complemento;
     }
 
     /**
@@ -123,7 +123,7 @@ public class Cliente {
      * @return the nome
      */
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     /**
@@ -137,7 +137,7 @@ public class Cliente {
      * @return the cpf
      */
     public String getCpf() {
-        return cpf;
+        return this.cpf;
     }
 
     /**
@@ -151,7 +151,7 @@ public class Cliente {
      * @return the telefone
      */
     public String getTelefone() {
-        return telefone;
+        return this.telefone;
     }
 
     /**
@@ -165,7 +165,7 @@ public class Cliente {
      * @return the email
      */
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     /**
@@ -177,7 +177,7 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return getNome();
+        return this.getNome();
     }
     
 }

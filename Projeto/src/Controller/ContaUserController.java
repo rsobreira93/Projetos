@@ -30,7 +30,10 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
-
+/**
+ * Classe responsável por fazer o controle de usuarios(administradores) do programa
+ * @author Romulo Sobreira
+ */
 public class ContaUserController implements Initializable{
     private Parent nova;
     @FXML
@@ -75,6 +78,7 @@ public class ContaUserController implements Initializable{
        
         tableView.getSelectionModel().selectedItemProperty().addListener(
         (observable, oldValue, newValue) -> mostrarDados((newValue))); 
+        
         tableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
@@ -150,11 +154,18 @@ public class ContaUserController implements Initializable{
         emailTableColumn.setCellValueFactory(new PropertyValueFactory("email"));
         tableView.setItems(atualizaTabela());
     }
+    /**
+     * Metodo responsável por atualizar a tableview
+     * @return FXCollections.observableArrayList()
+     */
     public ObservableList<Vendedor> atualizaTabela(){
        VendedorDAO dao = new VendedorDAO();
        admins = FXCollections.observableArrayList(dao.getList());
        return  admins;
     }
+    /**
+     * Metodo responsavel por deletar um usuario selecionado na tableview
+     */
     public void deletar(){
             if(selecionada != null){
                 VendedorDAO dao = new VendedorDAO();
@@ -169,6 +180,11 @@ public class ContaUserController implements Initializable{
                 a.show();
             }
         }
+    /**
+     * Metodo responsavel por buscar um determinado administrador cadastrado
+     * no banco
+     * @return ObservableList atualizada
+     */
         private ObservableList<Vendedor> busca(){
             ObservableList<Vendedor> pesquisa = FXCollections.observableArrayList();
             for(int x = 0; x < admins.size(); x++){
@@ -178,6 +194,10 @@ public class ContaUserController implements Initializable{
             }
             return pesquisa;
         }
+        /**
+         * Metodos responsavel por mostrar os detalhes do administrador
+         * @param adm - mostrar os detalhes do admnistrador
+         */
         public void mostrarDados(Vendedor adm){
             novoLoginTextField.setText(adm.getLogin());
             novaSenhaPasswordField.setText(adm.getSenha());

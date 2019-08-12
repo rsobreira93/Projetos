@@ -27,7 +27,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-
+/**
+ * Calsse responsavel por implementar parte do gerenciamento de vendas
+ * a outra parte está em gerenciamento de vendas 2
+ * @author Romulo Sobreira
+ */
 public class GerenciamentoVendasController implements Initializable{  
     Cliente mod = new Cliente();
     Venda v = new Venda();
@@ -38,14 +42,7 @@ public class GerenciamentoVendasController implements Initializable{
     private Parent nova;
     
     @FXML
-    private Button carrinhoButton;
-    
-    @FXML
-    private ListView<?> carrinhoList;
-    
-    @FXML
-    private Button removerCarrinhoButton;
-      
+    private Button carrinhoButton;         
     @FXML
     private TextField pagamentoTextField;
     @FXML
@@ -130,12 +127,12 @@ public class GerenciamentoVendasController implements Initializable{
         Cliente client = idClienteComboBox1.getSelectionModel().getSelectedItem();
         Produto prod = referenciaProdutoComboBox.getSelectionModel().getSelectedItem();
         
-        venda.setPrecoVenda(Float.parseFloat(precoVendaTextField.getText()));
-        venda.setFormaPagamento(Boolean.parseBoolean(pagamentoTextField.getText()));
-        venda.setCodVenda(Integer.parseInt(descontoTextField.getText()));
-        venda.setProdutoVendido(prod);
-        venda.setCliente(client);
-        vd.add(venda);
+        //venda.setPrecoVenda(Float.parseFloat(precoVendaTextField.getText()));
+       // venda.setFormaPagamento(Boolean.parseBoolean(pagamentoTextField.getText()));
+       // //venda.setCodVenda(Integer.parseInt(descontoTextField.getText()));
+       // venda.setProdutoVendido(prod);
+       // venda.setCliente(client);
+       // vd.add(venda);
     }
     @FXML
     void historicoButtonAction(ActionEvent event) {
@@ -146,19 +143,12 @@ public class GerenciamentoVendasController implements Initializable{
                 Logger.getLogger(GerenciamentoVendasController.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
-    @FXML
-    void carrinhoButtonAction(ActionEvent event) {
-        //aqui Romulo
-    }
-    @FXML
-    void removerCarrinhoButtonAction(ActionEvent event) {
-        //aqui Romulo
-    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         comboBoxCliente();
         comboBoxProduto();
     }
+    
     public void comboBoxCliente(){
         clientes = dao.getList();
         obsclientes = FXCollections.observableArrayList(clientes);

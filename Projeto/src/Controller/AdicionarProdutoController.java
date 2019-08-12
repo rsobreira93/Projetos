@@ -27,7 +27,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
-
+/**
+ * Calasse resposável por adicionar um produto no banco de dados
+ * @author Romulo Sobreira
+ */
 public class AdicionarProdutoController implements Initializable{
     
     Produto mod = new Produto();
@@ -183,7 +186,7 @@ public class AdicionarProdutoController implements Initializable{
           }
     }
     @FXML
-    void inserirEstoqueButtonAction (ActionEvent event){
+    void inserirEstoqueButtonAction (ActionEvent event) throws IOException{
             if(nomeProdutoTextField.getText().isEmpty() ||
                pVendaTextField.getText().isEmpty() ||
                pCustoTextField.getText().isEmpty() ||
@@ -197,9 +200,11 @@ public class AdicionarProdutoController implements Initializable{
                 mod.setPrecoVenda(Float.parseFloat(pVendaTextField.getText()));
                 mod.setPrecoCusto(Float.parseFloat(pCustoTextField.getText()));
                 mod.setQuantidadeProduto(Integer.parseInt(quantTextField.getText()));
-                //mod.setObservacao(obsProdutoTextField.getText());
+                mod.setObservacao(obsProdutoTextField.getText());
                 mod.setFoto(caminhaFoto);
                 dao.add(mod);
+                nova= FXMLLoader.load(getClass().getResource("/View/AdicionarProduto.fxml"));
+                Main.trocarTela(nova);
             }
     }    
     public void selecionaFoto(){

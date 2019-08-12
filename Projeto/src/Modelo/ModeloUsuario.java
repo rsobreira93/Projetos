@@ -1,7 +1,7 @@
 package Modelo;
 
 /**
- *
+ *Classe responsavel por criar uma usuario
  * @author Romulo Sobreira
  */
 public class ModeloUsuario {

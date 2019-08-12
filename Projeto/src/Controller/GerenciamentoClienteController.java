@@ -1,5 +1,6 @@
 package Controller;
 
+import Auxiliares.TextFieldFormatter;
 import Modelo.Cliente;
 import Main.Main;
 import ModeloConection.ConnectionFactory;
@@ -19,7 +20,10 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
-
+/**
+ * classe responsavel por gerenciar os clientes
+ * @author Romulo Sobreira
+ */
 public class GerenciamentoClienteController {
    Cliente mod = new Cliente();
    ClienteDAO dao = new ClienteDAO();
@@ -149,7 +153,7 @@ public class GerenciamentoClienteController {
         }
     }
     @FXML
-    void cadastrarButtonAction(ActionEvent event){
+    void cadastrarButtonAction(ActionEvent event) throws IOException{
         
         if(nomeTextField.getText().isEmpty() ||
            celularTextField.getText().isEmpty() ||
@@ -168,6 +172,8 @@ public class GerenciamentoClienteController {
             mod.setCidade(cidadeTextField.getText());
             mod.setObs(obsTextField.getText());
             dao.add(mod);
+            nova= FXMLLoader.load(getClass().getResource("/View/GerenciamentoCliente.fxml"));
+            Main.trocarTela(nova);
         }
     }
     @FXML
@@ -240,5 +246,21 @@ public class GerenciamentoClienteController {
                 }  
             }
     }
+    }
+    /**
+     * Metodo responsavel por adicionar uma mascara  no campo celular
+     */
+     @FXML
+    void celularOnKeyReleased() {
+            TextFieldFormatter tff = new TextFieldFormatter();
+            tff.formatter(celularTextField, "0123456789", "(##)#####-####");
+    }
+    /**
+     * Metodo responsavel por adicionar uma mascara no campo cpf
+     */
+    @FXML
+     void cpfOnKeyReleased() {
+        TextFieldFormatter tff = new TextFieldFormatter();
+        tff.formatter(cpfTextField, "0123456789", "###.###.###-##");
     }
 }

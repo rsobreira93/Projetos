@@ -1,13 +1,12 @@
 package Controller;
 
 import Main.Main;
-import Modelo.Cliente;
-import Modelo.Produto;
 import Modelo.Venda;
 import ModeloConection.ConnectionFactory;
 import ModeloDao.VendaDao;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,35 +22,43 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-
+import javafx.scene.image.ImageView;
+/**
+ * Classe responsavel por implementar uma tableview do historico de compras 
+ * @author Romulo Sobreira
+ */
 public class HistoricoVendaController implements Initializable{
     Venda mod = new Venda();
     VendaDao dao = new VendaDao();
     ConnectionFactory con = new ConnectionFactory();
     private Parent nova;
-    @FXML    private TableColumn<Venda, Float> descontoColuna;
-    @FXML    private TableColumn<Venda, String> DataVendaCoulna;
+     @FXML
+    private ImageView inicioImg1;
     @FXML
     private Button excluirButton;
-    @FXML
-    private Button enfButton;
-    @FXML
-    private Button voltarButton;
-    @FXML    private TableColumn<Venda, Long> idColuna;
-    @FXML    private TableColumn<Venda, Cliente> clienteColuna;
-    @FXML    private TableColumn<Venda, Produto> produtoColuna;
-    @FXML    private TableColumn<Venda, Float> precoVendaColuna;
+
     @FXML
     private Button inicioButton;
-    @FXML    private TableView<Venda> historicoTableView;
+
+    @FXML
+    private Button enfButton;
+
+    @FXML
+    private Button voltarButton;
+
     @FXML
     private Button sairButton;
-    @FXML    private TableColumn<Venda, Float> pagamentoColuna;
+
+    @FXML private TableView<Venda> historicoTableView;
+    @FXML private TableColumn<Venda, String> clienteColuna;
+    @FXML private TableColumn<Venda, String> produtoColuna;
+    @FXML private TableColumn<Venda, String> dataVendaCoulna;
+    @FXML private TableColumn<Venda, Float> precoVendaCoulna;
+    @FXML private TableColumn<Venda, Integer> quantidadeColuna;
     private Venda selecionada; 
     ObservableList<Venda> vendas = FXCollections.observableArrayList();
     @FXML
     void sairButtonAction(ActionEvent event){
-       
             try {
                 nova= FXMLLoader.load(getClass().getResource("/View/Login.fxml"));
                  Main.trocarTela(nova);
@@ -62,7 +69,7 @@ public class HistoricoVendaController implements Initializable{
     @FXML
     void voltarButtonAction(ActionEvent event){
             try {
-                 nova= FXMLLoader.load(getClass().getResource("/View/GerenciamentoVendas.fxml"));
+                 nova= FXMLLoader.load(getClass().getResource("/View/GerenciamentoVendas2.fxml"));
             Main.trocarTela(nova);
             } catch (IOException ex) {
                 Logger.getLogger(HistoricoVendaController.class.getName()).log(Level.SEVERE, null, ex);
@@ -78,32 +85,39 @@ public class HistoricoVendaController implements Initializable{
             }
     }
     @FXML
-    void excluirButtonAction(ActionEvent event){
+    void excluirButtonAction(ActionEvent event) throws SQLException{
         deletar();
     }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        initTable();
-    }
-       public ObservableList<Venda> atualizaTabela(){
-           vendas = FXCollections.observableArrayList(dao.getList());
-           return vendas;
+        try {
+            initTable();
+        } catch (SQLException ex) {
+            Logger.getLogger(HistoricoVendaController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    public void initTable(){
-        idColuna.setCellValueFactory(new PropertyValueFactory("id"));
-        precoVendaColuna.setCellValueFactory(new PropertyValueFactory("precovenda"));
-        descontoColuna.setCellValueFactory(new PropertyValueFactory("descontovenda"));
-        pagamentoColuna.setCellValueFactory(new PropertyValueFactory("formapagamento"));
-        DataVendaCoulna.setCellValueFactory(new PropertyValueFactory("datavenda"));
-        produtoColuna.setCellValueFactory(new PropertyValueFactory("id_prod"));
-        clienteColuna.setCellValueFactory(new PropertyValueFactory("id_cli"));
+    }
+       public ObservableList<Venda> atualizaTabela() throws SQLException{
+         vendas = FXCollections.observableArrayList(dao.getList2());
+         return vendas;
+        }
+    public void initTable() throws SQLException{
+        
+        produtoColuna.setCellValueFactory(new PropertyValueFactory("nomeProduto"));
+        clienteColuna.setCellValueFactory(new PropertyValueFactory("nomeCliente"));
+        precoVendaCoulna.setCellValueFactory(new PropertyValueFactory("valorVenda"));
+        dataVendaCoulna.setCellValueFactory(new PropertyValueFactory("data"));
+        quantidadeColuna.setCellValueFactory(new PropertyValueFactory("qtdItem"));
         historicoTableView.setItems(atualizaTabela());
     }
-     public void deletar(){
+    /**
+     * Metodos responsavel por deleta um compra da tableview
+     * @throws SQLException  - caso a venda selecionada seja null não podera ser excluido
+     * por falta de selecionamento do mesmo na tableview
+     */
+     public void deletar() throws SQLException{
             if(selecionada != null){
                 VendaDao dao = new VendaDao();
-                dao.delete(selecionada);
+              //  dao.delete(selecionada);
                 Alert a = new Alert(Alert.AlertType.CONFIRMATION);
                 a.setHeaderText("Cliente deletado com sucesso");
                 a.show();

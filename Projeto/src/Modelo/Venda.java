@@ -14,112 +14,69 @@ package Modelo;
 public class Venda {
 
     
-    private int codVenda;
-    private float precoVenda;
-    private float descontoVenda;
-    private String dataVenda;
-    private boolean formaPagamento;
-    private Produto produtoVendido;
-    private Cliente cliente;
-    
-    /**
-     * @return the codVenda
-     */
-    public int getCodVenda() {
-        return codVenda;
+    private int idVenda;
+    private String data;
+    private float valorVenda;
+    private String nomeCliente;
+    private String nomeProduto;
+    private int codProduto;
+    private int qtdItem;
+
+    public int getCodProduto() {
+        return this.codProduto;
     }
 
-    /**
-     * @param codVenda the codVenda to set
-     */
-    public void setCodVenda(int codVenda) {
-        this.codVenda = codVenda;
+    public void setCodProduto(int codProduto) {
+        this.codProduto = codProduto;
     }
 
-    /**
-     * @return the precoVenda
-     */
-    public float getPrecoVenda() {
-        return precoVenda;
+    public int getIdVenda() {
+        return idVenda;
     }
 
-    /**
-     * @param precoVenda the precoVenda to set
-     */
-    public void setPrecoVenda(float precoVenda) {
-        this.precoVenda = precoVenda;
+    public void setIdVenda(int idVenda) {
+        this.idVenda = idVenda;
     }
 
-    /**
-     * @return the descontoVenda
-     */
-    public float getDescontoVenda() {
-        return descontoVenda;
+    public String getData() {
+        return data;
     }
 
-    /**
-     * @param descontoVenda the descontoVenda to set
-     */
-    public void setDescontoVenda(float descontoVenda) {
-        this.descontoVenda = descontoVenda;
+    public void setData(String data) {
+        this.data = data;
     }
 
-    /**
-     * @return the dataVenda
-     */
-    public String getDataVenda() {
-        return dataVenda;
+    public float getValorVenda() {
+        return valorVenda;
     }
 
-    /**
-     * @param dataVenda the dataVenda to set
-     */
-    public void setDataVenda(String dataVenda) {
-        this.dataVenda = dataVenda;
+    public void setValorVenda(float valorVenda) {
+        this.valorVenda = valorVenda;
     }
 
-    /**
-     * @return the formaPagamento
-     */
-    public boolean getFormaPagamento() {
-        return formaPagamento;
+    public String getNomeCliente() {
+        return nomeCliente;
     }
 
-    /**
-     * @param formaPagamento the formaPagamento to set
-     */
-    public void setFormaPagamento(boolean formaPagamento) {
-        this.formaPagamento = formaPagamento;
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
     }
 
-    /**
-     * @return the produtoVendido
-     */
-    public Produto getProdutoVendido() {
-        return produtoVendido;
+    public String getNomeProduto() {
+        return nomeProduto;
     }
 
-    /**
-     * @param produtoVendido the produtoVendido to set
-     */
-    public void setProdutoVendido(Produto produtoVendido) {
-        this.produtoVendido = produtoVendido;
+    public void setNomeProduto(String nomeProduto) {
+        this.nomeProduto = nomeProduto;
     }
 
-    /**
-     * @return the cliente
-     */
-    public Cliente getCliente() {
-        return cliente;
+    public int getQtdItem() {
+        return qtdItem;
     }
 
-    /**
-     * @param cliente the cliente to set
-     */
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setQtdItem(int qtdItem) {
+        this.qtdItem = qtdItem;
     }
-    
     
     
 }
