@@ -8,8 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #ffff;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Controller.FinancasController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.FinancasController">
    <children>
       <Button fx:id="enfButton" layoutY="20.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="704.0" style="-fx-background-color: #850243;" />
       <Button fx:id="sairButton" layoutX="639.0" layoutY="26.0" mnemonicParsing="false" onAction="#sairButtonAction" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: #ffff;" text="Sair" textFill="#b5178e">
@@ -37,8 +36,6 @@
             </ImageView>
          </graphic>
       </Button>
-      <DatePicker fx:id="InicioPeriodo" layoutX="265.0" layoutY="229.0" promptText="De" />
-      <DatePicker fx:id="FimPeriodo" layoutX="265.0" layoutY="271.0" promptText="Para" />
       <Button fx:id="GerarButton" layoutX="305.0" layoutY="316.0" mnemonicParsing="false" onAction="#GerarButtonAction" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #850243;" text="Gerar relatório" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -54,5 +51,9 @@
             <Image url="@../icons/Anamary%20logo.png" />
          </image>
       </ImageView>
+      <TextField fx:id="inicioPeriodo" layoutX="265.0" layoutY="229.0" prefHeight="25.0" prefWidth="174.0" promptText="Data Inicial" />
+      <TextField fx:id="fimPeriodo" layoutX="265.0" layoutY="267.0" prefHeight="25.0" prefWidth="174.0" promptText="Data Final" />
+      <Text fill="#850243" layoutX="226.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="De" />
+      <Text fill="#850243" layoutX="226.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ate" />
    </children>
 </AnchorPane>

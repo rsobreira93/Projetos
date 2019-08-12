@@ -22,6 +22,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -35,6 +38,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -46,9 +50,6 @@ public class FinancasController implements Initializable{
     private Parent nova;
 @FXML
     private ImageView inicioImg1;
-
-    @FXML
-    private DatePicker InicioPeriodo;
 
     @FXML
     private Button GerarButton;
@@ -65,8 +66,11 @@ public class FinancasController implements Initializable{
     @FXML
     private Button voltarButton;
 
-    @FXML
-    private DatePicker FimPeriodo;
+   @FXML
+   private TextField inicioPeriodo;
+   
+   @FXML
+   private TextField fimPeriodo;
 
     @FXML
     void sairButtonAction(ActionEvent event) {
@@ -96,7 +100,7 @@ public class FinancasController implements Initializable{
             }
     }
     @FXML
-    void GerarButtonAction(ActionEvent event) throws BadElementException, IOException, SQLException {
+    void GerarButtonAction(ActionEvent event) throws BadElementException, IOException, SQLException, ParseException {
         gerarPdf();
     }
 
@@ -105,7 +109,13 @@ public class FinancasController implements Initializable{
           //  Sytem.out.println(InicioPeriodo.getEditor());
     }
 
-    public void gerarPdf() throws BadElementException, IOException, SQLException{
+    public void gerarPdf() throws BadElementException, IOException, SQLException, ParseException{
+       SimpleDateFormat data = new SimpleDateFormat("dd/MM/yyyy"); 
+       Date iniPeriodo = data.parse(inicioPeriodo.getText());
+       Date fimPeriod = data.parse(fimPeriodo.getText());
+       Date dataVenda;
+       Date dataVenda2;
+        
        Document doc = new Document();
        FileChooser f = new FileChooser();
        f.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF","*.pdf"));
@@ -119,9 +129,13 @@ public class FinancasController implements Initializable{
                    int quantVenda=0;
                    List<Venda> vendas = new VendaDao().getList2();
                    for (int y=0 ;y < vendas.size();y++){
-                      valorTotal+=vendas.get(y).getValorVenda();
-                      precoCusto+=vendas.get(y).getPrecoCusto();
-                      quantVenda++;
+                      dataVenda= data.parse(vendas.get(y).getData());
+                      if(dataVenda.compareTo(iniPeriodo)>=0 && dataVenda.compareTo(fimPeriod)<=0){
+                          valorTotal+=vendas.get(y).getValorVenda();
+                          precoCusto+=vendas.get(y).getPrecoCusto();
+                          quantVenda++;
+                      }
+                      
                    }
                    mediaVendas= valorTotal/quantVenda;
                    lucro= valorTotal-precoCusto;
@@ -169,11 +183,14 @@ public class FinancasController implements Initializable{
                    
                    
                    for(int x = 0; x < vendas.size(); x++){
+                    dataVenda2= data.parse(vendas.get(x).getData());
+                    if(dataVenda2.compareTo(iniPeriodo)>=0 && dataVenda2.compareTo(fimPeriod)<=0){
                     tabela.addCell(new Paragraph(vendas.get(x).getNomeCliente()));
                     tabela.addCell(new Paragraph(vendas.get(x).getNomeProduto()));
                     tabela.addCell(new Paragraph(String.valueOf(vendas.get(x).getQtdItem())));
                     tabela.addCell(new Paragraph(String.valueOf(vendas.get(x).getValorVenda())));
                     tabela.addCell(new Paragraph(vendas.get(x).getData()));
+                      }
                    }
                    doc.add(tabela);
                    doc.close();
