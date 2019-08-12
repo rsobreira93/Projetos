@@ -102,12 +102,11 @@ public class FinancasController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-    
+          //  Sytem.out.println(InicioPeriodo.getEditor());
     }
 
     public void gerarPdf() throws BadElementException, IOException, SQLException{
        Document doc = new Document();
-       doc.setPageSize(PageSize.A4.rotate());
        FileChooser f = new FileChooser();
        f.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF","*.pdf"));
        File arq = f.showSaveDialog(new Stage());
@@ -151,7 +150,7 @@ public class FinancasController implements Initializable{
                    
                    Paragraph historico = new Paragraph("HISTÓRICO");
                    doc.add(new Paragraph("                  "));
-                   PdfPTable tabela = new PdfPTable (3);
+                   PdfPTable tabela = new PdfPTable (5);
                    PdfPCell col1 = new PdfPCell(new Paragraph("Cliente"));
                    col1.setBackgroundColor(BaseColor.LIGHT_GRAY);
                    PdfPCell col2 = new PdfPCell(new Paragraph("Produto"));
@@ -172,8 +171,8 @@ public class FinancasController implements Initializable{
                    for(int x = 0; x < vendas.size(); x++){
                     tabela.addCell(new Paragraph(vendas.get(x).getNomeCliente()));
                     tabela.addCell(new Paragraph(vendas.get(x).getNomeProduto()));
-                    tabela.addCell(new Paragraph(vendas.get(x).getQtdItem()));
-                    tabela.addCell(new Paragraph(vendas.get(x).getValorVenda()));
+                    tabela.addCell(new Paragraph(String.valueOf(vendas.get(x).getQtdItem())));
+                    tabela.addCell(new Paragraph(String.valueOf(vendas.get(x).getValorVenda())));
                     tabela.addCell(new Paragraph(vendas.get(x).getData()));
                    }
                    doc.add(tabela);
