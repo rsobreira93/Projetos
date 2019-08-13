@@ -6,14 +6,12 @@
 package Controller;
 
 import Auxiliares.ListarVenda;
-import Calendario.Calendario;
 import Main.Main;
 import Modelo.Produto;
 import Modelo.Venda;
 import ModeloConection.ConexaoBD;
 import ModeloDao.ProdutoDao;
 import ModeloDao.VendaDao;
-import static com.sun.deploy.uitoolkit.ToolkitStore.dispose;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.PreparedStatement;
@@ -43,7 +41,7 @@ import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 
 /**
- * FXML Controller class
+ * classe responsavel por gerenciar as vendas
  *
  * @author Romulo Sobreira
  */
@@ -221,6 +219,10 @@ public class GerenciamentoVendas2Controller implements Initializable{
              JOptionPane.showMessageDialog(null, "Quantidade insuficiente");
          
     }
+    /**
+     * metodo responsavel por finalizar a venda
+     * @throws SQLException - execeções que podem ocrrer caso a quantidade seja maior do que as disponiveis 
+     */
     @FXML
     void finalizarButtonButtonAction(ActionEvent event) throws SQLException, Exception {
         mod.setNomeCliente(nomeClienteTextField.getText());
@@ -235,6 +237,10 @@ public class GerenciamentoVendas2Controller implements Initializable{
                 Logger.getLogger(GerenciamentoVendasController.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
+    /**
+     * metodo responsavel por cancelar a venda
+     * @throws SQLException - execeções que podem ocrrer caso a quantidade seja maior do que as disponiveis 
+     */
     @FXML
     void cancelarVendaButton(ActionEvent event) throws SQLException, IOException {
             vendaDao.cancelaVenda();
@@ -242,6 +248,10 @@ public class GerenciamentoVendas2Controller implements Initializable{
             nova= FXMLLoader.load(getClass().getResource("/View/MenuPrincipal.fxml"));
             Main.trocarTela(nova);
     }
+    /**
+     * metodo responsavel por abrir uma venda no banco de dados
+     * @throws SQLException - execeções que podem ocrrer caso a quantidade seja maior do que as disponiveis 
+     */
     @FXML
     void abrirVendaButtonButtonAction(ActionEvent event) throws SQLException {
                  con.conexao();

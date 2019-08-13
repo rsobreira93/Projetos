@@ -2,11 +2,11 @@ package Controller;
 
 import Main.Main;
 import Modelo.ListarProduto;
-import Modelo.Cliente;
 import Modelo.Produto;
 import ModeloDao.ProdutoDao;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -77,6 +77,7 @@ public class GerenciamentoProdutoController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initTable();
+        mostraPrecos();
         
         excluirButton.setOnMouseClicked((MouseEvent e ) -> {
             deletar();
@@ -152,6 +153,17 @@ public class GerenciamentoProdutoController implements Initializable{
        ProdutoDao dao = new ProdutoDao();
        produtos = FXCollections.observableArrayList(dao.getList()); 
        return produtos;
+    }
+    public void mostraPrecos(){
+       float venda=0 , custo=0;
+       List<Produto> prod= new ProdutoDao().getList();
+       for(int x=0;x< prod.size();x++){
+           venda+=(prod.get(x).getPrecoVenda()*prod.get(x).getQuantidadeProduto());
+           custo+=(prod.get(x).getPrecoCusto()*prod.get(x).getQuantidadeProduto());
+       }
+       vVendaLabel.setText(String.valueOf(venda));
+       vCustoLabel.setText(String.valueOf(custo));
+       
     }
     
     public void listaProduto(){

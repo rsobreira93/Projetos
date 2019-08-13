@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
- *Calsse responsavel por registar as bendas no banco de dados
+ *Calsse responsavel por registar as vendas no banco de dados
  * @author Romulo Sobreira
  */
 public class VendaDao {
@@ -33,6 +33,10 @@ public class VendaDao {
     public VendaDao(){
         this.con = new ConnectionFactory().getConnection();
     }
+     /**
+     * metodo responsavel por verificar se a quantidade da venda do produto é valida
+     * @throws SQLException - execeções que podem ocrrer caso a quantidade seja maior do que as disponiveis 
+     */
     public int quantVerifica(Produto selecionada, int quant) throws SQLException{
         int codP, novaQuant;
        String sql = ("select  *from produto where id_prod="+selecionada.getReferenciaProduto()+";");
@@ -59,6 +63,10 @@ public class VendaDao {
         return 0;
  
     }
+    /**
+     * metodo responsavel por buscar o id da venda atual
+     * @throws SQLException - execeções que podem ocrrer caso a quantidade seja maior do que as disponiveis 
+     */
     public void codVenda() throws SQLException{
        String sql = ("select  *from venda where id_venda = (SELECT MAX(id_venda) FROM venda);");
        PreparedStatement stmt = con.prepareStatement(sql);
@@ -120,6 +128,10 @@ public class VendaDao {
         stmt.execute();
         JOptionPane.showMessageDialog(null, "Venda cadastrada com sucesso!");
     }
+    /**
+     * metodo responsavel cancelar a venda e torna o produto
+     * @throws SQLException - execeções que podem ocrrer caso a quantidade seja maior do que as disponiveis 
+     */
     public void cancelaVenda() throws SQLException{
         String sql;
         PreparedStatement stmt;
@@ -174,6 +186,11 @@ public class VendaDao {
         }
         return vendas;
     }
+   /**
+     * metodo responsavel por alimentar a tabela carrinho
+     * @throws SQLException - execeções que podem ocrrer caso a quantidade seja maior do que as disponiveis 
+     * @return 
+     */
    public List<Venda> getList2() throws SQLException{
         List<Venda> vendas = new ArrayList<>();
         String sql = "SELECT * FROM produto inner join itens_venda on produto.id_prod = itens_venda.id_produto inner join venda on venda.id_venda = itens_venda.id_venda inner join clientes on clientes.id = venda.id_cliente;";

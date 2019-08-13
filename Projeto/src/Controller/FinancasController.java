@@ -1,17 +1,14 @@
 package Controller;
 
+import Auxiliares.TextFieldFormatter;
 import Main.Main;
-import Modelo.Cliente;
 import Modelo.Venda;
-import ModeloDao.ClienteDAO;
 import ModeloDao.VendaDao;
 import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
-import com.itextpdf.text.Image;
-import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
@@ -37,7 +34,6 @@ import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
@@ -106,7 +102,7 @@ public class FinancasController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-          //  Sytem.out.println(InicioPeriodo.getEditor());
+          
     }
 
     public void gerarPdf() throws BadElementException, IOException, SQLException, ParseException{
@@ -139,10 +135,10 @@ public class FinancasController implements Initializable{
                    }
                    mediaVendas= valorTotal/quantVenda;
                    lucro= valorTotal-precoCusto;
-                   Image logo = Image.getInstance("C:\\Users\\João Victor Queiroz\\Documents\\GitHub\\Projetos\\Projeto\\src\\icons\\Anamary logo.png");
-                   logo.scaleAbsolute(221, 115);
-                   logo.setAlignment(Element.ALIGN_CENTER);
-                   doc.add(logo);
+                   //Image logo = Image.getInstance("C:\\Users\\João Victor Queiroz\\Documents\\GitHub\\Projetos\\Projeto\\src\\icons\\Anamary logo.png");
+                   //logo.scaleAbsolute(221, 115);
+                   //logo.setAlignment(Element.ALIGN_CENTER);
+                   //doc.add(logo);
                    Paragraph cabecalho = new Paragraph("RELATÓRIO DE VENDAS");
                    cabecalho.setAlignment(Element.ALIGN_CENTER);
                    doc.add(new Paragraph("                  "));
@@ -188,7 +184,7 @@ public class FinancasController implements Initializable{
                     tabela.addCell(new Paragraph(vendas.get(x).getNomeCliente()));
                     tabela.addCell(new Paragraph(vendas.get(x).getNomeProduto()));
                     tabela.addCell(new Paragraph(String.valueOf(vendas.get(x).getQtdItem())));
-                    tabela.addCell(new Paragraph(String.valueOf(vendas.get(x).getValorVenda())));
+                    tabela.addCell(new Paragraph(String.valueOf(vendas.get(x).getValorVenda()*vendas.get(x).getQtdItem())));
                     tabela.addCell(new Paragraph(vendas.get(x).getData()));
                       }
                    }
@@ -209,5 +205,14 @@ public class FinancasController implements Initializable{
            a.show();
        }
     } 
-    
+    @FXML
+    void inicioPeriodoOnKeyReleased() {
+        TextFieldFormatter tff = new TextFieldFormatter();
+        tff.formatter(inicioPeriodo, "0123456789", "##/##/####");
+    }
+    @FXML
+    void fimPeriodoOnKeyReleased() {
+        TextFieldFormatter tff = new TextFieldFormatter();
+        tff.formatter(fimPeriodo, "0123456789", "##/##/####");
+    }
 }

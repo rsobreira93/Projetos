@@ -51,8 +51,8 @@
             <Image url="@../icons/Anamary%20logo.png" />
          </image>
       </ImageView>
-      <TextField fx:id="inicioPeriodo" layoutX="265.0" layoutY="229.0" prefHeight="25.0" prefWidth="174.0" promptText="Data Inicial" />
-      <TextField fx:id="fimPeriodo" layoutX="265.0" layoutY="267.0" prefHeight="25.0" prefWidth="174.0" promptText="Data Final" />
+      <TextField fx:id="inicioPeriodo" layoutX="265.0" layoutY="229.0" onKeyReleased="#inicioPeriodoOnKeyReleased" prefHeight="25.0" prefWidth="174.0" promptText="Data Inicial" />
+      <TextField fx:id="fimPeriodo" layoutX="265.0" layoutY="267.0" onKeyReleased="#fimPeriodoOnKeyReleased" prefHeight="25.0" prefWidth="174.0" promptText="Data Final" />
       <Text fill="#850243" layoutX="226.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="De" />
       <Text fill="#850243" layoutX="226.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ate" />
    </children>
