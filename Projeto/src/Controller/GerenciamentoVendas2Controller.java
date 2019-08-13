@@ -31,6 +31,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -80,7 +81,8 @@ public class GerenciamentoVendas2Controller implements Initializable{
     @FXML
     private TextField descontoTextField;
 
-    
+    @FXML
+    private Label abertoFechado;
 
     @FXML
     private TextField quantTextField;
@@ -127,6 +129,7 @@ public class GerenciamentoVendas2Controller implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initTable();
+        abertoFechado.setText("Venda Fechada");
         nomeProdutoTextField.setOnKeyReleased((KeyEvent e) ->{
             produtoTableView.setItems(busca());
         });
@@ -259,6 +262,7 @@ public class GerenciamentoVendas2Controller implements Initializable{
                  pst.setFloat(1, 0);
                  pst.execute();  
                  JOptionPane.showMessageDialog(null, "Seu carrinho está protno para uso");
+                 abertoFechado.setText("Venda Aberta");
     }
     
     @FXML

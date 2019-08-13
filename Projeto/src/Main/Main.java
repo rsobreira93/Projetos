@@ -62,7 +62,7 @@ public class Main extends Application{
         try{
             meuEmail.setFrom(email);//remetente
             meuEmail.setSubject("AnaMary: nova senha");//assunto
-            meuEmail.setMsg("Sua nova senha é "+novaSenha);//mensagem
+            meuEmail.setMsg("Sua nova senha é "+novaSenha+"\n Você pode altera-la indo ate a área do usuário em nosso sitema");//mensagem
             meuEmail.addTo(emailUser);//destinatario
             meuEmail.send();
             System.out.println("Email Enviado com sucesso");

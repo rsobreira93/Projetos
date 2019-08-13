@@ -3,9 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/João%20Victor%20Queiroz/Documents/GitHub/Projetos/Projeto/src/Controller/GerenciamentoProdutoController.java</file>
-            <file>file:/C:/Users/João%20Victor%20Queiroz/Documents/GitHub/Projetos/Projeto/src/ModeloDao/ProdutoDao.java</file>
             <file>file:/C:/Users/João%20Victor%20Queiroz/Documents/GitHub/Projetos/Projeto/src/Controller/FinancasController.java</file>
+            <file>file:/C:/Users/João%20Victor%20Queiroz/Documents/GitHub/Projetos/Projeto/src/Controller/GerenciamentoVendas2Controller.java</file>
+            <file>file:/C:/Users/João%20Victor%20Queiroz/Documents/GitHub/Projetos/Projeto/src/Main/Main.java</file>
+            <file>file:/C:/Users/João%20Victor%20Queiroz/Documents/GitHub/Projetos/Projeto/src/ModeloDao/VendaDao.java</file>
+            <file>file:/C:/Users/João%20Victor%20Queiroz/Documents/GitHub/Projetos/Projeto/src/ModeloDao/UsuarioDao.java</file>
+            <file>file:/C:/Users/João%20Victor%20Queiroz/Documents/GitHub/Projetos/Projeto/src/ModeloDao/ProdutoDao.java</file>
+            <file>file:/C:/Users/João%20Victor%20Queiroz/Documents/GitHub/Projetos/Projeto/src/Controller/GerenciamentoProdutoController.java</file>
         </group>
     </open-files>
 </project-private>

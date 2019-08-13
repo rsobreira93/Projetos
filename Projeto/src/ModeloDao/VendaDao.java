@@ -164,6 +164,7 @@ public class VendaDao {
     }
    public List<Venda> getList() throws SQLException{
         List<Venda> vendas = new ArrayList<>();
+       
         codVenda();
         //String sql = "SELECT * FROM itens_venda where id_venda="+this.cod+";";
         String sql = "SELECT * FROM produto inner join itens_venda on produto.id_prod = itens_venda.id_produto inner join venda on venda.id_venda = itens_venda.id_venda where venda.id_venda="+this.cod+";";
@@ -171,7 +172,8 @@ public class VendaDao {
             PreparedStatement stmt = con.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             while(rs.next()){
-                Venda  u  = new Venda();  
+                Venda  u  = new Venda(); 
+               
                 u.setNomeProduto(rs.getString("nome"));
                 u.setQtdItem(rs.getInt("itens_quantidade"));
                 u.setValorVenda(rs.getFloat("precovenda")*rs.getInt("itens_quantidade"));   

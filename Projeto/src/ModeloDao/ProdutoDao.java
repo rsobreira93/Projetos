@@ -98,12 +98,15 @@ public class ProdutoDao {
      */
     public List<Produto> getList(){
         List<Produto> produtos = new ArrayList<>();
+        int quantidade;
         String sql = "SELECT * FROM produto;";
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             while(rs.next()){
                 Produto p  = new Produto();
+                quantidade=rs.getInt("id");
+                if(quantidade!=0){
                 p.setReferenciaProduto(rs.getInt("id_prod"));
                 p.setPrecoVenda(rs.getFloat("precovenda"));
                 p.setPrecoCusto(rs.getFloat("precocusto"));
@@ -112,7 +115,7 @@ public class ProdutoDao {
                 p.setQuantidadeProduto(rs.getInt("quantidade"));
                 p.setFoto(rs.getString("foto"));
                 produtos.add(p);
-            }
+            }}
             stmt.close();
             rs.close();
             con.close();
